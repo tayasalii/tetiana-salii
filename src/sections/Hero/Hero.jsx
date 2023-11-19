@@ -4,9 +4,7 @@ export const Hero = () => {
   return (
     <section>
       <Container>
-        <p>It is hero section</p>
-
-        <p>It is hero section</p>
+        .<p>It is hero section</p>
         <p>It is hero section</p>
       </Container>
     </section>
