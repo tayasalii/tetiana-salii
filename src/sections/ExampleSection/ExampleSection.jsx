@@ -7,7 +7,6 @@ export const ExampleSection = () => {
         <p>It is example section</p>
 
         <p>It is example section</p>
-        <p>It is example section</p>
       </Container>
     </section>
   );
