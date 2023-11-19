@@ -5,9 +5,8 @@ export default async function Home() {
   return (
     <>
       <Hero />
-        
 
-           <ExampleSection />
+      <ExampleSection />
     </>
   );
 }
