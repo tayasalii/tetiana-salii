@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Головна",
+    "href": "home",
+    "type": "anchor"
+  },
+  {
+    "title": "Про мене",
+    "href": "about_me",
+    "type": "anchor"
+  },
+  {
+    "title": "Відгуки",
+    "href": "feedback",
+    "type": "anchor"
+  },
+  {
+    "title": "Послуги та прайс",
+    "href": "services",
+    "type": "anchor"
+  },
+  {
+    "title": "Школа Infinity",
+    "href": "https://www.infinityschool.pro/",
+    "type": "link"
+  }
+]
