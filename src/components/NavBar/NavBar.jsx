@@ -8,9 +8,9 @@ import classNames from 'classnames';
 export const NavBar = ({ mode }) => {
   const getNeededLinks = () => {
     if (mode === 'header') {
-      navlinks.splice(2, 1);
-      navlinks.splice(3, 1);
-      return navlinks;
+      const newArr = navlinks.slice(0, 4);
+      newArr.splice(2, 1);
+      return newArr;
     } else if (mode === 'banner') {
       const newArr = navlinks.slice(2);
       newArr.splice(1, 1);
@@ -21,11 +21,11 @@ export const NavBar = ({ mode }) => {
   };
 
   const getStyles = classNames({
-    'flex flex-col gap-8 mr-auto md:gap-10': mode === 'menu',
+    'flex flex-col gap-8 mr-auto md:gap-10 xl:hidden': mode === 'menu',
     'flex flex-col md:flex-row xl:flex-col gap-5 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4':
       mode === 'footer',
-    'flex flex-row gap-10': mode === 'header',
-    'flex flex-row gap-10 max-xl:hidden': mode === 'banner',
+    'notXl:hidden xl:flex xl:flex-row xl:gap-10': mode === 'header',
+    'notXl:hidden flex flex-row gap-10': mode === 'banner',
   });
 
   return (

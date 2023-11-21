@@ -6,7 +6,7 @@ export default async function Home() {
     <>
       <Hero />
 
-      <NavBar mode="banner" />
+      <NavBar mode="menu" />
     </>
   );
 }

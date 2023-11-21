@@ -3,9 +3,19 @@ import PropTypes from 'prop-types';
 export const NavLink = ({ dataLink: { href, type, title } }) => (
   <>
     {type === 'anchor' ? (
-      <a href={`#${href}`}>{title}</a>
+      <a
+        href={`#${href}`}
+        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2"
+      >
+        {title}
+      </a>
     ) : (
-      <a href={href} rel="nofollow noreferrer noopener" target="_blank">
+      <a
+        href={href}
+        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2"
+        rel="nofollow noreferrer noopener"
+        target="_blank"
+      >
         {title}
       </a>
     )}
