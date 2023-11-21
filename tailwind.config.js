@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ['./src/**/*.{js,jsx,mdx}'],
+  content: ['./src/**/**/*.{js,jsx,mdx}'],
   mode: 'JIT',
   theme: {
     screens: {
@@ -38,7 +38,7 @@ module.exports = {
       },
 
       fontFamily: {
-        ui_eb_garamond: ['var(--font-eb_garamond)'],
+        ui_garamond: ['var(--font-eb_garamond)'],
         ui_montserrat: ['var(--font-montserrat)'],
       },
 
