@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { NavLink } from '../ui-kit/NavLink';
+import { NavLink } from '@/components/ui-kit/NavLink';
 
 import navlinks from '@/data/navigation.json';
-import classNames from 'classnames';
 
 export const NavBar = ({ mode }) => {
   const getNeededLinks = () => {

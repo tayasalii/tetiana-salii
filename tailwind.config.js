@@ -38,7 +38,7 @@ module.exports = {
       },
 
       fontFamily: {
-        ui_eb_garamond: ['var(--font-eb_garamond)'],
+        ui_garamond: ['var(--font-eb_garamond)'],
         ui_montserrat: ['var(--font-montserrat)'],
       },
 
