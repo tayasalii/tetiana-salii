@@ -25,7 +25,7 @@ export const NavLink = ({ dataLink: { href, type, title } }) => (
 NavLink.propTypes = {
   dataLink: PropTypes.shape({
     href: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['anchor', 'link']),
+    type: PropTypes.oneOf(['anchor', 'link']).isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
 };
