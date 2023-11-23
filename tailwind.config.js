@@ -59,7 +59,7 @@ module.exports = {
           },
         ],
         ui_m_h1: [
-          '0px',
+          '40px',
           {
             lineHeight: '0.9',
             fontWeight: '400',
