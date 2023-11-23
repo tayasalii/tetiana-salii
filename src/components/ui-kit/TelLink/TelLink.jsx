@@ -30,15 +30,10 @@ export const TelLink = ({ isNumberVisible = true, isBanner = false }) => {
 
       {isNumberVisible && (
         <span
-          className={classNames(
-            'text-ui_t_m_body2 xl:text-ui_d_body2',
-            {
-              'text-ui_dark': isBanner,
-            },
-            {
-              'text-white': !isBanner,
-            },
-          )}
+          className={classNames('text-ui_t_m_body2 xl:text-ui_d_body2', {
+            'text-ui_dark': isBanner,
+            'text-white': !isBanner,
+          })}
         >
           {telData.content}
         </span>

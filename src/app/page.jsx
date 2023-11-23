@@ -1,6 +1,6 @@
 import { Hero } from '@/sections/Hero';
 import { NavBar } from '@/components/NavBar/NavBar';
-import { ContactList } from '@/components/ContactsList/ContactsList';
+import { ContactList } from '@/components/ContactsList';
 
 import MailIcon from 'public/icons/mail.svg';
 
