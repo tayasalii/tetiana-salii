@@ -1,18 +1,26 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import contacts from '@/data/contacts.json';
+
 import TelIcon from 'public/icons/phone.svg';
 
 export const TelLink = ({ isNumberVisible = true, isBanner = false }) => {
+  const telData = contacts.find(({ id }) => id === 'tel');
+
   return (
-    <a
-      href="tel:+380964044006"
-      className="flex gap-3 xl:gap-2 items-center xl:relative xl:after:absolute xl:after:bottom-[-4px] xl:after:w-full xl:after:h-[3px] xl:after:bg-transparent xl:hover:after:bg-ui_purpleLight xl:focus:after:bg-ui_purpleLight xl:after:transitioned"
-    >
-      <div className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-ui_purpleLight xl:bg-transparent xl:w-max xl:h-max">
+    <a href={telData.href} className="contactLink">
+      <div
+        className={classNames(
+          'w-[45px] h-[45px] flex items-center justify-center rounded-full bg-ui_purpleLight xl:bg-transparent xl:w-max xl:h-max',
+          {
+            'w-[50px] h-[50px]': !isNumberVisible,
+          },
+        )}
+      >
         <TelIcon
           className={classNames(
-            'white-stroke w-[35px] h-[35px] xl:w-7 xl:h-7',
+            'white-stroke stroke-2 w-[30px] h-[30px] xl:w-7 xl:h-7',
             {
               'xl:stroke-ui_dark xl:stroke-2': isBanner,
             },
@@ -21,8 +29,15 @@ export const TelLink = ({ isNumberVisible = true, isBanner = false }) => {
       </div>
 
       {isNumberVisible && (
-        <span className="text-ui_t_m_body2 xl:text-ui_d_body2">
-          38(096) 404-40-06
+        <span
+          className={classNames(
+            'text-ui_t_m_body2 xl:text-ui_d_body2 text-white',
+            {
+              'text-ui_dark': isBanner,
+            },
+          )}
+        >
+          {telData.content}
         </span>
       )}
     </a>

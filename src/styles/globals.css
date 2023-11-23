@@ -24,4 +24,8 @@
   .white-stroke {
     @apply stroke-white stroke-2;
   }
+
+  .contactLink {
+    @apply flex gap-3 xl:gap-2 items-center xl:relative xl:after:absolute xl:after:bottom-[-4px] xl:after:w-full xl:after:h-[3px] xl:after:bg-transparent xl:hover:after:bg-ui_purpleLight xl:focus:after:bg-ui_purpleLight xl:after:transitioned;
+  }
 }

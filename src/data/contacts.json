@@ -1,0 +1,12 @@
+[
+  {
+    "id": "tel",
+    "content": "38(096) 404-40-06",
+    "href": "tel:+380964044006"
+  },
+  {
+    "id": "email",
+    "content": "regressrshri@gmail.com",
+    "href": "mailto:regressrshri@gmail.com"
+  }
+]
