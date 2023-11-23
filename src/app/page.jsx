@@ -10,7 +10,7 @@ export default async function Home() {
       <Hero />
       <NavBar mode="menu" />
       <MailIcon width="24" height="24" className="purple-stroke" />
-      <ContactList isBanner={true} />
+      <ContactList />
     </>
   );
 }
