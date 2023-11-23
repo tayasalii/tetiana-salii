@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base { */
-body {
-  @apply font-medium leading-normal bg-white;
+@layer base {
+  body {
+    @apply font-medium leading-normal bg-white;
+  }
+
+  section {
+    @apply w-full;
+  }
 }
 
-section {
-  @apply w-full;
+@layer components {
+  .transitioned {
+    @apply transition duration-[250ms];
+  }
+
+  .purple-stroke {
+    @apply stroke-ui_purple hover:stroke-ui_purpleLight focus:stroke-ui_purpleLight;
+  }
+
+  .white-stroke {
+    @apply stroke-white stroke-2;
+  }
 }
-/* } */
