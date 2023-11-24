@@ -11,7 +11,12 @@ export const ContactList = ({ isBanner = false }) => {
   const emailData = contacts.find(({ id }) => id === 'email');
 
   return (
-    <ul className="flex flex-col gap-3 md:gap-4 xl:gap-3">
+    <ul
+      className={classNames('flex ', {
+        'flex-row-reverse items-center justify-between': isBanner,
+        'flex-col gap-3 md:gap-4 xl:gap-3': !isBanner,
+      })}
+    >
       <li>
         <TelLink isBanner={isBanner} />
       </li>
