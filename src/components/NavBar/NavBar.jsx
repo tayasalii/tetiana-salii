@@ -21,7 +21,8 @@ export const NavBar = ({ mode }) => {
   };
 
   const getStyles = classNames({
-    'flex flex-col gap-8 mr-auto md:gap-10 xl:hidden': mode === 'menu',
+    'flex flex-col gap-8 mr-auto md:gap-10 xl:hidden text-left':
+      mode === 'menu',
     'flex flex-col md:flex-row xl:flex-col gap-5 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4 ':
       mode === 'footer',
     'notXl:hidden xl:flex xl:flex-row xl:gap-10': mode === 'header',
