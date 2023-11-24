@@ -8,8 +8,10 @@ import socialLinks from '@/data/socialLinks.json';
 export const SocialBar = ({ mode }) => {
   return (
     <ul
-      className={classNames('flex gap-5', {
-        'smOnly:flex-col': mode === 'footer',
+      className={classNames('flex', {
+        'smOnly:flex-col gap-5': mode === 'footer',
+        'smOnly:hidden xl:ml-auto gap-[6px] relative md:left-[-9px] xl:left-[9px]':
+          mode === 'header',
       })}
     >
       {socialLinks.map((link, index) => (
@@ -23,4 +25,5 @@ export const SocialBar = ({ mode }) => {
 
 SocialBar.propTypes = {
   mode: PropTypes.oneOf(['header', 'footer']).isRequired,
+  className: PropTypes.string,
 };

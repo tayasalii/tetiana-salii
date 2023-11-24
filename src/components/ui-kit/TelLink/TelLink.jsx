@@ -13,7 +13,11 @@ export const TelLink = ({
   const telData = contacts.find(({ id }) => id === 'tel');
 
   return (
-    <a href={telData.href} className={classNames('contactLink', className)}>
+    <a
+      href={telData.href}
+      aria-label="кнопка для здійснення дзвінка"
+      className={classNames('contactLink', className)}
+    >
       <div
         className={classNames(
           'w-[45px] h-[45px] flex items-center justify-center rounded-full bg-ui_purpleLight xl:bg-transparent xl:w-max xl:h-max',

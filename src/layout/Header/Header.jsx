@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container';
-import { MobileMenu } from '@/components/MobileMenu/MobileMenu';
+import { MobileMenu } from '@/components/MobileMenu';
 import { NavBar } from '@/components/NavBar';
+import { SocialBar } from '@/components/SocialBar';
 import { Logo } from '@/components/ui-kit/Logo';
 import { TelLink } from '@/components/ui-kit/TelLink';
 
@@ -14,9 +15,7 @@ export const Header = () => {
         <Logo className="md:ml-11 xl:ml-[78px]" />
 
         <TelLink isNumberVisible={false} className="md:hidden" />
-        <p className="smOnly:hidden xl:ml-auto">
-          Socials Socials Socials Socials
-        </p>
+        <SocialBar mode="header" />
       </Container>
     </header>
   );
