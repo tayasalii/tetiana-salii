@@ -3,9 +3,9 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export const Logo = ({ isFooter = false }) => {
+export const Logo = ({ isFooter = false, className = '' }) => {
   return (
-    <Link href="/" aria-label="логотип">
+    <Link href="/" aria-label="логотип" className={className}>
       <Image
         alt="логотип"
         src="/images/logo.png"
@@ -22,4 +22,5 @@ export const Logo = ({ isFooter = false }) => {
 
 Logo.propTypes = {
   isFooter: PropTypes.bool,
+  className: PropTypes.string,
 };
