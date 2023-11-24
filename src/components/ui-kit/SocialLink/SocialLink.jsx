@@ -18,7 +18,7 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
       )}
       rel="nofollow noreferrer noopener"
       target="_blank"
-      aria-label={title}
+      aria-label={`Посилання на ${title}`}
     >
       <div
         className={classNames('transition', {
