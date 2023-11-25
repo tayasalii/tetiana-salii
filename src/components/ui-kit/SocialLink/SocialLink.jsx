@@ -21,13 +21,10 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
       aria-label={`Посилання на ${title}`}
     >
       <div
-        className={classNames(
-          'transition overflow-visible w-[calc(100%+1px)]',
-          {
-            'xl:relative xl:after:absolute xl:after:bottom-[-10px] xl:after:w-full xl:after:h-[3px]  xl:group-focus:after:bg-ui_purpleLight xl:group-hover:after:bg-ui_purpleLight xl:after:transitioned':
-              !isRound,
-          },
-        )}
+        className={classNames('transition overflow-visible', {
+          'xl:relative xl:after:absolute xl:after:bottom-[-10px] xl:after:w-full xl:after:h-[3px]  xl:group-focus:after:bg-ui_purpleLight xl:group-hover:after:bg-ui_purpleLight xl:after:transitioned':
+            !isRound,
+        })}
       >
         <Icon width="auto" height={23} />
       </div>
