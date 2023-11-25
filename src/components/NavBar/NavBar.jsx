@@ -5,7 +5,7 @@ import { NavLink } from '@/components/ui-kit/NavLink';
 
 import navlinks from '@/data/navigation.json';
 
-export const NavBar = ({ mode }) => {
+export const NavBar = ({ mode, className = '' }) => {
   const getNeededLinks = () => {
     if (mode === 'header') {
       const newArr = navlinks.slice(0, 4);
@@ -20,13 +20,17 @@ export const NavBar = ({ mode }) => {
     }
   };
 
-  const getStyles = classNames({
-    'flex flex-col gap-8 mr-auto md:gap-10 xl:hidden': mode === 'menu',
-    'flex flex-col md:flex-row xl:flex-col gap-5 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4':
-      mode === 'footer',
-    'notXl:hidden xl:flex xl:flex-row xl:gap-10': mode === 'header',
-    'notXl:hidden flex flex-row gap-10 w-max': mode === 'banner',
-  });
+  const getStyles = classNames(
+    {
+      'flex flex-col gap-8 w-full md:gap-10 xl:hidden text-left w-full mb-16 md:mb-0 menuUnderline':
+        mode === 'menu',
+      'flex flex-col md:flex-row xl:flex-col gap-5 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4 ':
+        mode === 'footer',
+      'notXl:hidden xl:flex xl:flex-row xl:gap-10': mode === 'header',
+      'notXl:hidden flex flex-row gap-10 w-max': mode === 'banner',
+    },
+    className,
+  );
 
   return (
     <ul className={getStyles}>

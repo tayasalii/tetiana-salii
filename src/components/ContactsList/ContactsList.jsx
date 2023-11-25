@@ -7,12 +7,12 @@ import contacts from '@/data/contacts.json';
 
 import MailIcon from 'public/icons/mail.svg';
 
-export const ContactList = ({ isBanner = false }) => {
+export const ContactList = ({ isBanner = false, className = '' }) => {
   const emailData = contacts.find(({ id }) => id === 'email');
 
   return (
     <ul
-      className={classNames('flex ', {
+      className={classNames('flex', className, {
         'flex-row-reverse items-center justify-between': isBanner,
         'flex-col gap-3 md:gap-4 xl:gap-3': !isBanner,
       })}
@@ -48,4 +48,5 @@ export const ContactList = ({ isBanner = false }) => {
 
 ContactList.propTypes = {
   isBanner: PropTypes.bool,
+  className: PropTypes.string,
 };
