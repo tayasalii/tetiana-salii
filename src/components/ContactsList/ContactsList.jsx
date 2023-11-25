@@ -12,7 +12,10 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
 
   return (
     <ul
-      className={classNames('flex flex-col gap-3 md:gap-4 xl:gap-3', className)}
+      className={classNames('flex', className, {
+        'flex-row-reverse items-center justify-between': isBanner,
+        'flex-col gap-3 md:gap-4 xl:gap-3': !isBanner,
+      })}
     >
       <li>
         <TelLink isBanner={isBanner} />
@@ -21,7 +24,10 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
       <li>
         <a
           href={emailData.href}
-          className="contactLink pl-[9px] h-7 md:pl-3 xl:pl-0 gap-2"
+          className={classNames('contactLink  h-7 md:pl-3 xl:pl-0 gap-2', {
+            'md:pl-[9px]': !isBanner,
+            'md:pl-0': isBanner,
+          })}
         >
           <MailIcon
             className={classNames('white-stroke w-6 h-6 xl:w-7 xl:h-7', {
