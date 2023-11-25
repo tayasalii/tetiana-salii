@@ -12,6 +12,7 @@ export const SocialBar = ({ mode }) => {
         'smOnly:flex-col gap-5': mode === 'footer',
         'smOnly:hidden xl:ml-auto gap-[6px] relative md:left-[-9px] xl:left-[9px]':
           mode === 'header',
+        'md:hidden gap-[6px] relative left-[-9px]': mode === 'menu',
       })}
     >
       {socialLinks.map((link, index) => (
@@ -24,6 +25,6 @@ export const SocialBar = ({ mode }) => {
 };
 
 SocialBar.propTypes = {
-  mode: PropTypes.oneOf(['header', 'footer']).isRequired,
+  mode: PropTypes.oneOf(['header', 'footer', 'menu']).isRequired,
   className: PropTypes.string,
 };

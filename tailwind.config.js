@@ -35,6 +35,7 @@ module.exports = {
       boxShadow: {
         ui_darkShadow: ' 0px 4px 4px rgba(32, 32, 32, 0.75)',
         ui_lightShadow: ' 0px 2px 4px rgba(32, 32, 32, 0.4)',
+        ui_headerShadow: '0px 2px 4px 0px rgba(50, 50, 50, 0.40)',
       },
 
       fontFamily: {

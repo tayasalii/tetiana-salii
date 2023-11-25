@@ -7,7 +7,7 @@ import { TelLink } from '@/components/ui-kit/TelLink';
 
 export const Header = () => {
   return (
-    <header className="bg-ui_purple text-white py-[10px] md:py-[5px] h-20 md:h-[90px]">
+    <header className="fixed left-0 top-0 w-full h-20 md:h-[90px] py-[10px] md:py-[5px] bg-ui_purple text-white border-b border-b-white shadow-ui_headerShadow">
       <Container className="flex justify-between items-center md:justify-end notXl:flex-row-reverse xl:flex-row">
         <BurgerBtn />
         <NavBar mode="header" />
