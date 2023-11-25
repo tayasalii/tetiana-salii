@@ -22,7 +22,7 @@
   }
 
   .white-stroke {
-    @apply stroke-white stroke-2;
+    @apply stroke-2 stroke-white;
   }
 
   .purpleUnderline {
@@ -34,7 +34,7 @@
   }
 
   .contactLink {
-    @apply flex gap-3 xl:gap-2 items-center purpleUnderline;
+    @apply flex items-center gap-3 xl:gap-2 purpleUnderline;
   }
 
   .tabletWidth {
