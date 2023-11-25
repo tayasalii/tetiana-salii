@@ -24,7 +24,12 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
       <li>
         <a
           href={emailData.href}
-          className="contactLink pl-[9px] h-7 md:pl-3 xl:pl-0 gap-2"
+          className={classNames(
+            'contactLink pl-[9px] h-7 md:pl-3 xl:pl-0 gap-2',
+            {
+              'md:pl-0': isBanner,
+            },
+          )}
         >
           <MailIcon
             className={classNames('white-stroke w-6 h-6 xl:w-7 xl:h-7', {

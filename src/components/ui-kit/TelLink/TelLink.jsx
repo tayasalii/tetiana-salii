@@ -22,7 +22,7 @@ export const TelLink = ({
         className={classNames(
           'w-[45px] h-[45px] flex items-center justify-center rounded-full bg-ui_purpleLight xl:bg-transparent xl:w-max xl:h-max',
           {
-            'w-[50px] h-[50px]': !isNumberVisible,
+            'w-[50px] h-[50px]': !isNumberVisible || isBanner,
           },
         )}
       >
