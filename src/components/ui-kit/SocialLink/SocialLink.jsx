@@ -10,9 +10,9 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
     <a
       href={href}
       className={classNames(
-        'w-[45px] h-[45px] flex items-center justify-center text-white focus:outline-ui_purpleLight transition group',
+        'w-[45px] h-[45px] flex items-center justify-center text-white focus:outline-ui_purpleLight group',
         {
-          'rounded-full bg-ui_purpleLight focus:bg-white focus:text-ui_purpleLight  hover:bg-white hover:text-ui_purpleLight':
+          'transitioned rounded-full bg-ui_purpleLight focus:bg-white focus:text-ui_purpleLight  hover:bg-white hover:text-ui_purpleLight':
             isRound,
         },
       )}
@@ -21,12 +21,12 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
       aria-label={`Посилання на ${title}`}
     >
       <div
-        className={classNames('transition', {
-          'relative after:absolute after:bottom-[-10px] after:w-full after:h-[3px]  group-focus:after:bg-ui_purpleLight group-hover:after:bg-ui_purpleLight after:transitioned':
+        className={classNames('overflow-visible', {
+          'xl:relative xl:after:absolute xl:after:bottom-[-10px] xl:after:w-full xl:after:h-[3px]  xl:group-focus:after:bg-ui_purpleLight xl:group-hover:after:bg-ui_purpleLight xl:after:transitioned':
             !isRound,
         })}
       >
-        <Icon width="auto" height={22} />
+        <Icon width="auto" height={23} />
       </div>
     </a>
   );

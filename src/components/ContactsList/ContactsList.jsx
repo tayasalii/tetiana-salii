@@ -7,11 +7,13 @@ import contacts from '@/data/contacts.json';
 
 import MailIcon from 'public/icons/mail.svg';
 
-export const ContactList = ({ isBanner = false }) => {
+export const ContactList = ({ isBanner = false, className = '' }) => {
   const emailData = contacts.find(({ id }) => id === 'email');
 
   return (
-    <ul className="flex flex-col gap-3 md:gap-4 xl:gap-3">
+    <ul
+      className={classNames('flex flex-col gap-3 md:gap-4 xl:gap-3', className)}
+    >
       <li>
         <TelLink isBanner={isBanner} />
       </li>
@@ -43,4 +45,5 @@ export const ContactList = ({ isBanner = false }) => {
 
 ContactList.propTypes = {
   isBanner: PropTypes.bool,
+  className: PropTypes.string,
 };
