@@ -36,4 +36,8 @@
   .contactLink {
     @apply flex gap-3 xl:gap-2 items-center purpleUnderline;
   }
+
+  .tabletWidth {
+    width: 35vw;
+  }
 }
