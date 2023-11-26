@@ -37,7 +37,7 @@ MainButton.proptypes = {
   linkData: PropTypes.shape({
     title: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   children: PropTypes.node,
   variant: PropTypes.oneOf(['short', 'long']),
 };
