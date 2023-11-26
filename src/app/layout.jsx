@@ -1,6 +1,7 @@
 import { Montserrat, EB_Garamond } from 'next/font/google';
 
 import { Header } from '@/layout/Header';
+import { Footer } from '@/sections/Footer';
 
 import '../styles/globals.css';
 
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }) {
         <main className="flex flex-col items-center min-h-screen">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
