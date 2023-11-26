@@ -35,7 +35,10 @@ export const BaseModal = ({
             leaveTo="transform scale-100 opacity-0"
           >
             <div
-              className={classNames('fixed inset-0 z-30', overlayClassName)}
+              className={classNames(
+                'fixed inset-0 z-30 bg-ui_overlay',
+                overlayClassName,
+              )}
             />
           </Transition.Child>
 
@@ -51,12 +54,17 @@ export const BaseModal = ({
                 leaveTo="transform scale-95 opacity-0"
               >
                 <Dialog.Panel className={modalClassName}>
-                  <div className={classNames('relative', containerClassName)}>
+                  <div
+                    className={classNames(
+                      'relative h-full',
+                      containerClassName,
+                    )}
+                  >
                     {children}
                     <button
                       onClick={closeModal}
                       className={classNames(
-                        'w-[50px] h-[50px] absolute  flex items-center justify-center',
+                        'w-[50px] h-[50px] absolute flex items-center justify-center',
                         closeBtnClassName,
                       )}
                     >

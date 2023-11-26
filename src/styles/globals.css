@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-medium leading-normal bg-ui_dark font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
   }
 
   section {
@@ -61,5 +61,40 @@
   /* FOR USE */
   .formSubmitBtn {
     @apply text-ui_purpleLight shortMainBtn whiteEllipse coloredEllipseAtDarkBg;
+  }
+
+  /* Hero Modal */
+  .topFlower {
+    background-image: -webkit-image-set(
+      url(/images/bg_top-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_top-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_top-flower@x1.jpg) 1x,
+      url(/images/bg_top-flower@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_top-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_top-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_top-flower@x1.jpg) 1x,
+      url(/images/bg_top-flower@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+
+  .bottomFlower {
+    background-image: -webkit-image-set(
+      url(/images/bg_bottom-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_bottom-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_bottom-flower@x1.jpg) 1x,
+      url(/images/bg_bottom-flower@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_bottom-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_bottom-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_bottom-flower@x1.jpg) 1x,
+      url(/images/bg_bottom-flower@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: bottom right;
   }
 }

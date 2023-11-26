@@ -5,6 +5,7 @@ import { NavBar } from '@/components/NavBar/NavBar';
 import { SocialBar } from '@/components/SocialBar';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
+import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 import btns from '@/data/buttons.json';
 
@@ -31,6 +32,8 @@ export default async function Home() {
           <p>hello</p>
         </BaseVioletBlock>
       </section>
+
+      <HeroModal />
     </>
   );
 }
