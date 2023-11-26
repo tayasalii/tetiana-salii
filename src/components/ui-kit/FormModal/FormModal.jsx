@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { BaseModal } from '../BaseModal';
 
-export const HeroModal = ({ children }) => {
+export const FormModal = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function closeModal() {
@@ -25,9 +25,9 @@ export const HeroModal = ({ children }) => {
       <BaseModal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        modalClassName="w-full smOnly:max-w-[480px] md:w-[605px] xl:w-[645px] h-[760px] md:h-[540px] xl:h-[614px] mx-auto pt-[52px] md:pt-[72px] xl:pt-[70px] topFlower bg-white my-auto shadow-ui_darkShadow"
-        containerClassName="px-4 md:px-8 xl:px-[47px] pb-[52px] md:pb-[72px] xl:pb-[70px] bottomFlower"
-        closeBtnClassName="right-[22px] top-0"
+        modalClassName="w-full smOnly:max-w-[375px] md:w-[645px] h-[270px] mx-auto pt-[90px] md:pt-[80px] bg-white my-auto shadow-ui_darkShadow twoFlowers md:cornerFlower"
+        containerClassName="px-4 md:px-8 xl:px-[47px] pb-[90px] md:pb-[90px] md:bottomFlower"
+        closeBtnClassName="right-2 md:right-3 top-[-80px] md:top-[-70px]"
         overlayClassName="md:py-10"
       >
         {children}
@@ -36,6 +36,6 @@ export const HeroModal = ({ children }) => {
   );
 };
 
-HeroModal.proptypes = {
+FormModal.proptypes = {
   children: PropTypes.node.isRequired,
 };

@@ -34,15 +34,15 @@ export const BaseModal = ({
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-100 opacity-0"
           >
-            <div
-              className={classNames(
-                'fixed inset-0 z-30 bg-ui_overlay',
-                overlayClassName,
-              )}
-            />
+            <div className="fixed inset-0 z-30 bg-ui_overlay" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto z-30">
+          <div
+            className={classNames(
+              'fixed inset-0 overflow-y-auto z-30',
+              overlayClassName,
+            )}
+          >
             <div className="flex min-h-full text-center">
               <Transition.Child
                 as={Fragment}
@@ -68,7 +68,7 @@ export const BaseModal = ({
                         closeBtnClassName,
                       )}
                     >
-                      <CloseIcon className="w-5 h-5 fill-current" />
+                      <CloseIcon className="w-4 h-4 fill-current" />
                     </button>
                   </div>
                 </Dialog.Panel>
