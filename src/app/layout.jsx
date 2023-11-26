@@ -24,7 +24,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body className={`${montserrat.className} ${eb_garamond.className}`}>
+      <body className={`${montserrat.variable} ${eb_garamond.variable}`}>
         <Header />
 
         <main className="flex flex-col items-center min-h-screen">
