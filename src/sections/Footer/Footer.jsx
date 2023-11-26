@@ -4,6 +4,8 @@ import { NavBar } from '@/components/NavBar';
 import { SocialBar } from '@/components/SocialBar';
 import { Logo } from '@/components/ui-kit/Logo';
 
+import phrases from '@/data/randomPhrases.json';
+
 export const Footer = () => {
   return (
     <footer className="bg-ui_purple">
@@ -19,21 +21,17 @@ export const Footer = () => {
         />
 
         <div className="mb-10 smOnly:col-span-2 md:mb-[50px] smOnly:footerUnderline">
-          <p className="mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1">
-            Зв’яжіться зі мною будь-яким зручним для Вас способом:
-          </p>
+          <p className="footerText">{phrases.footer.contacts}</p>
           <ContactList />
         </div>
 
         <div className="mb-10 xl:mb-12 smOnly:row-start-2 md:row-start-4 xl:row-start-2 xl:col-start-3">
-          <p className="mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1">
-            Шукайте мене у соціальних мережах:
-          </p>
+          <p className="footerText">{phrases.footer.socials}</p>
           <SocialBar mode="footer" />
         </div>
 
         <p className="text-white font-ui_montserrat text-ui_m_mini md:text-ui_d_t_mini smOnly:col-span-2 xl:col-span-3 footerUnderline">
-          © 2023 - Тетяна Салій. Усі права захищено
+          {phrases.footer.copyRight}
         </p>
       </Container>
     </footer>
