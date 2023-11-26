@@ -1,10 +1,20 @@
-import { Inter } from 'next/font/google';
+import { Montserrat, EB_Garamond } from 'next/font/google';
 
 import { Header } from '@/layout/Header';
+import { Footer } from '@/sections/Footer';
 
 import '../styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  subsets: ['cyrillic-ext', 'latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
+const eb_garamond = EB_Garamond({
+  subsets: ['cyrillic-ext', 'latin'],
+  display: 'swap',
+  variable: '--font-eb_garamond',
+});
 
 export const metadata = {
   // metadataBase: new URL('https://example.vercel.app/'),
@@ -15,12 +25,13 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body className={inter.className}>
+      <body className={`${montserrat.variable} ${eb_garamond.variable}`}>
         <Header />
 
         <main className="flex flex-col items-center min-h-screen">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
