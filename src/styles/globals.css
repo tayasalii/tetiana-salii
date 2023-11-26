@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-medium leading-normal bg-white;
+    @apply font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
   }
 
   section {
@@ -39,5 +39,96 @@
 
   .tabletWidth {
     width: 35vw;
+  }
+
+  /* MAIN BUTTON STYLES */
+  .whiteEllipse {
+    @apply before:absolute before:z-[-1] before:bg-white-ellipse before:bg-no-repeat;
+  }
+  .coloredEllipse {
+    @apply after:absolute after:z-[-2] after:bg-colored-ellipse after:bg-no-repeat after:h-[68px] after:w-[257px];
+  }
+  .coloredEllipseAtDarkBg {
+    @apply coloredEllipse after:text-ui_purpleLight hover:after:text-ui_purple focus:after:text-ui_purple after:stroke-white;
+  }
+  .shortMainBtn {
+    @apply h-[68px] w-[257px] relative before:h-[68px] before:w-[257px] after:h-[68px] after:w-[257px] rounded-full;
+  }
+  .longMainBtn {
+    @apply h-[68px] w-[287px] relative before:h-[68px] before:w-[287px] after:h-[68px] after:w-[287px] rounded-full;
+  }
+
+  /* FOR USE */
+  .formSubmitBtn {
+    @apply text-ui_purpleLight shortMainBtn whiteEllipse coloredEllipseAtDarkBg;
+  }
+
+  /* Hero Modal */
+  .topFlower {
+    background-image: -webkit-image-set(
+      url(/images/bg_top-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_top-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_top-flower@x1.jpg) 1x,
+      url(/images/bg_top-flower@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_top-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_top-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_top-flower@x1.jpg) 1x,
+      url(/images/bg_top-flower@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+
+  .bottomFlower {
+    background-image: -webkit-image-set(
+      url(/images/bg_bottom-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_bottom-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_bottom-flower@x1.jpg) 1x,
+      url(/images/bg_bottom-flower@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_bottom-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_bottom-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_bottom-flower@x1.jpg) 1x,
+      url(/images/bg_bottom-flower@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+
+  .cornerFlower {
+    background-image: -webkit-image-set(
+      url(/images/bg_corner-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_corner-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_corner-flower@x1.jpg) 1x,
+      url(/images/bg_corner-flower@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_corner-flower@x1.webp) type('image/webp') 1x,
+      url(/images/bg_corner-flower@x2.webp) type('image/webp') 2x,
+      url(/images/bg_corner-flower@x1.jpg) 1x,
+      url(/images/bg_corner-flower@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+
+  .twoFlowers {
+    background-image: -webkit-image-set(
+      url(/images/bg_two-flowers@x1.webp) type('image/webp') 1x,
+      url(/images/bg_two-flowers@x2.webp) type('image/webp') 2x,
+      url(/images/bg_two-flowers@x1.jpg) 1x,
+      url(/images/bg_two-flowers@x2.jpg) 2x
+    );
+    background-image: image-set(
+      url(/images/bg_two-flowers@x1.webp) type('image/webp') 1x,
+      url(/images/bg_two-flowers@x2.webp) type('image/webp') 2x,
+      url(/images/bg_two-flowers@x1.jpg) 1x,
+      url(/images/bg_two-flowers@x2.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-position: top left;
   }
 }

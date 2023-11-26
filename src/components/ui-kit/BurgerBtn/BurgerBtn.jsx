@@ -17,6 +17,7 @@ export const BurgerBtn = () => {
   function openMenu() {
     setIsMenuOpen(true);
   }
+
   return (
     <>
       <button
