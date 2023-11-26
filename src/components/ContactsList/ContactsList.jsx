@@ -12,7 +12,7 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
 
   return (
     <ul
-      className={classNames('flex', className, {
+      className={classNames('flex font-ui_garamond', className, {
         'flex-row-reverse items-center justify-between': isBanner,
         'flex-col gap-3 md:gap-4 xl:gap-3': !isBanner,
       })}

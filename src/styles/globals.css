@@ -33,8 +33,12 @@
     @apply smOnly:relative smOnly:after:absolute smOnly:after:w-full smOnly:after:h-[1px] smOnly:after:bottom-[-32px] smOnly:after:bg-white/40;
   }
 
+  .footerUnderline {
+    @apply relative before:absolute before:w-full before:h-[1px] before:-top-5 before:bg-ui_purpleLight;
+  }
+
   .contactLink {
-    @apply flex items-center gap-3 xl:gap-2 purpleUnderline;
+    @apply flex items-center gap-3 xl:gap-2 purpleUnderline w-max;
   }
 
   .tabletWidth {
