@@ -24,7 +24,7 @@ export const NavBar = ({ mode, className = '' }) => {
     {
       'flex flex-col gap-8 w-full md:gap-10 xl:hidden text-left w-full mb-16 md:mb-0 menuUnderline':
         mode === 'menu',
-      'flex flex-col md:flex-row xl:flex-col gap-5 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4 ':
+      'flex flex-col md:flex-row xl:flex-col justify-between py-2 text-end md:gap-10 md:mr-auto xl:text-start xl:gap-4 ':
         mode === 'footer',
       'notXl:hidden xl:flex xl:flex-row xl:gap-10': mode === 'header',
       'notXl:hidden flex flex-row gap-10 w-max': mode === 'banner',
