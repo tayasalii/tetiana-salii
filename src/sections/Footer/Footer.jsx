@@ -8,8 +8,8 @@ import phrases from '@/data/randomPhrases.json';
 
 export const Footer = () => {
   return (
-    <footer className="bg-ui_purple">
-      <Container className="py-5 md:pt-8 md:pb-10 xl:pt-10 grid grid-cols-2 grid-auto-rows-4 md:grid-cols-1 md:grid-auto-rows-5 xl:grid-cols-[250px_174px_602px] xl:grid-auto-rows-3 xl:gap-x-[108px]">
+    <footer className="py-5 bg-ui_purple md:pt-8 md:pb-10 xl:pt-10">
+      <Container className="grid grid-cols-2 grid-auto-rows-4 md:grid-cols-1 md:grid-auto-rows-5 xl:grid-cols-[250px_174px_602px] xl:grid-auto-rows-3 xl:gap-x-[108px]">
         <Logo
           isFooter
           className="smOnly:col-span-2 mb-[13px] xl:row-span-2 w-max h-max"
