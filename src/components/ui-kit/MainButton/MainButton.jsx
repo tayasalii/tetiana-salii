@@ -25,8 +25,8 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
           </button>
 
           <div className="absolute z-[-1] w-[256px] h-[68px] top-0">
-            <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg" />
-            <ShortWhiteEllipse className="absolute" />
+            <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
+            <ShortWhiteEllipse className="absolute stroke-white" />
           </div>
         </div>
       )}
@@ -65,15 +65,15 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
 
           {variant === 'long' && (
             <div className="absolute z-[-1] h-[68px] w-[290px] top-0">
-              <LongColoredEllipse className="z-[-1] w-[290px] absolute coloredForLightBg" />
-              <LongWhiteEllipse className="absolute w-[290px]" />
+              <LongColoredEllipse className="z-[-1] w-[290px] absolute coloredForLightBg stroke-ui_purple" />
+              <LongWhiteEllipse className="absolute w-[290px] stroke-ui_purpleLight" />
             </div>
           )}
 
           {variant === 'short' && (
             <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
-              <LongColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg" />
-              <LongWhiteEllipse className="absolute w-[256px] h-[68px]" />
+              <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
+              <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
             </div>
           )}
         </div>
@@ -87,6 +87,7 @@ MainButton.proptypes = {
   linkData: PropTypes.shape({
     title: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
-  }).isRequired,
+    icon: PropTypes.string.isRequired,
+  }),
   variant: PropTypes.oneOf(['short', 'long']),
 };

@@ -1,25 +1,23 @@
 {
   "button": { "title": "Надіслати" },
-  "links": [
-    {
-      "title": "Зв’язатись зі мною",
-      "href": "https://wa.me/+380964044006",
-      "icon": "whatsapp"
-    },
-    {
-      "title": "Зв’язатись зі мною",
-      "href": "https://telegram.me/+380964044006",
-      "icon": "telegram"
-    },
-    {
-      "title": "Детальніше",
-      "href": "https://wa.me/+380964044006",
-      "icon": "whatsapp"
-    },
-    {
-      "title": "Більше відгуків",
-      "href": "https://www.instagram.com/stories/highlights/18071146804335530/",
-      "icon": "instagram"
-    }
-  ]
+  "connectWithWhatsapp": {
+    "title": "Зв’язатись зі мною",
+    "href": "https://wa.me/+380964044006",
+    "icon": "whatsapp"
+  },
+  "connectWithTelegram": {
+    "title": "Зв’язатись зі мною",
+    "href": "https://telegram.me/+380964044006",
+    "icon": "telegram"
+  },
+  "details": {
+    "title": "Детальніше",
+    "href": "https://wa.me/+380964044006",
+    "icon": "whatsapp"
+  },
+  "moreFeedback": {
+    "title": "Більше відгуків",
+    "href": "https://www.instagram.com/stories/highlights/18071146804335530/",
+    "icon": "instagram"
+  }
 }

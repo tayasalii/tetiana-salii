@@ -14,4 +14,4 @@
 
 `import btns from '@/data/buttons.json';`
 
-` <MainButton linkData={btns.links[3]} variant="long" />`
+` <MainButton linkData={btns.connectTelegram} variant="long" />`

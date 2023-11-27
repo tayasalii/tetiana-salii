@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-medium leading-normal bg-ui_dark font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply pt-20 md:pt-[90px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
   }
 
   section {
@@ -38,8 +38,7 @@
   }
 
   .footerText {
-    @apply mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1
-mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1;
+    @apply mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1;
   }
 
   .contactLink {
