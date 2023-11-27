@@ -15,6 +15,7 @@ export default async function Home() {
       <MainButton linkData={btns.connectWithTelegram} variant="long" />
       <MainButton linkData={btns.details} variant="short" />
       <MainButton linkData={btns.moreFeedback} variant="long" />
+
       <MainButton form />
 
       <section className="py-10">
