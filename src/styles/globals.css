@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply font-medium leading-normal bg-ui_dark font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
   }
 
   section {
@@ -42,25 +42,24 @@
   }
 
   /* MAIN BUTTON STYLES */
-  .whiteEllipse {
-    @apply before:absolute before:z-[-1] before:bg-white-ellipse before:bg-no-repeat;
+  .coloredForDarkBg {
+    @apply text-ui_purpleLight transitioned;
   }
-  .coloredEllipse {
-    @apply after:absolute after:z-[-2] after:bg-colored-ellipse after:bg-no-repeat after:h-[68px] after:w-[257px];
-  }
-  .coloredEllipseAtDarkBg {
-    @apply coloredEllipse after:text-ui_purpleLight hover:after:text-ui_purple focus:after:text-ui_purple after:stroke-white;
-  }
-  .shortMainBtn {
-    @apply h-[68px] w-[257px] relative before:h-[68px] before:w-[257px] after:h-[68px] after:w-[257px] rounded-full;
-  }
-  .longMainBtn {
-    @apply h-[68px] w-[287px] relative before:h-[68px] before:w-[287px] after:h-[68px] after:w-[287px] rounded-full;
+  .mainLink:hover + div > .coloredForDarkBg,
+  .mainLink:focus + div > .coloredForDarkBg {
+    @apply text-ui_purple transitioned;
   }
 
-  /* FOR USE */
+  .coloredForLightBg {
+    @apply text-ui_purple transitioned;
+  }
+  .mainLink:hover + div > .coloredForLightBg,
+  .mainLink:focus + div > .coloredForLightBg {
+    @apply text-ui_purpleLight transitioned;
+  }
+
   .formSubmitBtn {
-    @apply text-ui_purpleLight shortMainBtn whiteEllipse coloredEllipseAtDarkBg;
+    @apply text-ui_purple h-[68px] w-[257px] relative rounded-full;
   }
 
   /* Hero Modal */
