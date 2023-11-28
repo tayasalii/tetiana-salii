@@ -6,16 +6,17 @@ import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 import btns from '@/data/buttons.json';
 
-import InstagramIcon from 'public/icons/instagram.svg';
-
 export default async function Home() {
   return (
     <>
       <Hero />
 
-      <MainButton linkData={btns.links[2]} form>
-        <InstagramIcon className="w-[22px] h-[22px] " />
-      </MainButton>
+      <MainButton linkData={btns.connectWithWhatsapp} variant="long" />
+      <MainButton linkData={btns.connectWithTelegram} variant="long" />
+      <MainButton linkData={btns.details} variant="short" />
+      <MainButton linkData={btns.moreFeedback} variant="long" />
+
+      <MainButton form />
 
       <section className="py-10">
         <Container>
