@@ -6,12 +6,9 @@ export const Banner = () => {
   return (
     <div className="py-[5px] xl:py-4 smOnly:hidden bg-white">
       <Container className="flex">
-        <div className="xl:mr-[235px]">
-          <NavBar mode="banner" />
-        </div>
-        <div className="w-full">
-          <ContactList isBanner />
-        </div>
+        <NavBar mode="banner" className="xl:mr-[235px]" />
+
+        <ContactList isBanner className="w-full" />
       </Container>
     </div>
   );

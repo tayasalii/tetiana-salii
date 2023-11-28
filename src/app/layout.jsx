@@ -1,7 +1,7 @@
 import { Montserrat, EB_Garamond } from 'next/font/google';
 
 import { Header } from '@/layout/Header';
-import { Footer } from '@/sections/Footer';
+import { Footer } from '@/layout/Footer';
 
 import '../styles/globals.css';
 
