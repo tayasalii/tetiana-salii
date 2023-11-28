@@ -5,14 +5,14 @@ export const NavLink = ({ dataLink: { href, type, title } }) => (
     {type === 'anchor' ? (
       <a
         href={`#${href}`}
-        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 purpleUnderline"
+        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 purpleUnderline whitespace-nowrap"
       >
         {title}
       </a>
     ) : (
       <a
         href={href}
-        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 purpleUnderline"
+        className="font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 purpleUnderline whitespace-nowrap"
         rel="nofollow noreferrer noopener"
         target="_blank"
       >
