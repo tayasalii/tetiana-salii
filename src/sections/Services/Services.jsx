@@ -5,6 +5,7 @@ import { Tabs } from '@/components/Tabs';
 
 import services from '@/data/services.json';
 import tabs from '@/data/tabsContent.json';
+import benefits from '@/data/benefits.json';
 
 export const Services = async () => {
   // const cmsContent = await fetchTabs();
@@ -21,7 +22,7 @@ export const Services = async () => {
       <Container>
         <h2>{services.sectionTitle}</h2>
 
-        <Tabs tabs={tabs.tabs} />
+        <Tabs tabs={tabs.tabs} benefits={benefits} />
       </Container>
     </section>
   );
