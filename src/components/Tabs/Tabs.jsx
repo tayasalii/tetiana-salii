@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { Benefits } from '../ui-kit/Benefits';
+import { Accordion } from '../ui-kit/Accordion';
 
 export const Tabs = ({ tabs, benefits }) => {
   return (
@@ -29,10 +30,12 @@ export const Tabs = ({ tabs, benefits }) => {
         </Tab.List>
 
         <Tab.Panels>
-          {tabs.map(({ id }, idx) => (
+          {tabs.map(({ id, services }, idx) => (
             <Tab.Panel key={id} className="w-full">
               {idx === 0 && <Benefits benefits={benefits} />}
               {idx === 2 && <Benefits benefits={benefits} />}
+
+              <Accordion items={services} />
             </Tab.Panel>
           ))}
         </Tab.Panels>
@@ -43,4 +46,5 @@ export const Tabs = ({ tabs, benefits }) => {
 
 Tabs.proptypes = {
   tabs: PropTypes.array.isRequired,
+  benefits: PropTypes.array.isRequired,
 };

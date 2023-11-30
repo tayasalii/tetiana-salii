@@ -1,6 +1,6 @@
 export const Benefits = ({ benefits }) => {
   return (
-    <ul className="flex w-full gap-4 md:gap-20 xl:gap-[140px] mx-auto mdOnly:ml-0">
+    <ul className="flex w-full smOnly:max-w-[366px] xl:max-w-max gap-4 md:gap-20 xl:gap-[140px] mx-auto mdOnly:ml-0 mb-8 md:mb-10">
       {benefits.map(({ id, subtitle, categories }) => {
         return (
           <li key={id}>
