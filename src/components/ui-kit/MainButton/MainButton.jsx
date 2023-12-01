@@ -1,5 +1,8 @@
+'use client';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 
 import buttonsData from '@/data/buttons.json';
 
@@ -11,7 +14,14 @@ import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
 import LongColoredEllipse from 'public/icons/long-colored-ellipse.svg';
 import LongWhiteEllipse from 'public/icons/long-white-ellipse.svg';
 
-export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
+export const MainButton = ({ form = false, linkData }) => {
+  const [isClient, setIsClient] = useState(false);
+  const isDesktop = useMediaQuery({ minWidth: 1280 });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
       {form && (
@@ -32,51 +42,84 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
       )}
 
       {linkData && !form && (
-        <div
-          className={classNames('relative h-[68px] mt-10 rounded-full', {
-            'w-[256px]': variant === 'short',
-            'w-[290px]': variant === 'long',
-          })}
-        >
-          <a
-            href={linkData.href}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className={classNames(
-              'flex items-center justify-center gap-[6px] text-ui_purple mainLink',
-              {
-                'h-[68px] w-[256px]': variant === 'short',
-                'h-[68px] w-[290px]': variant === 'long',
-              },
-            )}
-          >
-            <span className="z-[2]"> {linkData.title}</span>
+        <>
+          {isClient ? (
+            <div
+              className={classNames('relative h-[68px] rounded-full', {
+                'w-[256px]': !isDesktop,
+                'w-[290px]': isDesktop,
+              })}
+            >
+              <a
+                href={linkData.href}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className={classNames(
+                  'flex items-center justify-center gap-[6px] text-ui_purple mainLink',
+                  {
+                    'h-[68px] w-[256px]': !isDesktop,
+                    'h-[68px] w-[290px]': isDesktop,
+                  },
+                )}
+              >
+                <span className="z-[2]"> {linkData.title}</span>
 
-            {linkData.icon === 'telegram' && (
-              <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
-            )}
-            {linkData.icon === 'instagram' && (
-              <InstagramIcon className="w-[22px] h-[22px] z-[2]" />
-            )}
-            {linkData.icon === 'whatsapp' && (
-              <WhatsappIcon className="w-[22px] h-[22px] z-[2]" />
-            )}
-          </a>
+                {linkData.icon === 'telegram' && (
+                  <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+                )}
+                {linkData.icon === 'instagram' && (
+                  <InstagramIcon className="w-[22px] h-[22px] z-[2]" />
+                )}
+                {linkData.icon === 'whatsapp' && (
+                  <WhatsappIcon className="w-[22px] h-[22px] z-[2]" />
+                )}
+              </a>
 
-          {variant === 'long' && (
-            <div className="absolute z-[-1] h-[68px] w-[290px] top-0">
-              <LongColoredEllipse className="z-[-1] w-[290px] absolute coloredForLightBg stroke-ui_purple" />
-              <LongWhiteEllipse className="absolute w-[290px] stroke-ui_purpleLight" />
+              {isDesktop && (
+                <div className="absolute z-[-1] h-[68px] w-[290px] top-0">
+                  <LongColoredEllipse className="z-[-1] w-[290px] absolute coloredForLightBg stroke-ui_purple" />
+                  <LongWhiteEllipse className="absolute w-[290px] stroke-ui_purpleLight" />
+                </div>
+              )}
+
+              {!isDesktop && (
+                <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
+                  <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
+                  <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
+                </div>
+              )}
+            </div>
+          ) : (
+            <div
+              className={classNames('relative w-[256px] h-[68px] rounded-full')}
+            >
+              <a
+                href={linkData.href}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className={classNames(
+                  'flex h-[68px] w-[256px] items-center justify-center gap-[6px] text-ui_purple mainLink',
+                )}
+              >
+                <span className="z-[2]"> {linkData.title}</span>
+
+                {linkData.icon === 'telegram' && (
+                  <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+                )}
+                {linkData.icon === 'instagram' && (
+                  <InstagramIcon className="w-[22px] h-[22px] z-[2]" />
+                )}
+                {linkData.icon === 'whatsapp' && (
+                  <WhatsappIcon className="w-[22px] h-[22px] z-[2]" />
+                )}
+              </a>
+              <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
+                <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
+                <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
+              </div>
             </div>
           )}
-
-          {variant === 'short' && (
-            <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
-              <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
-              <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
-            </div>
-          )}
-        </div>
+        </>
       )}
     </>
   );
@@ -89,5 +132,4 @@ MainButton.proptypes = {
     href: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
   }),
-  variant: PropTypes.oneOf(['short', 'long']),
 };
