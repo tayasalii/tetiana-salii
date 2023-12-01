@@ -1,4 +1,5 @@
 import { Hero } from '@/sections/Hero';
+import { Stats } from '@/sections/Stats';
 import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
@@ -10,6 +11,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <Stats />
 
       <MainButton linkData={btns.connectWithWhatsapp} variant="long" />
       <MainButton linkData={btns.connectWithTelegram} variant="long" />

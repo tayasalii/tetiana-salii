@@ -37,6 +37,10 @@
     @apply relative before:absolute before:w-full before:h-[1px] before:-top-5 before:bg-ui_purpleLight;
   }
 
+  .statsUnderline {
+    @apply relative before:absolute before:w-full before:h-[1px] before:-left-0.5 before:-bottom-1 before:bg-white;
+  }
+
   .footerText {
     @apply mb-4 text-white underline underline-offset-4 xl:mb-5 smOnly:hidden font-ui_montserrat text-ui_t_body1 xl:text-ui_d_body1;
   }
