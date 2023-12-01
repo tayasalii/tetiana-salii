@@ -15,7 +15,7 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
   return (
     <>
       {form && (
-        <div className="relative w-[256px] h-[68px] mt-10">
+        <div className="relative w-[256px] h-[68px]">
           <button
             type="submit"
             className="mainLink formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"

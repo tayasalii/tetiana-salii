@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply pt-20 md:pt-[90px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply pt-20 md:pt-[150px] xl:pt-[154px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 text-ui_dark;
   }
 
   section {

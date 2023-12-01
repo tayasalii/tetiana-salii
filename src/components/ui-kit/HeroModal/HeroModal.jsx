@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { BaseModal } from '../BaseModal';
 
-export const HeroModal = ({ children }) => {
+import phrases from '@/data/randomPhrases.json';
+
+export const HeroModal = ({ children, className = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function closeModal() {
@@ -18,8 +21,14 @@ export const HeroModal = ({ children }) => {
 
   return (
     <>
-      <button type="button" onClick={openModal}>
-        Відкрити модалку
+      <button
+        className={classNames('relative', className)}
+        type="button"
+        onClick={openModal}
+      >
+        <span className="absolute top-[-18px] text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
+          {phrases.hero.more}
+        </span>
       </button>
 
       <BaseModal
@@ -38,4 +47,5 @@ export const HeroModal = ({ children }) => {
 
 HeroModal.proptypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
