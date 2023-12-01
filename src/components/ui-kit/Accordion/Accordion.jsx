@@ -13,25 +13,26 @@ export const Accordion = ({ items }) => {
   const onTitleClick = index => {
     if (index !== activeIndex) {
       setActiveIndex(index);
-      const el = itemRef.current;
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        const scrollTop = window.scrollY;
-        let scrollOffset = 0;
-        if (window.innerWidth <= 767) {
-          scrollOffset = 72;
-        } else if (window.innerWidth <= 1279) {
-          scrollOffset = 120;
-        } else {
-          scrollOffset = 0;
-        }
 
-        const topPosition = rect.top + scrollTop - scrollOffset;
-        window.scrollTo({
-          top: topPosition,
-          behavior: 'smooth',
-        });
-      }
+      // const el = itemRef.current;
+      // if (el) {
+      //   const rect = el.getBoundingClientRect();
+      //   const scrollTop = window.scrollY;
+      //   let scrollOffset = 0;
+      //   if (window.innerWidth <= 767) {
+      //     scrollOffset = 72;
+      //   } else if (window.innerWidth <= 1279) {
+      //     scrollOffset = 120;
+      //   } else {
+      //     scrollOffset = 0;
+      //   }
+
+      //   const topPosition = rect.top + scrollTop - scrollOffset;
+      //   window.scrollTo({
+      //     top: topPosition,
+      //     behavior: 'smooth',
+      //   });
+      // }
     }
   };
 
@@ -40,7 +41,7 @@ export const Accordion = ({ items }) => {
 
     subItemRefs.forEach((subItemRef, index) => {
       if (activeIndex === index) {
-        subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
+        subItemRef.style.maxHeight = subItemRef.innerHeight + 'px';
       } else {
         subItemRef.style.maxHeight = '0';
       }
@@ -53,7 +54,7 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li key={id} className="relative z-[1] bg-white">
+          <li key={id} className="font-ui_montserrat relative z-[1] bg-white">
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={`cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 transition duration-300 ease-in ${
@@ -64,7 +65,7 @@ export const Accordion = ({ items }) => {
               onClick={() => onTitleClick(index)}
               type="button"
             >
-              <span className="flex gap-[7px] font-ui_montserrat text-ui_t_body1 text-left">
+              <span className="flex gap-[7px] text-ui_t_body1 text-left">
                 <span className="inline-block">{index + 1}. </span>
                 <span className="inline-block">{title}</span>
               </span>
@@ -78,11 +79,15 @@ export const Accordion = ({ items }) => {
                   : 'p-0'
               }`}
             >
-              <Markdown>{description}</Markdown>
+              <Markdown className="prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-em:text-ui_m_description prose-p:mb-3 prose-p:mt-0 prose-p:last-of-type:mb-0">
+                {description}
+              </Markdown>
 
               <div className="flex gap-2">
-                <p>Вартість:</p>
-                <Markdown>{price}</Markdown>
+                <p className="text-ui_purple">Вартість:</p>
+                <Markdown className="prose font-ui_montserrat prose-em:text-ui_purple prose-p:mb-3 prose-p:mt-0 prose-p:last-of-type:mb-0">
+                  {price}
+                </Markdown>
               </div>
 
               {/* <Button tabIdx={isActive ? 0 : -1} /> */}
