@@ -11,10 +11,10 @@ export default async function Home() {
     <>
       <Hero />
 
-      <MainButton linkData={btns.connectWithWhatsapp} variant="long" />
-      <MainButton linkData={btns.connectWithTelegram} variant="long" />
-      <MainButton linkData={btns.details} variant="short" />
-      <MainButton linkData={btns.moreFeedback} variant="long" />
+      <MainButton linkData={btns.connectWithWhatsapp} />
+      <MainButton linkData={btns.connectWithTelegram} />
+      <MainButton linkData={btns.details} />
+      <MainButton linkData={btns.moreFeedback} />
       <MainButton form />
       <section className="py-10">
         <Container>
