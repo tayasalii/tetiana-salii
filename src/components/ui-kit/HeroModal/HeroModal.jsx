@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { BaseModal } from '../BaseModal';
 
-import phrases from '@/data/randomPhrases.json';
+import hero from '@/data/hero.json';
 
 export const HeroModal = ({ children, className = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +27,7 @@ export const HeroModal = ({ children, className = '' }) => {
         onClick={openModal}
       >
         <span className="absolute top-[-18px] text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
-          {phrases.hero.more}
+          {hero.more}
         </span>
       </button>
 

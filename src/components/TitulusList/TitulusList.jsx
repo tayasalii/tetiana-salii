@@ -35,8 +35,8 @@ export const TitulusList = ({ titulus, className = '' }) => {
                 key={title}
                 className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
               >
-                <span className="mr-[10px] md:mr-3">{title}</span>
-                <HeroModal>
+                {title}
+                <HeroModal className="ml-[10px] md:ml-3">
                   <ul className="grid gap-2 font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid-col-1">
                     {titulus.slice(amountOfList).map(title => (
                       <li
@@ -72,8 +72,8 @@ export const TitulusList = ({ titulus, className = '' }) => {
                 key={title}
                 className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
               >
-                <span className="mr-[10px] md:mr-3">{title}</span>
-                <HeroModal>
+                {title}
+                <HeroModal className="ml-[10px] md:ml-3">
                   <ul className="grid gap-2 font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid-col-1">
                     {titulus.slice(4).map(title => (
                       <li
