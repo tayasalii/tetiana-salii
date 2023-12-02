@@ -5,7 +5,7 @@ import statistics from '@/data/statistics.json';
 export const Stats = () => {
   return (
     <section>
-      <h2 className="hidden">{statistics.title}</h2>
+      <h2 className="visually-hidden">{statistics.title}</h2>
       <BaseVioletBlock mode="hero">
         <ul className="grid grid-cols-2 grid-auto-rows-2 xl:grid-rows-1 xl:grid-cols-4 text-white gap-x-4 gap-y-5 md:gap-x-[45px] md:gap-y-10 xl:gap-5">
           {statistics.stats.map((item, idx) => (

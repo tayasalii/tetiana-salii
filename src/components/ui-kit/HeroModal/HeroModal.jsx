@@ -8,7 +8,7 @@ import { BaseModal } from '../BaseModal';
 
 import hero from '@/data/hero.json';
 
-export const HeroModal = ({ children, className = '' }) => {
+export const HeroModal = ({ list, className = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function closeModal() {
@@ -39,13 +39,22 @@ export const HeroModal = ({ children, className = '' }) => {
         closeBtnClassName="right-[22px] top-0"
         overlayClassName="md:py-10"
       >
-        {children}
+        <ul className="grid gap-2 font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid-col-1">
+          {list?.map(title => (
+            <li
+              key={title}
+              className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal"
+            >
+              {title}
+            </li>
+          ))}
+        </ul>
       </BaseModal>
     </>
   );
 };
 
 HeroModal.proptypes = {
-  children: PropTypes.node.isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
   className: PropTypes.string,
 };
