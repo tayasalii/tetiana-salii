@@ -1,4 +1,5 @@
 import { Hero } from '@/sections/Hero';
+import { Stats } from '@/sections/Stats';
 import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
@@ -10,11 +11,12 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <Stats />
 
-      <MainButton linkData={btns.connectWithWhatsapp} variant="long" />
-      <MainButton linkData={btns.connectWithTelegram} variant="long" />
-      <MainButton linkData={btns.details} variant="short" />
-      <MainButton linkData={btns.moreFeedback} variant="long" />
+      <MainButton linkData={btns.connectWithWhatsapp} />
+      <MainButton linkData={btns.connectWithTelegram} />
+      <MainButton linkData={btns.details} />
+      <MainButton linkData={btns.moreFeedback} />
       <MainButton form />
       <section className="py-10">
         <Container>

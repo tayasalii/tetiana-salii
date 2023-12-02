@@ -26,7 +26,7 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
             !isRound,
         })}
       >
-        <Icon width="auto" height={23} />
+        <Icon width={23} height={23} />
       </div>
     </a>
   );

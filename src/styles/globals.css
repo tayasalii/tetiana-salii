@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply pt-20 md:pt-[90px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply pt-20 md:pt-[150px] xl:pt-[154px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 text-ui_dark;
   }
 
   section {
@@ -35,6 +35,10 @@
 
   .footerUnderline {
     @apply relative before:absolute before:w-full before:h-[1px] before:-top-5 before:bg-ui_purpleLight;
+  }
+
+  .statsUnderline {
+    @apply relative before:absolute before:w-full before:h-[1px] before:-left-0.5 before:-bottom-1 before:bg-white;
   }
 
   .footerText {
@@ -138,4 +142,18 @@
     background-repeat: no-repeat;
     background-position: top left;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
