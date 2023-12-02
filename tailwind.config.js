@@ -38,9 +38,8 @@ module.exports = {
         ui_headerShadow: '0px 2px 4px 0px rgba(50, 50, 50, 0.40)',
       },
 
-      backgroundImage: {
-        'white-ellipse': "url('/icons/white-ellipse.svg')",
-        'colored-ellipse': "url('/icons/colored-ellipse.svg')",
+      content: {
+        sparkle: 'url("/icons/sparkle.svg")',
       },
 
       fontFamily: {
@@ -248,9 +247,9 @@ module.exports = {
         ],
       },
 
-      content: {
-        // crossIcon: 'url("/icons/error-cross.svg")',
-      },
+      // content: {
+      //   // crossIcon: 'url("/icons/error-cross.svg")',
+      // },
     },
   },
   // plugins: [require('prettier-plugin-tailwindcss')],

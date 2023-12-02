@@ -1,4 +1,5 @@
 import { Hero } from '@/sections/Hero';
+import { Stats } from '@/sections/Stats';
 import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
@@ -6,17 +7,17 @@ import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 import btns from '@/data/buttons.json';
 
-import InstagramIcon from 'public/icons/instagram.svg';
-
 export default async function Home() {
   return (
     <>
       <Hero />
+      <Stats />
 
-      <MainButton linkData={btns.links[2]} form>
-        <InstagramIcon className="w-[22px] h-[22px] " />
-      </MainButton>
-
+      <MainButton linkData={btns.connectWithWhatsapp} />
+      <MainButton linkData={btns.connectWithTelegram} />
+      <MainButton linkData={btns.details} />
+      <MainButton linkData={btns.moreFeedback} />
+      <MainButton form />
       <section className="py-10">
         <Container>
           <p>EXAMPLE SECTION</p>
@@ -26,7 +27,6 @@ export default async function Home() {
           <p>hello</p>
         </BaseVioletBlock>
       </section>
-
       <HeroModal />
     </>
   );

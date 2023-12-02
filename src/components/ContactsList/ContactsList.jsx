@@ -13,14 +13,10 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
   return (
     <ul
       className={classNames('flex', className, {
-        'flex-row-reverse items-center justify-between': isBanner,
+        'flex-row items-center justify-between': isBanner,
         'flex-col gap-3 md:gap-4 xl:gap-3': !isBanner,
       })}
     >
-      <li>
-        <TelLink isBanner={isBanner} />
-      </li>
-
       <li>
         <a
           href={emailData.href}
@@ -47,6 +43,10 @@ export const ContactList = ({ isBanner = false, className = '' }) => {
             {emailData.content}
           </span>
         </a>
+      </li>
+
+      <li>
+        <TelLink isBanner={isBanner} />
       </li>
     </ul>
   );
