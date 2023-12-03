@@ -8,7 +8,8 @@ import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 export const TitulusList = ({ titulus, className = '' }) => {
   const [isClient, setIsClient] = useState(null);
-  const [amountOfList, setAmountOfList] = useState(null);
+  const [previewArray, setPreviewArray] = useState(null);
+  const [restOfArray, setRestOfArray] = useState(null);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
@@ -21,24 +22,27 @@ export const TitulusList = ({ titulus, className = '' }) => {
     if (!isClient) return;
 
     if (isDesktop) {
-      setAmountOfList(9);
+      setPreviewArray(titulus.slice(0, 9));
+      setRestOfArray(titulus.slice(9));
     } else if (isTablet) {
-      setAmountOfList(12);
+      setPreviewArray(titulus.slice(0, 12));
+      setRestOfArray(titulus.slice(12));
     } else {
-      setAmountOfList(4);
+      setPreviewArray(titulus.slice(0, 4));
+      setRestOfArray(titulus.slice(4));
     }
-  }, [isClient, isDesktop, isTablet]);
+  }, [isClient, isDesktop, isTablet, titulus]);
 
   return (
     <>
-      {isClient && (
+      {previewArray && (
         <ul
           className={classNames(
             'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
             className,
           )}
         >
-          {titulus.slice(0, amountOfList).map((title, idx, arr) => (
+          {previewArray.map((title, idx, arr) => (
             <>
               {arr.length - 1 === idx && (
                 <li
@@ -46,10 +50,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
                   className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
                 >
                   {title}
-                  <HeroModal
-                    className="ml-[10px] md:ml-3"
-                    list={titulus.slice(amountOfList)}
-                  />
+                  <HeroModal className="ml-[10px] md:ml-3" list={restOfArray} />
                 </li>
               )}
 
