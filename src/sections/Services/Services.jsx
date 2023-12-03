@@ -17,8 +17,6 @@ export const Services = async () => {
   //   price: { tabs },
   // } = cmsContent;
 
-  // console.log(tabs);
-
   return (
     <section className="section">
       <Container>

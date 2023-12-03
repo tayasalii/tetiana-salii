@@ -8,7 +8,7 @@ import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 export const TitulusList = ({ titulus, className = '' }) => {
   const [isClient, setIsClient] = useState(null);
-  const [amountOfList, setAmountOfList] = useState(4);
+  const [amountOfList, setAmountOfList] = useState(null);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
@@ -17,8 +17,17 @@ export const TitulusList = ({ titulus, className = '' }) => {
   }, []);
 
   useEffect(() => {
-    setAmountOfList(isDesktop ? 9 : isTablet ? 12 : 4);
-  }, [isDesktop, isTablet]);
+    // setAmountOfList(isDesktop ? 9 : isTablet ? 12 : 4);
+    if (!isClient) return;
+
+    if (isDesktop) {
+      setAmountOfList(9);
+    } else if (isTablet) {
+      setAmountOfList(12);
+    } else {
+      setAmountOfList(4);
+    }
+  }, [isClient, isDesktop, isTablet]);
 
   return (
     <>
@@ -33,7 +42,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
             <>
               {arr.length - 1 === idx && (
                 <li
-                  key={title}
+                  key={idx}
                   className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
                 >
                   {title}
@@ -46,7 +55,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
 
               {arr.length - 1 > idx && (
                 <li
-                  key={title}
+                  key={idx}
                   className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal"
                 >
                   {title}
@@ -57,7 +66,9 @@ export const TitulusList = ({ titulus, className = '' }) => {
         </ul>
       )}
 
-      {!isClient && (
+      {!isClient && <p>Loading...</p>}
+
+      {/* {!isClient && (
         <ul
           className={classNames(
             'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
@@ -68,7 +79,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
             <>
               {arr.length - 1 === idx && (
                 <li
-                  key={title}
+                  key={idx}
                   className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
                 >
                   {title}
@@ -81,7 +92,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
 
               {arr.length - 1 > idx && (
                 <li
-                  key={title}
+                  key={idx}
                   className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal"
                 >
                   {title}
@@ -90,7 +101,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
             </>
           ))}
         </ul>
-      )}
+      )} */}
     </>
   );
 };
