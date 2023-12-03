@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply pt-60 font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply pt-60 font-medium leading-normal bg-white font-ui_garamond;
   }
 
   section {
@@ -151,5 +151,18 @@
     );
     background-repeat: no-repeat;
     background-position: top left;
+  }
+
+  /* TYPOGRAPHY MARKDOWN */
+  .main-prose {
+    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ul:mb-0 prose-ul:mt-[-5px] prose-li:pl-0 prose-li:marker:text-ui_dark;
+  }
+
+  .mobile-prose {
+    @apply prose-em:text-ui_m_description prose-p:mb-3 prose-p:text-ui_d_t_mini prose-ul:pl-[30px] prose-strong:text-ui_m_price;
+  }
+
+  .tablet-prose {
+    @apply md:prose-p:text-ui_m_items md:prose-em:text-ui_d_t_description;
   }
 }

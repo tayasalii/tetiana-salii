@@ -11,16 +11,25 @@ import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
 import LongColoredEllipse from 'public/icons/long-colored-ellipse.svg';
 import LongWhiteEllipse from 'public/icons/long-white-ellipse.svg';
 
-export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
+export const MainButton = ({
+  form = false,
+  linkData,
+  variant = 'long',
+  className = '',
+}) => {
   return (
     <>
       {form && (
-        <div className="relative w-[256px] h-[68px] mt-10">
+        <div
+          className={classNames('relative w-[256px] h-[68px] mt-10', className)}
+        >
           <button
             type="submit"
             className="mainLink formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
           >
-            <span className="z-[2]">{buttonsData.button.title}</span>
+            <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2">
+              {buttonsData.button.title}
+            </span>
             <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
           </button>
 
@@ -33,10 +42,14 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
 
       {linkData && !form && (
         <div
-          className={classNames('relative h-[68px] mt-10 rounded-full', {
-            'w-[256px]': variant === 'short',
-            'w-[290px]': variant === 'long',
-          })}
+          className={classNames(
+            'relative h-[68px] mt-10 rounded-full',
+            {
+              'w-[256px]': variant === 'short',
+              'w-[290px]': variant === 'long',
+            },
+            className,
+          )}
         >
           <a
             href={linkData.href}
@@ -50,7 +63,10 @@ export const MainButton = ({ form = false, linkData, variant = 'long' }) => {
               },
             )}
           >
-            <span className="z-[2]"> {linkData.title}</span>
+            <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2">
+              {' '}
+              {linkData.title}
+            </span>
 
             {linkData.icon === 'telegram' && (
               <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
@@ -90,4 +106,5 @@ MainButton.proptypes = {
     icon: PropTypes.string.isRequired,
   }),
   variant: PropTypes.oneOf(['short', 'long']),
+  className: PropTypes.string,
 };

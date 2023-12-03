@@ -2,7 +2,12 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Markdown from 'react-markdown';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
+import { MainButton } from '../MainButton';
+
+import btns from '@/data/buttons.json';
 
 import ArrowIcon from 'public/icons/accordion-arrow.svg';
 
@@ -13,26 +18,26 @@ export const Accordion = ({ items }) => {
   const onTitleClick = index => {
     if (index !== activeIndex) {
       setActiveIndex(index);
+    }
 
-      // const el = itemRef.current;
-      // if (el) {
-      //   const rect = el.getBoundingClientRect();
-      //   const scrollTop = window.scrollY;
-      //   let scrollOffset = 0;
-      //   if (window.innerWidth <= 767) {
-      //     scrollOffset = 72;
-      //   } else if (window.innerWidth <= 1279) {
-      //     scrollOffset = 120;
-      //   } else {
-      //     scrollOffset = 0;
-      //   }
+    const el = itemRef.current;
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.scrollY;
+      // let scrollOffset = 0;
+      //     if (window.innerWidth <= 767) {
+      //       scrollOffset = 72;
+      //     } else if (window.innerWidth <= 1279) {
+      //       scrollOffset = 120;
+      //     } else {
+      //       scrollOffset = 0;
+      //     }
 
-      //   const topPosition = rect.top + scrollTop - scrollOffset;
-      //   window.scrollTo({
-      //     top: topPosition,
-      //     behavior: 'smooth',
-      //   });
-      // }
+      const topPosition = rect.top + scrollTop;
+      window.scrollTo({
+        top: topPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -41,7 +46,7 @@ export const Accordion = ({ items }) => {
 
     subItemRefs.forEach((subItemRef, index) => {
       if (activeIndex === index) {
-        subItemRef.style.maxHeight = subItemRef.innerHeight + 'px';
+        subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
       } else {
         subItemRef.style.maxHeight = '0';
       }
@@ -57,11 +62,14 @@ export const Accordion = ({ items }) => {
           <li key={id} className="font-ui_montserrat relative z-[1] bg-white">
             <h3 className="visually-hidden">{title}</h3>
             <button
-              className={`cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 transition duration-300 ease-in ${
-                isActive
-                  ? 'text-white bg-ui_purpleLight'
-                  : 'text-ui_dark bg-white border-b border-b-ui_purpleLight'
-              }`}
+              className={classNames(
+                'cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 transition duration-300 ease-in',
+                {
+                  'text-white bg-ui_purpleLight': isActive,
+                  'text-ui_dark bg-white border-b border-b-ui_purpleLight':
+                    !isActive,
+                },
+              )}
               onClick={() => onTitleClick(index)}
               type="button"
             >
@@ -69,27 +77,39 @@ export const Accordion = ({ items }) => {
                 <span className="inline-block">{index + 1}. </span>
                 <span className="inline-block">{title}</span>
               </span>
-              <ArrowIcon className="w-3 h-3 shrink-0" />
+
+              <ArrowIcon
+                className={classNames('w-3 h-3 shrink-0', {
+                  'text-white rotate-0 transitioned': isActive,
+                  'text-ui_dark rotate-180 transitioned': !isActive,
+                })}
+              />
             </button>
 
             <div
-              className={`subItem box-content overflow-hidden transition-all duration-500 ${
-                isActive
-                  ? 'py-5 px-[18px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple'
-                  : 'p-0'
-              }`}
+              className={classNames(
+                'subItem box-content overflow-hidden transition-all duration-500',
+                {
+                  'py-5 px-[18px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple h-auto':
+                    isActive,
+                  'px-[18px] py-0 h-0': !isActive,
+                },
+              )}
             >
-              <Markdown className="prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-em:text-ui_m_description prose-p:mb-3 prose-p:mt-0 prose-p:last-of-type:mb-0">
+              <Markdown className="main-prose mobile-prose tablet-prose">
                 {description}
               </Markdown>
 
-              <div className="flex gap-2">
-                <p className="text-ui_purple">Вартість:</p>
-                <Markdown className="prose font-ui_montserrat prose-em:text-ui_purple prose-p:mb-3 prose-p:mt-0 prose-p:last-of-type:mb-0">
+              <div className="flex gap-2 xl:gap-[10px] items-start">
+                <p className="text-ui_purple font-ui_garamond text-ui_m_description">
+                  Вартість:
+                </p>
+                <Markdown className="main-prose mobile-prose tablet-prose mt-[5px]">
                   {price}
                 </Markdown>
               </div>
 
+              <MainButton linkData={btns.details} className="mx-auto mt-4" />
               {/* <Button tabIdx={isActive ? 0 : -1} /> */}
             </div>
           </li>
