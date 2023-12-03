@@ -7,19 +7,19 @@ import classNames from 'classnames';
 import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 export const TitulusList = ({ titulus, className = '' }) => {
-  const [isClient, setIsClient] = useState(null);
+  // const [isClient, setIsClient] = useState(null);
   const [previewArray, setPreviewArray] = useState(null);
   const [restOfArray, setRestOfArray] = useState(null);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   useEffect(() => {
     // setAmountOfList(isDesktop ? 9 : isTablet ? 12 : 4);
-    if (!isClient) return;
+    // if (!isClient) return;
 
     if (isDesktop) {
       setPreviewArray(titulus.slice(0, 9));
@@ -31,7 +31,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
       setPreviewArray(titulus.slice(0, 4));
       setRestOfArray(titulus.slice(4));
     }
-  }, [isClient, isDesktop, isTablet, titulus]);
+  }, [isDesktop, isTablet, titulus]);
 
   return (
     <>
@@ -67,7 +67,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
         </ul>
       )}
 
-      {!isClient && <p>Loading...</p>}
+      {!previewArray && <p>Loading...</p>}
 
       {/* {!isClient && (
         <ul
