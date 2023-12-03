@@ -4,15 +4,15 @@ export const Benefits = ({ benefits }) => {
       {benefits.map(({ id, subtitle, categories }) => {
         return (
           <li key={id}>
-            <h4 className="font-ui_garamond text-ui_m_description text-ui_purple pl-[31px] mb-[10px]">
+            <h4 className="font-ui_garamond text-ui_m_description md:text-ui_t_description2 xl:text-ui_d_description2 text-ui_purple pl-[31px] mb-[10px]">
               {subtitle}
             </h4>
 
-            <ul className="font-ui_montserrat text-ui_dark text-ui_m_body1 grid grid-col-1 gap-[14px]">
+            <ul className="font-ui_montserrat text-ui_dark text-ui_m_body1 md:text-ui_m_items xl:text-ui_t_items grid grid-col-1 gap-[14px]">
               {categories.map(({ id, category }) => (
                 <li
                   key={id}
-                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle !whitespace-normal"
+                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle !whitespace-normal "
                 >
                   {category}
                 </li>

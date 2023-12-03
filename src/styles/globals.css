@@ -167,7 +167,7 @@
 
   /* TYPOGRAPHY MARKDOWN */
   .main-prose {
-    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ol:w-full  prose-ul:w-full prose-ol:mb-0  prose-li:pl-0 prose-li:marker:text-ui_dark;
+    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ol:w-full  prose-ul:w-full prose-ol:mb-0  prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
   }
 
   .mobile-prose {

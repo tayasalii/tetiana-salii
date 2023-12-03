@@ -14,7 +14,12 @@ import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
 import LongColoredEllipse from 'public/icons/long-colored-ellipse.svg';
 import LongWhiteEllipse from 'public/icons/long-white-ellipse.svg';
 
-export const MainButton = ({ form = false, linkData, className = '' }) => {
+export const MainButton = ({
+  form = false,
+  linkData,
+  tabindex = 0,
+  className = '',
+}) => {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
@@ -28,6 +33,7 @@ export const MainButton = ({ form = false, linkData, className = '' }) => {
         <div className={classNames('relative w-[256px] h-[68px]', className)}>
           <button
             type="submit"
+            tabIndex={tabindex}
             className="mainLink font-ui_garamond formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
           >
             <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
@@ -144,5 +150,6 @@ MainButton.proptypes = {
     href: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
   }),
+  tabindex: PropTypes.oneOf([0, 1]),
   className: PropTypes.string,
 };

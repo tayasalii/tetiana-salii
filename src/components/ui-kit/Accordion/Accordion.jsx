@@ -13,27 +13,44 @@ import ArrowIcon from 'public/icons/accordion-arrow.svg';
 
 export const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevSubItemHeight, setPrevSubItemHeight] = useState(null);
+  const [prevSubItemIndx, setPrevSubItemIndx] = useState(0);
   const itemRef = useRef(null);
 
   const onTitleClick = index => {
     if (index !== activeIndex) {
+      setPrevSubItemIndx(activeIndex);
       setActiveIndex(index);
     }
 
     const el = itemRef.current;
+
     if (el) {
       const rect = el.getBoundingClientRect();
-      const scrollTop = window.scrollY;
-      // let scrollOffset = 0;
-      //     if (window.innerWidth <= 767) {
-      //       scrollOffset = 72;
-      //     } else if (window.innerWidth <= 1279) {
-      //       scrollOffset = 120;
-      //     } else {
-      //       scrollOffset = 0;
-      //     }
 
-      const topPosition = rect.top + scrollTop;
+      // distance between current clicked item and top of the screen
+      let distanceToScreenTop = rect.top;
+
+      // distance between top of the page and current scrollbar position
+      const scrollFromPageTop = window.scrollY;
+
+      // padding at body (because of header)
+      if (window.innerWidth <= 767) {
+        distanceToScreenTop -= 85;
+      } else if (window.innerWidth <= 1279) {
+        distanceToScreenTop -= 155;
+      } else {
+        distanceToScreenTop -= 160;
+      }
+
+      let topPosition = 0;
+      if (prevSubItemIndx < activeIndex) {
+        topPosition =
+          scrollFromPageTop - distanceToScreenTop - prevSubItemHeight;
+      } else {
+        topPosition = scrollFromPageTop - distanceToScreenTop;
+      }
+
       window.scrollTo({
         top: topPosition,
         behavior: 'smooth',
@@ -47,11 +64,12 @@ export const Accordion = ({ items }) => {
     subItemRefs.forEach((subItemRef, index) => {
       if (activeIndex === index) {
         subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
+        setPrevSubItemHeight(subItemRef.scrollHeight);
       } else {
         subItemRef.style.maxHeight = '0';
       }
     });
-  }, [activeIndex]);
+  }, [activeIndex, prevSubItemIndx]);
 
   return (
     <ol className="grid gap-y-1" ref={itemRef}>
@@ -99,7 +117,7 @@ export const Accordion = ({ items }) => {
                 },
               )}
             >
-              <Markdown className="!w-full main-prose mobile-prose tablet-prose desktop-prose">
+              <Markdown className="main-prose mobile-prose tablet-prose desktop-prose">
                 {description}
               </Markdown>
 
@@ -113,8 +131,11 @@ export const Accordion = ({ items }) => {
                 </Markdown>
               </div>
 
-              <MainButton linkData={btns.details} className="mx-auto mt-4" />
-              {/* <Button tabIdx={isActive ? 0 : -1} /> */}
+              <MainButton
+                linkData={btns.details}
+                className="mx-auto mt-4"
+                tabindex={isActive ? 0 : -1}
+              />
             </div>
           </li>
         );

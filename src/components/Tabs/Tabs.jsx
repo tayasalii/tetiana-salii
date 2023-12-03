@@ -17,7 +17,7 @@ export const Tabs = ({ tabs, benefits }) => {
               key={id}
               className={({ selected }) =>
                 classNames(
-                  'font-ui_montserrat h-[64px] w-full mdOnly:max-w-[222px] xl:w-[294px] xl:h-[74px] px-[22px] py-[13px] md:py-3 border-[1px] border-ui_purpleLight text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_t_m_body2',
+                  'font-ui_montserrat h-[64px] w-full mdOnly:max-w-[222px] xl:w-[294px] xl:h-[74px] px-[22px] py-[13px] md:py-3 xl:px-[48px] border-[1px] border-ui_purpleLight text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_t_m_body2',
                   selected
                     ? 'bg-ui_purpleLight text-white cursor-default'
                     : 'bg-white text-ui_dark hover:text-white hover:bg-ui_purple focus:bg-ui_purple hover:border-ui_purple focus:border-ui_purple transitioned',
@@ -31,7 +31,7 @@ export const Tabs = ({ tabs, benefits }) => {
 
         <Tab.Panels>
           {tabs.map(({ id, services }, idx) => (
-            <Tab.Panel key={id} className="w-full">
+            <Tab.Panel key={id} tabIndex="1" className="w-full">
               {idx === 0 && <Benefits benefits={benefits} />}
               {idx === 2 && <Benefits benefits={benefits} />}
 

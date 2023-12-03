@@ -26,7 +26,7 @@ export const Services = async () => {
 
         <MainButton
           linkData={btns.connectWithTelegram}
-          className="mx-auto mt-4"
+          className="mx-auto mt-8 md:mt-10 xl:mt-[23px]"
         />
       </Container>
     </section>

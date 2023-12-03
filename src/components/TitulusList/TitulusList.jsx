@@ -12,8 +12,6 @@ export const TitulusList = ({ titulus, className = '' }) => {
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
-  console.log(previewArray);
-
   useEffect(() => {
     if (isDesktop) {
       setPreviewArray(titulus.slice(0, 9));
@@ -25,13 +23,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
       setPreviewArray(titulus.slice(0, 4));
       setRestOfArray(titulus.slice(4));
     }
-
-    console.log('hello');
   }, [isDesktop, isTablet, titulus]);
-
-  useEffect(() => {
-    console.log(previewArray);
-  }, [previewArray]);
 
   return (
     <>
