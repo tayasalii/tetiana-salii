@@ -20,9 +20,9 @@ export const Services = async () => {
   // console.log(tabs);
 
   return (
-    <section>
+    <section className="section">
       <Container>
-        <h2>{services.sectionTitle}</h2>
+        <h2 className="section-heading">{services.sectionTitle}</h2>
 
         <Tabs tabs={tabs.tabs} benefits={benefits} />
 
