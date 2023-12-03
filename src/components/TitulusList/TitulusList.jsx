@@ -7,20 +7,14 @@ import classNames from 'classnames';
 import { HeroModal } from '@/components/ui-kit/HeroModal';
 
 export const TitulusList = ({ titulus, className = '' }) => {
-  // const [isClient, setIsClient] = useState(null);
   const [previewArray, setPreviewArray] = useState(null);
   const [restOfArray, setRestOfArray] = useState(null);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
-  // useEffect(() => {
-  //   setIsClient(true);
-  // }, []);
+  console.log(previewArray);
 
   useEffect(() => {
-    // setAmountOfList(isDesktop ? 9 : isTablet ? 12 : 4);
-    // if (!isClient) return;
-
     if (isDesktop) {
       setPreviewArray(titulus.slice(0, 9));
       setRestOfArray(titulus.slice(9));
@@ -31,7 +25,13 @@ export const TitulusList = ({ titulus, className = '' }) => {
       setPreviewArray(titulus.slice(0, 4));
       setRestOfArray(titulus.slice(4));
     }
+
+    console.log('hello');
   }, [isDesktop, isTablet, titulus]);
+
+  useEffect(() => {
+    console.log(previewArray);
+  }, [previewArray]);
 
   return (
     <>
