@@ -39,8 +39,6 @@ module.exports = {
       },
 
       content: {
-        whiteEllipse: 'url("/icons/white-ellipse.svg")',
-        coloredEllipse: 'url("/icons/colored-ellipse.svg")',
         sparkle: 'url("/icons/sparkle.svg")',
       },
 
