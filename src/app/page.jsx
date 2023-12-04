@@ -1,4 +1,5 @@
 import { Hero } from '@/sections/Hero';
+import { Services } from '@/sections/Services';
 import { Stats } from '@/sections/Stats';
 import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
@@ -12,6 +13,9 @@ export default async function Home() {
     <>
       <Hero />
       <Stats />
+      <Services />
+
+      <h1>EXAMPLES:</h1>
 
       <MainButton linkData={btns.connectWithWhatsapp} />
       <MainButton linkData={btns.connectWithTelegram} />
