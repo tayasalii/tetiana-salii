@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -35,31 +35,34 @@ export const TitulusList = ({ titulus, className = '' }) => {
           )}
         >
           {previewArray.map((title, idx, arr) => (
-            <>
+            <Fragment key={idx}>
               {arr.length - 1 === idx && (
-                <li
-                  key={idx}
-                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
-                >
+                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
                   {title}
                   <HeroModal className="ml-[10px] md:ml-3" list={restOfArray} />
                 </li>
               )}
 
               {arr.length - 1 > idx && (
-                <li
-                  key={idx}
-                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal"
-                >
+                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
                   {title}
                 </li>
               )}
-            </>
+            </Fragment>
           ))}
         </ul>
       )}
 
-      {!previewArray && <p>Loading...</p>}
+      {!previewArray && (
+        <p
+          className={classNames(
+            'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
+            className,
+          )}
+        >
+          Loading...
+        </p>
+      )}
 
       {/* {!isClient && (
         <ul
@@ -69,12 +72,9 @@ export const TitulusList = ({ titulus, className = '' }) => {
           )}
         >
           {titulus.slice(0, 4).map((title, idx, arr) => (
-            <>
+            <Fragment key={idx}>
               {arr.length - 1 === idx && (
-                <li
-                  key={idx}
-                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left hitespace-normal"
-                >
+                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
                   {title}
                   <HeroModal
                     className="ml-[10px] md:ml-3"
@@ -84,14 +84,11 @@ export const TitulusList = ({ titulus, className = '' }) => {
               )}
 
               {arr.length - 1 > idx && (
-                <li
-                  key={idx}
-                  className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal"
-                >
+                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
                   {title}
                 </li>
               )}
-            </>
+            </Fragment>
           ))}
         </ul>
       )} */}
