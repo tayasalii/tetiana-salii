@@ -39,8 +39,7 @@ module.exports = {
       },
 
       content: {
-        whiteEllipse: 'url("/icons/white-ellipse.svg")',
-        coloredEllipse: 'url("/icons/colored-ellipse.svg")',
+        sparkle: 'url("/icons/sparkle.svg")',
       },
 
       fontFamily: {
@@ -247,11 +246,7 @@ module.exports = {
           },
         ],
       },
-
-      // content: {
-      //   // crossIcon: 'url("/icons/error-cross.svg")',
-      // },
     },
   },
-  // plugins: [require('prettier-plugin-tailwindcss')],
+  plugins: [require('@tailwindcss/typography')],
 };

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import { MobileMenu } from '@/components/MobileMenu';
 
@@ -31,8 +30,4 @@ export const BurgerBtn = () => {
       <MobileMenu isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
     </>
   );
-};
-
-BurgerBtn.propTypes = {
-  openMenu: PropTypes.func.isRequired,
 };

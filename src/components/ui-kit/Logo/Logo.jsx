@@ -9,6 +9,7 @@ export const Logo = ({ isFooter = false, className = '' }) => {
       <Image
         alt="логотип"
         src="/images/logo.png"
+        priority
         width={220}
         height={80}
         className={classNames('w-[165px] h-[60px] md:w-[220px] md:h-[80px]', {

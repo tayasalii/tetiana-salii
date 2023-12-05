@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply pt-20 md:pt-[90px] font-medium leading-normal bg-white font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2;
+    @apply pt-20 md:pt-[150px] font-medium leading-normal bg-white font-ui_garamond text-ui_dark;
   }
 
   section {
@@ -13,8 +13,30 @@
 }
 
 @layer components {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
   .transitioned {
     @apply transition duration-[250ms];
+  }
+
+  .section {
+    @apply pt-[100px] md:pt-[150px];
+  }
+
+  .section-heading {
+    @apply text-center mb-8 md:mb-10 text-ui_m_h1 font-ui_garamond text-ui_purple md:text-ui_t_h1 xl:text-ui_d_h1;
   }
 
   .purple-stroke {
@@ -35,6 +57,10 @@
 
   .footerUnderline {
     @apply relative before:absolute before:w-full before:h-[1px] before:-top-5 before:bg-ui_purpleLight;
+  }
+
+  .statsUnderline {
+    @apply relative before:absolute before:w-full before:h-[1px] before:-left-0.5 before:-bottom-1 before:bg-white;
   }
 
   .footerText {
@@ -138,6 +164,26 @@
     background-repeat: no-repeat;
     background-position: top left;
   }
+
+  /* TYPOGRAPHY MARKDOWN */
+  .main-prose {
+    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ol:w-full  prose-ul:w-full prose-ol:mb-0  prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
+  }
+
+  .mobile-prose {
+    @apply prose-em:text-ui_m_description prose-p:mb-3 prose-p:text-ui_d_t_mini prose-li:marker:text-ui_d_t_mini prose-ol:pl-[30px] prose-ul:pl-[30px] prose-strong:text-ui_m_price;
+  }
+
+  .tablet-prose {
+    @apply md:prose-p:text-ui_m_items md:prose-em:text-ui_d_t_description;
+  }
+
+  .desktop-prose {
+    @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10  xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mb-5;
+  }
+
+  /* REVIEW SWIPER */
+
   .reviewBg {
     background-image: linear-gradient(
         0deg,
