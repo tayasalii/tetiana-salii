@@ -1,0 +1,34 @@
+import { Container } from '@/components/Container';
+import { Tabs } from '@/components/Tabs';
+import { MainButton } from '@/components/ui-kit/MainButton';
+
+// import { fetchTabs } from '@/api/fetchTabs';
+
+import services from '@/data/services.json';
+import tabs from '@/data/tabsContent.json';
+import benefits from '@/data/benefits.json';
+import btns from '@/data/buttons.json';
+
+export const Services = async () => {
+  // const cmsContent = await fetchTabs();
+
+  // const {
+  //   benefitList: { benefit },
+  //   price: { tabs },
+  // } = cmsContent;
+
+  return (
+    <section className="section">
+      <Container>
+        <h2 className="section-heading">{services.sectionTitle}</h2>
+
+        <Tabs tabs={tabs.tabs} benefits={benefits} />
+
+        <MainButton
+          linkData={btns.connectWithTelegram}
+          className="mx-auto mt-8 md:mt-10 xl:mt-[23px]"
+        />
+      </Container>
+    </section>
+  );
+};

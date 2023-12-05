@@ -14,7 +14,12 @@ import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
 import LongColoredEllipse from 'public/icons/long-colored-ellipse.svg';
 import LongWhiteEllipse from 'public/icons/long-white-ellipse.svg';
 
-export const MainButton = ({ form = false, linkData }) => {
+export const MainButton = ({
+  form = false,
+  linkData,
+  tabindex = 0,
+  className = '',
+}) => {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
@@ -25,12 +30,15 @@ export const MainButton = ({ form = false, linkData }) => {
   return (
     <>
       {form && (
-        <div className="relative w-[256px] h-[68px]">
+        <div className={classNames('relative w-[256px] h-[68px]', className)}>
           <button
             type="submit"
-            className="mainLink formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
+            tabIndex={tabindex}
+            className="mainLink font-ui_garamond formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
           >
-            <span className="z-[2]">{buttonsData.button.title}</span>
+            <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+              {buttonsData.button.title}
+            </span>
             <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
           </button>
 
@@ -45,10 +53,14 @@ export const MainButton = ({ form = false, linkData }) => {
         <>
           {isClient ? (
             <div
-              className={classNames('relative h-[68px] rounded-full', {
-                'w-[256px]': !isDesktop,
-                'w-[290px]': isDesktop,
-              })}
+              className={classNames(
+                'relative h-[68px] rounded-full',
+                {
+                  'w-[256px]': !isDesktop,
+                  'w-[290px]': isDesktop,
+                },
+                className,
+              )}
             >
               <a
                 href={linkData.href}
@@ -62,7 +74,10 @@ export const MainButton = ({ form = false, linkData }) => {
                   },
                 )}
               >
-                <span className="z-[2]"> {linkData.title}</span>
+                <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2">
+                  {' '}
+                  {linkData.title}
+                </span>
 
                 {linkData.icon === 'telegram' && (
                   <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
@@ -98,10 +113,13 @@ export const MainButton = ({ form = false, linkData }) => {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className={classNames(
-                  'flex h-[68px] w-[256px] items-center justify-center gap-[6px] text-ui_purple mainLink',
+                  'flex h-[68px] w-[256px] items-center justify-center gap-[6px] font-ui_garamond text-ui_purple mainLink',
                 )}
               >
-                <span className="z-[2]"> {linkData.title}</span>
+                <span className="z-[2] font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 ">
+                  {' '}
+                  {linkData.title}
+                </span>
 
                 {linkData.icon === 'telegram' && (
                   <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
@@ -132,4 +150,6 @@ MainButton.proptypes = {
     href: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
   }),
+  tabindex: PropTypes.oneOf([0, 1]),
+  className: PropTypes.string,
 };

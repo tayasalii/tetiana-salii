@@ -246,10 +246,6 @@ module.exports = {
           },
         ],
       },
-
-      // content: {
-      //   // crossIcon: 'url("/icons/error-cross.svg")',
-      // },
     },
   },
   plugins: [require('@tailwindcss/typography')],
