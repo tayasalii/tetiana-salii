@@ -13,6 +13,30 @@
 }
 
 @layer components {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  .shadowy {
+    filter: drop-shadow(0px 4px 4px rgba(50, 50, 50, 0.75));
+  }
+
+  .brake {
+    display: block;
+    content: '';
+    margin-bottom: 12px;
+  }
+
   .transitioned {
     @apply transition duration-[250ms];
   }
@@ -142,18 +166,4 @@
     background-repeat: no-repeat;
     background-position: top left;
   }
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
