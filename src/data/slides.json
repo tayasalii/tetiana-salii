@@ -1,0 +1,38 @@
+[
+  {
+    "src": "/images/slides/slide-1.jpg",
+    "alt": "Відгук 1"
+  },
+  {
+    "src": "/images/slides/slide-2.jpg",
+    "alt": "Відгук 2"
+  },
+  {
+    "src": "/images/slides/slide-3.jpg",
+    "alt": "Відгук 3"
+  },
+  {
+    "src": "/images/slides/slide-4.jpg",
+    "alt": "Відгук 4"
+  },
+  {
+    "src": "/images/slides/slide-5.jpg",
+    "alt": "Відгук 5"
+  },
+  {
+    "src": "/images/slides/slide-6.jpg",
+    "alt": "Відгук 6"
+  },
+  {
+    "src": "/images/slides/slide-7.jpg",
+    "alt": "Відгук 7"
+  },
+  {
+    "src": "/images/slides/slide-8.jpg",
+    "alt": "Відгук 8"
+  },
+  {
+    "src": "/images/slides/slide-9.jpg",
+    "alt": "Відгук 9"
+  }
+]

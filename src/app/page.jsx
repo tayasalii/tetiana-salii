@@ -1,4 +1,5 @@
 import { Hero } from '@/sections/Hero';
+import { Reviews } from '@/sections/Reviews';
 import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
@@ -25,6 +26,7 @@ export default async function Home() {
           <p>hello</p>
         </BaseVioletBlock>
       </section>
+      <Reviews />
       <HeroModal />
     </>
   );
