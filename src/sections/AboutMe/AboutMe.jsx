@@ -12,7 +12,7 @@ import btns from '@/data/buttons.json';
 
 export const AboutME = () => {
   return (
-    <section className="pt-20 md:pt-[130px] xl:pt-[150px]">
+    <section className="section">
       <Container className="mb-10 md:mb-[60px]">
         <h2 className="mb-8 text-center md:mb-10 text-ui_m_h1 md:text-ui_t_h1 xl:text-ui_d_h1 text-ui_purple">
           {aboutMe.aboutME}
@@ -44,9 +44,9 @@ export const AboutME = () => {
                 <Image
                   src={`/images/${item.img}`}
                   alt={item.alt}
-                  width={120}
-                  height={120}
-                  className="md:w-[150px] md:h-[150px] md:self-end"
+                  width={150}
+                  height={150}
+                  className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] md:self-end"
                 />
               </li>
             ))}
@@ -70,9 +70,9 @@ export const AboutME = () => {
               <Image
                 src={`/images/${item.img}`}
                 alt={item.alt}
-                width={223}
-                height={207}
-                className="md:w-[221px] xl:w-[400px] xl:h-[375px]"
+                width={400}
+                height={375}
+                className="w-[223px] h-[207px] md:w-[221px] xl:w-[400px] xl:h-[375px]"
               />
               <div className="absolute w-full bg-ui_purpleLight h-[42px] md:h-[45px] xl:h-[70px] bottom-0 flex justify-center items-center">
                 <span className="text-center text-white text-ui_m_body1 md:text-ui_d_t_mini xl:text-ui_d_items font-ui_montserrat">
@@ -83,9 +83,10 @@ export const AboutME = () => {
           ))}
         </ul>
 
-        <div className="m-auto w-min">
-          <MainButton linkData={btns.connectWithTelegram} />
-        </div>
+        <MainButton
+          className="m-auto w-min"
+          linkData={btns.connectWithTelegram}
+        />
       </Container>
       <BaseVioletBlock mode="about" className="relative">
         <div className="md:w-[406px] xl:w-[733px]">
