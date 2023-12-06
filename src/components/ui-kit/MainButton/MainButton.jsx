@@ -34,16 +34,16 @@ export const MainButton = ({
           <button
             type="submit"
             tabIndex={tabindex}
-            className="mainLink font-ui_garamond formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
+            className="mainLink font-ui_garamond formSubmitBtn z-[1] flex items-center justify-center gap-[10px]"
           >
-            <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+            <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
               {buttonsData.button.title}
             </span>
-            <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+            <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
           </button>
 
-          <div className="absolute z-[-1] w-[256px] h-[68px] top-0">
-            <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
+          <div className="absolute w-[256px] h-[68px] top-0">
+            <ShortColoredEllipse className="absolute coloredForDarkBg stroke-white" />
             <ShortWhiteEllipse className="absolute stroke-white" />
           </div>
         </div>
