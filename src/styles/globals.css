@@ -167,11 +167,11 @@
 
   /* TYPOGRAPHY MARKDOWN */
   .main-prose {
-    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ol:w-full  prose-ul:w-full prose-ol:mb-0  prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
+    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-ol:last-of-type:mb-0 prose-ol:w-full prose-ol:mt-0 prose-li:my-0   prose-ul:w-full prose-ul:last-of-type:mb-0 prose-ul:mt-0 prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
   }
 
   .mobile-prose {
-    @apply prose-em:text-ui_m_description prose-p:mb-3 prose-p:text-ui_d_t_mini prose-li:marker:text-ui_d_t_mini prose-ol:pl-[30px] prose-ul:pl-[30px] prose-strong:text-ui_m_price;
+    @apply prose-em:text-ui_m_description prose-p:mb-3 prose-p:text-ui_d_t_mini prose-li:text-ui_d_t_mini prose-li:marker:text-ui_d_t_mini prose-ol:pl-[30px] prose-ul:pl-[30px] prose-strong:text-ui_m_price;
   }
 
   .tablet-prose {
