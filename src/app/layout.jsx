@@ -14,6 +14,7 @@ const eb_garamond = EB_Garamond({
   subsets: ['cyrillic-ext', 'latin'],
   display: 'swap',
   variable: '--font-eb_garamond',
+  style: ['normal', 'italic'],
 });
 
 export const metadata = {

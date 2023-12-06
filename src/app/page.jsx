@@ -5,6 +5,7 @@ import { Container } from '@/components/Container';
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { BaseVioletBlock } from '@/components/ui-kit/BaseVioletBlock';
 import { HeroModal } from '@/components/ui-kit/HeroModal';
+import { AboutME } from '@/sections/AboutMe';
 
 import btns from '@/data/buttons.json';
 
@@ -13,6 +14,7 @@ export default async function Home() {
     <>
       <Hero />
       <Stats />
+      <AboutME />
       <Services />
 
       <h1>EXAMPLES:</h1>
