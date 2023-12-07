@@ -75,6 +75,20 @@
     width: 35vw;
   }
 
+  /* FORM STYLES */
+  .field {
+    @apply w-full h-[50px] pl-2 md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat border-b-[1px] border-white60 hover:border-white  focus:bg-white bg-ui_purple   placeholder:text-white40 hover:placeholder:text-white60;
+  }
+  .field:focus,
+  .field:not(:placeholder-shown) {
+    @apply pt-2 bg-white;
+  }
+
+  .field_one-row:focus,
+  .field_one-row:not(:placeholder-shown) {
+    @apply py-0 leading-[50px];
+  }
+
   /* MAIN BUTTON STYLES */
   .coloredForDarkBg {
     @apply text-ui_purpleLight transitioned;

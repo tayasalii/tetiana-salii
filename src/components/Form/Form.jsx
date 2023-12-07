@@ -22,9 +22,20 @@ export const Form = ({ className = '' }) => {
       </p>
 
       <form className="mb-16 md:mb-[45px] xl:mb-10 flex flex-col gap-7 md:gap-8 md:w-[604px] md:mx-auto">
-        <input className="w-full" type="text" />
-        <input className="w-full" type="tel" placeholder="+380" />
-        <textarea className="w-full" placeholder={txt.message} />
+        <input
+          className="field field_one-row pt-[26px]"
+          type="text"
+          placeholder={txt.name}
+        />
+        <input
+          className="field field_one-row pt-[26px]"
+          type="tel"
+          placeholder={txt.phone}
+        />
+        <textarea
+          className="field h-[70px] pt-[50px] md:pt-[66px] md:h-[87px] resize-none"
+          placeholder={txt.message}
+        />
       </form>
       <MainButton className="m-auto" form />
     </div>

@@ -17,13 +17,14 @@ export const Feedback = () => {
 
         <picture className="xl:row-start-2">
           <source media="(max-width: 767.8px)" srcSet="/images/bouquet_m.jpg" />
-          <source media="(min-width: 768px)" srcSet="/images/bouquet_t.jpg" />
           <source media="(min-width: 1280px)" srcSet="/images/bouquet_d.jpg" />
+          <source media="(min-width: 768px)" srcSet="/images/bouquet_t.jpg" />
           <Image
             src={'/images/bouquet_d.jpg'}
             className="w-full h-auto"
             width={508}
             height={566}
+            sizes="(max-width: 1280px) 100vw, 40vw"
             alt="Вазон"
           />
         </picture>
