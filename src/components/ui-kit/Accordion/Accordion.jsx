@@ -128,7 +128,7 @@ export const Accordion = ({ items }) => {
               </Markdown>
 
               <div className="mt-3 md:mt-4 xl:mt-5 xl:flex xl:gap-[10px] items-start">
-                <p className="text-ui_purple font-ui_garamond text-ui_m_description">
+                <p className="text-ui_purple font-ui_garamond text-ui_m_description md:text-ui_d_t_description">
                   Вартість:
                 </p>
 
