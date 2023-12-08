@@ -1,10 +1,15 @@
 'use client';
+
 import { useState, useEffect, Fragment } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import { HeroModal } from '@/components/ui-kit/HeroModal';
+import { Spinner } from '../ui-kit/Spinner';
+import { MainButton } from '../ui-kit/MainButton';
+
+import btns from '@/data/buttons.json';
 
 export const TitulusList = ({ titulus, className = '' }) => {
   const [previewArray, setPreviewArray] = useState(null);
@@ -27,71 +32,52 @@ export const TitulusList = ({ titulus, className = '' }) => {
 
   return (
     <>
-      {previewArray && (
-        <ul
-          className={classNames(
-            'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
-            className,
-          )}
-        >
-          {previewArray.map((title, idx, arr) => (
-            <Fragment key={idx}>
-              {arr.length - 1 === idx && (
-                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
-                  {title}
-                  <HeroModal className="ml-[10px] md:ml-3" list={restOfArray} />
-                </li>
-              )}
+      {previewArray ? (
+        <>
+          <ul
+            className={classNames(
+              'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
+              className,
+            )}
+          >
+            {previewArray.map((title, idx, arr) => (
+              <Fragment key={idx}>
+                {arr.length - 1 === idx && (
+                  <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
+                    {title}
+                    <HeroModal
+                      className="ml-[10px] md:ml-3"
+                      list={restOfArray}
+                    />
+                  </li>
+                )}
 
-              {arr.length - 1 > idx && (
-                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
-                  {title}
-                </li>
-              )}
-            </Fragment>
-          ))}
-        </ul>
+                {arr.length - 1 > idx && (
+                  <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
+                    {title}
+                  </li>
+                )}
+              </Fragment>
+            ))}
+          </ul>
+
+          <div className="smOnly:mx-auto smOnly:w-max xl:row-start-4">
+            <MainButton linkData={btns.connectWithWhatsapp} variant="short" />
+          </div>
+        </>
+      ) : (
+        <div className="min-h-[170px] md:min-h-[416px] xl:min-h-[308px] smOnly:flex md:grid items-center justify-center md:col-start-1 md:row-start-3">
+          <Spinner />
+
+          <ul className="visually-hidden">
+            {titulus.map((title, idx) => (
+              <Fragment key={idx}>
+                <li className="">{title}</li>
+              </Fragment>
+            ))}
+          </ul>
+        </div>
       )}
-
-      {!previewArray && (
-        <p
-          className={classNames(
-            'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
-            className,
-          )}
-        >
-          Loading...
-        </p>
-      )}
-
-      {/* {!isClient && (
-        <ul
-          className={classNames(
-            'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
-            className,
-          )}
-        >
-          {titulus.slice(0, 4).map((title, idx, arr) => (
-            <Fragment key={idx}>
-              {arr.length - 1 === idx && (
-                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
-                  {title}
-                  <HeroModal
-                    className="ml-[10px] md:ml-3"
-                    list={titulus.slice(4)}
-                  />
-                </li>
-              )}
-
-              {arr.length - 1 > idx && (
-                <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
-                  {title}
-                </li>
-              )}
-            </Fragment>
-          ))}
-        </ul>
-      )} */}
     </>
   );
 };
