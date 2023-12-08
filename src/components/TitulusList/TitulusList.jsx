@@ -36,25 +36,25 @@ export const TitulusList = ({ titulus, className = '' }) => {
         <>
           <ul
             className={classNames(
-              'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[6px]',
+              'font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid grid-col-1 gap-[1px] md:gap-2',
               className,
             )}
           >
             {previewArray.map((title, idx, arr) => (
               <Fragment key={idx}>
                 {arr.length - 1 === idx && (
-                  <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left whitespace-normal">
+                  <li className="relative smOnly:h-[25px] md:min-h-[22px] pl-[31px] before:absolute before:left-0 before:top-0 before:content-sparkle text-left whitespace-normal">
                     {title}
                     <HeroModal
-                      className="ml-[10px] md:ml-3"
+                      className="ml-[10px] md:ml-3 h-auto"
                       list={restOfArray}
                     />
                   </li>
                 )}
 
                 {arr.length - 1 > idx && (
-                  <li className="relative pl-[31px] before:absolute before:left-0 before:content-sparkle text-left !whitespace-normal">
-                    {title}
+                  <li className="relative flex items-center smOnly:h-[25px] md:min-h-[22px] pl-[31px] before:absolute before:left-0 before:top-0 before:content-sparkle text-left !whitespace-normal">
+                    <span>{title}</span>
                   </li>
                 )}
               </Fragment>
@@ -71,9 +71,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
 
           <ul className="visually-hidden">
             {titulus.map((title, idx) => (
-              <Fragment key={idx}>
-                <li className="">{title}</li>
-              </Fragment>
+              <li key={idx}>{title}</li>
             ))}
           </ul>
         </div>

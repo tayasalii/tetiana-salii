@@ -127,7 +127,7 @@
   }
 
   .formSubmitBtn {
-    @apply text-ui_purple h-[68px] w-[257px] relative rounded-full;
+    @apply text-ui_purple relative rounded-full;
   }
 
   /* Hero Modal */

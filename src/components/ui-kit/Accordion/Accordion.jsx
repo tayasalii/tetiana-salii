@@ -94,6 +94,7 @@ export const Accordion = ({ items }) => {
                     !isActive,
                 },
               )}
+              disabled={isActive}
               onClick={() => onTitleClick(index)}
               type="button"
             >
