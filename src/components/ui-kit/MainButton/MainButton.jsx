@@ -19,6 +19,7 @@ export const MainButton = ({
   linkData,
   tabindex = 0,
   className = '',
+  disabled = 'false',
 }) => {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
@@ -34,7 +35,11 @@ export const MainButton = ({
           <button
             type="submit"
             tabIndex={tabindex}
-            className="mainLink font-ui_garamond formSubmitBtn z-[1] flex items-center justify-center gap-[10px]"
+            className={classNames(
+              'mainLink font-ui_garamond formSubmitBtn z-[1] flex items-center justify-center gap-[10px]',
+              { ['bg-gray-400']: disabled },
+            )}
+            disabled={disabled}
           >
             <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
               {buttonsData.button.title}
@@ -152,4 +157,5 @@ MainButton.proptypes = {
   }),
   tabindex: PropTypes.oneOf([0, 1]),
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
