@@ -31,6 +31,30 @@
     filter: drop-shadow(0px 4px 4px rgba(50, 50, 50, 0.75));
   }
 
+  /* Spinner */
+  .custom-loader {
+    animation: h2 2s infinite linear;
+  }
+  .custom-loader:before,
+  .custom-loader:after {
+    content: '';
+    grid-area: 1/1;
+    border: inherit;
+    border-radius: 50%;
+    animation: inherit;
+    animation-duration: 3s;
+  }
+  .custom-loader:after {
+    --s: -1;
+  }
+
+  @keyframes h2 {
+    100% {
+      transform: rotate(calc(var(--s, 1) * 1turn));
+    }
+  }
+
+  /*  */
   .brake {
     display: block;
     content: '';
@@ -103,7 +127,7 @@
   }
 
   .formSubmitBtn {
-    @apply text-ui_purple h-[68px] w-[257px] relative rounded-full;
+    @apply text-ui_purple relative rounded-full;
   }
 
   /* Hero Modal */
