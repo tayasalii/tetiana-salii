@@ -1,38 +1,47 @@
 [
   {
-    "src": "/images/slides/slide-1.jpg",
-    "alt": "Відгук 1"
+    "src": "/images/slides/slide_1.jpg",
+    "alt": "Відгук 1",
+    "priority": 3
   },
   {
-    "src": "/images/slides/slide-2.jpg",
-    "alt": "Відгук 2"
+    "src": "/images/slides/slide_2.jpg",
+    "alt": "Відгук 2",
+    "priority": 2
   },
   {
-    "src": "/images/slides/slide-3.jpg",
-    "alt": "Відгук 3"
+    "src": "/images/slides/slide_3.jpg",
+    "alt": "Відгук 3",
+    "priority": 1
   },
   {
-    "src": "/images/slides/slide-4.jpg",
-    "alt": "Відгук 4"
+    "src": "/images/slides/slide_4.jpg",
+    "alt": "Відгук 4",
+    "priority": 4
   },
   {
-    "src": "/images/slides/slide-5.jpg",
-    "alt": "Відгук 5"
+    "src": "/images/slides/slide_5.jpg",
+    "alt": "Відгук 5",
+    "priority": 5
   },
   {
-    "src": "/images/slides/slide-6.jpg",
-    "alt": "Відгук 6"
+    "src": "/images/slides/slide_6.jpg",
+    "alt": "Відгук 6",
+    "priority": 6
   },
   {
-    "src": "/images/slides/slide-7.jpg",
-    "alt": "Відгук 7"
+    "src": "/images/slides/slide_7.jpg",
+    "alt": "Відгук 7",
+    "priority": 9
   },
   {
-    "src": "/images/slides/slide-8.jpg",
-    "alt": "Відгук 8"
+    "src": "/images/slides/slide_8.jpg",
+    "alt": "Відгук 8",
+    "priority": 7
   },
   {
-    "src": "/images/slides/slide-9.jpg",
-    "alt": "Відгук 9"
+    "src": "/images/slides/slide_9.jpg",
+    "alt": "Відгук 9",
+    "priority": 8
   }
 ]
