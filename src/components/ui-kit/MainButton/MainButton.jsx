@@ -1,14 +1,14 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 
+import { ButtonIcon } from '../ButtonIcon';
 import buttonsData from '@/data/buttons.json';
 
 import TelegramIcon from 'public/icons/telegram.svg';
-import InstagramIcon from 'public/icons/instagram.svg';
-import WhatsappIcon from 'public/icons/whatsapp.svg';
 import ShortColoredEllipse from 'public/icons/short-colored-ellipse.svg';
 import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
 import LongColoredEllipse from 'public/icons/long-colored-ellipse.svg';
@@ -23,6 +23,11 @@ export const MainButton = ({
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
+  const dimensionsStyles = {
+    'w-[253px] h-[59px]': !isDesktop,
+    'w-[290px] h-[68px]': isDesktop,
+  };
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -30,35 +35,60 @@ export const MainButton = ({
   return (
     <>
       {form && (
-        <div className={classNames('relative w-[256px] h-[68px]', className)}>
-          <button
-            type="submit"
-            tabIndex={tabindex}
-            className="mainLink font-ui_garamond formSubmitBtn z-[2] flex items-center justify-center gap-[10px]"
-          >
-            <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
-              {buttonsData.button.title}
-            </span>
-            <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
-          </button>
+        <>
+          {isClient && (
+            <div
+              className={classNames('relative', dimensionsStyles, className)}
+            >
+              <button
+                type="submit"
+                tabIndex={tabindex}
+                className={classNames(
+                  'mainLink font-ui_garamond z-[2] flex items-center justify-center gap-[10px]',
+                  dimensionsStyles,
+                )}
+              >
+                <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                  {buttonsData.button.title}
+                </span>
+                <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+              </button>
 
-          <div className="absolute z-[-1] w-[256px] h-[68px] top-0">
-            <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
-            <ShortWhiteEllipse className="absolute stroke-white" />
-          </div>
-        </div>
+              {isDesktop && (
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <LongColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
+                  <LongWhiteEllipse className="absolute stroke-white" />
+                </div>
+              )}
+
+              {!isDesktop && (
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg" />
+                  <ShortWhiteEllipse className="absolute" />
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
 
       {linkData && !form && (
         <>
-          {isClient ? (
+          {isClient && (
             <div
               className={classNames(
-                'relative h-[68px] rounded-full',
-                {
-                  'w-[256px]': !isDesktop,
-                  'w-[290px]': isDesktop,
-                },
+                'relative rounded-full',
+                dimensionsStyles,
                 className,
               )}
             >
@@ -68,10 +98,7 @@ export const MainButton = ({
                 rel="noopener noreferrer nofollow"
                 className={classNames(
                   'flex items-center justify-center gap-[6px] text-ui_purple mainLink',
-                  {
-                    'h-[68px] w-[256px]': !isDesktop,
-                    'h-[68px] w-[290px]': isDesktop,
-                  },
+                  dimensionsStyles,
                 )}
               >
                 <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2">
@@ -79,32 +106,36 @@ export const MainButton = ({
                   {linkData.title}
                 </span>
 
-                {linkData.icon === 'telegram' && (
-                  <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
-                )}
-                {linkData.icon === 'instagram' && (
-                  <InstagramIcon className="w-[22px] h-[22px] z-[2]" />
-                )}
-                {linkData.icon === 'whatsapp' && (
-                  <WhatsappIcon className="w-[22px] h-[22px] z-[2]" />
-                )}
+                <ButtonIcon icon={linkData.icon} />
               </a>
 
               {isDesktop && (
-                <div className="absolute z-[-1] h-[68px] w-[290px] top-0">
-                  <LongColoredEllipse className="z-[-1] w-[290px] absolute coloredForLightBg stroke-ui_purple" />
-                  <LongWhiteEllipse className="absolute w-[290px] stroke-ui_purpleLight" />
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <LongColoredEllipse className="z-[-1] absolute coloredForLightBg stroke-ui_purple" />
+                  <LongWhiteEllipse className="absolute" />
                 </div>
               )}
 
               {!isDesktop && (
-                <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
-                  <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
-                  <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <ShortColoredEllipse className="z-[-1] absolute coloredForLightBg" />
+                  <ShortWhiteEllipse className="absolute" />
                 </div>
               )}
             </div>
-          ) : (
+          )}
+
+          {!isClient && (
             <div
               className={classNames('relative w-[256px] h-[68px] rounded-full')}
             >
@@ -121,20 +152,32 @@ export const MainButton = ({
                   {linkData.title}
                 </span>
 
-                {linkData.icon === 'telegram' && (
-                  <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
-                )}
-                {linkData.icon === 'instagram' && (
-                  <InstagramIcon className="w-[22px] h-[22px] z-[2]" />
-                )}
-                {linkData.icon === 'whatsapp' && (
-                  <WhatsappIcon className="w-[22px] h-[22px] z-[2]" />
-                )}
+                <ButtonIcon icon={linkData.icon} />
               </a>
-              <div className="absolute z-[-1] h-[68px] w-[256px] top-0">
-                <ShortColoredEllipse className="z-[-1] absolute w-[256px] h-[68px] coloredForLightBg stroke-ui_purple" />
-                <ShortWhiteEllipse className="absolute w-[256px] h-[68px] stroke-ui_purpleLight" />
-              </div>
+
+              {isDesktop && (
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <LongColoredEllipse className="z-[-1] absolute coloredForLightBg stroke-ui_purple" />
+                  <LongWhiteEllipse className="absolute" />
+                </div>
+              )}
+
+              {!isDesktop && (
+                <div
+                  className={classNames(
+                    'absolute z-[-1] top-0',
+                    dimensionsStyles,
+                  )}
+                >
+                  <ShortColoredEllipse className="z-[-1] absolute coloredForLightBg" />
+                  <ShortWhiteEllipse className="absolute" />
+                </div>
+              )}
             </div>
           )}
         </>

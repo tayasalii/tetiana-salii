@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import { BaseModal } from '../BaseModal';
 
@@ -21,12 +20,8 @@ export const HeroModal = ({ list, className = '' }) => {
 
   return (
     <>
-      <button
-        className={classNames('relative', className)}
-        type="button"
-        onClick={openModal}
-      >
-        <span className="absolute top-[-18px] text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
+      <button className={className} type="button" onClick={openModal}>
+        <span className="top-[-18px] text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
           {hero.more}
         </span>
       </button>
