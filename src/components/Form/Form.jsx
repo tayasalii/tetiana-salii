@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PhoneInput from 'react-phone-input-2';
+
+import 'react-phone-input-2/lib/bootstrap.css';
 
 import { MainButton } from '@/components/ui-kit/MainButton';
 import { formValidationSchema } from '@/utils/formValidationSchema';
@@ -19,10 +22,11 @@ export const Form = ({ className = '' }) => {
   const [isSendingError, setIsSendingError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const STORAGE_KEY = 'contactForm';
+  const STORAGE_KEY = 'feedbackForm';
   const schema = formValidationSchema();
 
   const {
+    control,
     register,
     handleSubmit,
     watch,
@@ -75,55 +79,107 @@ export const Form = ({ className = '' }) => {
       </p>
 
       <form
-        className=" flex flex-col md:w-[604px] md:mx-auto"
+        className="flex flex-col md:w-[604px] md:mx-auto gap-y-7 md:gap-y-8"
         onSubmit={handleSubmit(onSubmitHandler)}
         noValidate="noValidate"
       >
         <div className="relative">
           <input
-            className="mb-7 md:mb-8 field field_one-row pt-[26px]"
+            className={classNames('field field_one-row pt-[26px]', {
+              ['border-ui_red border-[1px]']: errors?.name,
+            })}
             type="text"
             placeholder={txt.name}
             {...register('name')}
           />
-          {errors?.name && (
-            <p className="border-ui_red border-[1px] bg-white">
-              {errors?.name?.message}
-            </p>
-          )}
+          {errors?.name && <p className="error">{errors?.name?.message}</p>}
         </div>
 
-        <div>
+        {/* <div className="relative">
           <input
-            className="mb-7 md:mb-8 field field_one-row pt-[26px]"
+            className={classNames('field field_one-row pt-[26px]', {
+              ['border-ui_red border-[1px]']: errors?.phone,
+            })}
             type="tel"
             placeholder={txt.phone}
             {...register('phone')}
           />
-          {errors?.phone && (
-            <p className="border-ui_red border-[1px] bg-white">
-              {errors?.phone?.message}
-            </p>
+          {errors?.phone && <p className="error">{errors?.phone?.message}</p>}
+        </div> */}
+        <Controller
+          name="phone"
+          control={control}
+          render={({ field }) => (
+            <div className="relative">
+              <PhoneInput
+                // placeholder={txt.placeholder}
+                autoFormat={true}
+                country={'ua'}
+                excludeCountries={['ru']}
+                localization={{ ua: 'Україна' }}
+                // onChange={(value, country) => {
+                //   console.log('Form ~ country:', country);
+                //   console.log('Form ~ value:', value);
+                // }}
+                inputProps={{
+                  name: field.name,
+                  onChange: field.onChange,
+                  onBlur: field.onBlur,
+                  className: classNames('field field_one-row pl-[50px]', {
+                    ['border-ui_red border-[1px]']: errors?.phone,
+                  }),
+                  placeholder: '+380',
+                }}
+                {...field}
+                // containerClass="focus-within:ring"
+                // inputClass=''
+                // buttonClass="!border-none"
+              />
+              {errors?.phone && (
+                <p className="error">{errors?.phone?.message}</p>
+              )}
+            </div>
+          )}
+        />
+
+        <div className="relative h-min">
+          <textarea
+            className={classNames(
+              'field h-[70px] pt-[50px] md:pt-[66px] md:h-[87px] resize-none block',
+              {
+                ['border-ui_red border-[1px]']: errors?.message,
+              },
+            )}
+            placeholder={txt.message}
+            {...register('message')}
+          />
+          {errors?.message && (
+            <p className="error">{errors?.message?.message}</p>
           )}
         </div>
 
-        <textarea
-          className="mb-16 md:mb-[45px] xl:mb-10 field h-[70px] pt-[50px] md:pt-[66px] md:h-[87px] resize-none"
-          placeholder={txt.message}
-          {...register('message')}
+        <MainButton
+          className="m-auto mt-9 md:mt-[13px] xl:mt-2"
+          form
+          disabled={isSubmitting}
         />
-        {errors?.message && (
-          <p className="border-ui_red border-[1px] bg-white">
-            {errors?.message?.message}
-          </p>
-        )}
-
-        <MainButton className="m-auto" form disabled={isSubmitting} />
       </form>
 
-      {isSuccess && !isSubmitting && <FormModal>Thanks!</FormModal>}
+      {isSuccess && !isSubmitting && (
+        <FormModal>
+          <p className="msgTitle">{txt.successTitle}</p>
+          <p className="msg mb-3">{txt.successMsgR1}</p>
+          <p className="msg">{txt.successMsgR2}</p>
+        </FormModal>
+      )}
 
-      {isSendingError && !isSubmitting && <FormModal>Error!</FormModal>}
+      {isSendingError && !isSubmitting && (
+        <FormModal>
+          <p className="msgTitle">{txt.errorTitle}</p>
+          <p className="msg mb-3">{txt.errorMsgR1}</p>
+          <p className="msg">{txt.errorMsgR2}</p>
+        </FormModal>
+      )}
     </div>
   );
 };

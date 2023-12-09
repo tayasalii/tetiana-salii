@@ -247,6 +247,20 @@ module.exports = {
             fontWeight: '400',
           },
         ],
+        ui_d_t_error: [
+          '14px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
+        ui_m_error: [
+          '12px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
       },
     },
   },

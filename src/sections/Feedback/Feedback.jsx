@@ -21,7 +21,7 @@ export const Feedback = () => {
           <source media="(min-width: 768px)" srcSet="/images/bouquet_t.jpg" />
           <Image
             src={'/images/bouquet_d.jpg'}
-            className="w-full h-auto"
+            className="w-full h-auto xl:object-cover xl:h-full"
             width={508}
             height={566}
             sizes="(max-width: 1280px) 100vw, 40vw"
