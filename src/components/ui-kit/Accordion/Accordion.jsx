@@ -17,6 +17,8 @@ export const Accordion = ({ items }) => {
   const itemRef = useRef(null);
 
   const onTitleClick = index => {
+    if (index === activeIndex) return;
+
     let prevItemIndx = null;
 
     if (index !== activeIndex) {
