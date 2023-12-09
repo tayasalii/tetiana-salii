@@ -27,6 +27,16 @@
     overflow: hidden;
   }
 
+  .shadowy {
+    filter: drop-shadow(0px 4px 4px rgba(50, 50, 50, 0.75));
+  }
+
+  .brake {
+    display: block;
+    content: '';
+    margin-bottom: 12px;
+  }
+
   .transitioned {
     @apply transition duration-[250ms];
   }
@@ -36,7 +46,7 @@
   }
 
   .section-heading {
-    @apply text-center mb-8 md:mb-10 text-ui_m_h1 font-ui_garamond text-ui_purple md:text-ui_t_h1 xl:text-ui_d_h1;
+    @apply mb-8 text-center md:mb-10 text-ui_m_h1 font-ui_garamond text-ui_purple md:text-ui_t_h1 xl:text-ui_d_h1;
   }
 
   .purple-stroke {
@@ -167,19 +177,25 @@
 
   /* TYPOGRAPHY MARKDOWN */
   .main-prose {
-    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mt-0 prose-p:last-of-type:mb-0 prose-li:my-0 prose-ol:w-full  prose-ul:w-full prose-ol:mb-0  prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
+    @apply prose font-ui_montserrat prose-em:text-ui_purple prose-em:not-italic prose-em:font-ui_garamond prose-p:mb-0 prose-ol:w-full prose-ol:mt-0 prose-li:my-0 prose-ul:w-full prose-ul:last-of-type:mb-0 prose-ul:mt-0 prose-li:pl-0 prose-li:marker:text-ui_dark max-w-[1027px];
+  }
+
+  .main-prose p:first-child,
+  .main-prose ol:first-child,
+  .main-prose ul:first-child {
+    margin-top: 0;
   }
 
   .mobile-prose {
-    @apply prose-em:text-ui_m_description prose-p:mb-3 prose-p:text-ui_d_t_mini prose-li:marker:text-ui_d_t_mini prose-ol:pl-[30px] prose-ul:pl-[30px] prose-strong:text-ui_m_price;
+    @apply prose-em:text-ui_m_description prose-p:mt-3  prose-p:text-ui_d_t_mini prose-li:text-ui_d_t_mini prose-li:marker:text-ui_d_t_mini prose-ol:pl-[30px] prose-ul:pl-[30px] prose-strong:text-ui_m_price;
   }
 
   .tablet-prose {
-    @apply md:prose-p:text-ui_m_items md:prose-em:text-ui_d_t_description;
+    @apply md:prose-p:text-ui_m_items md:prose-em:text-ui_d_t_description md:prose-li:text-ui_m_items md:prose-li:marker:text-ui_m_items md:prose-strong:text-ui_m_price;
   }
 
   .desktop-prose {
-    @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10  xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mb-5;
+    @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10 xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mt-5  xl:prose-strong:text-ui_t_m_body2;
   }
 
   /* REVIEW SWIPER */

@@ -13,6 +13,10 @@ module.exports = {
       notXl: { max: '1279.98px' },
     },
     extend: {
+      screens: {
+        smMdOnly: { min: '450px', max: '767.98px' },
+      },
+
       container: {
         center: true,
         padding: {
