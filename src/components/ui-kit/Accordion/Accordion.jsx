@@ -13,63 +13,71 @@ import ArrowIcon from 'public/icons/accordion-arrow.svg';
 
 export const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // const [prevSubItemHeight, setPrevSubItemHeight] = useState(null);
-  const [prevSubItemIndx, setPrevSubItemIndx] = useState(0);
+  const [prevSubItemHeight, setPrevSubItemHeight] = useState(null);
   const itemRef = useRef(null);
 
   const onTitleClick = index => {
+    if (index === activeIndex) return;
+
+    let prevItemIndx = null;
+
     if (index !== activeIndex) {
-      setPrevSubItemIndx(activeIndex);
+      prevItemIndx = activeIndex;
       setActiveIndex(index);
     }
 
-    // const el = itemRef.current;
+    const el = itemRef.current.children[index];
 
-    // if (el) {
-    //   const rect = el.getBoundingClientRect();
+    if (el) {
+      const rect = el.getBoundingClientRect();
 
-    //   // distance between current clicked item and top of the screen
-    //   let distanceToScreenTop = rect.top;
+      // distance between current clicked item and top of the screen
+      let distanceToScreenTop = rect.top;
 
-    //   // distance between top of the page and current scrollbar position
-    //   const scrollFromPageTop = window.scrollY;
+      // distance between top of the page and current scrollbar position
+      const scrollFromPageTop = window.scrollY;
 
-    //   // padding at body (because of header)
-    //   if (window.innerWidth <= 767) {
-    //     distanceToScreenTop -= 85;
-    //   } else if (window.innerWidth <= 1279) {
-    //     distanceToScreenTop -= 155;
-    //   } else {
-    //     distanceToScreenTop -= 160;
-    //   }
+      // padding at body (because of header)
+      if (window.innerWidth <= 767) {
+        distanceToScreenTop -= 85;
+      } else if (window.innerWidth <= 1279) {
+        distanceToScreenTop -= 155;
+      } else {
+        distanceToScreenTop -= 160;
+      }
 
-    //   let topPosition = 0;
-    //   if (prevSubItemIndx < activeIndex) {
-    //     topPosition =
-    //       scrollFromPageTop - distanceToScreenTop - prevSubItemHeight;
-    //   } else {
-    //     topPosition = scrollFromPageTop - distanceToScreenTop;
-    //   }
+      let topPosition = 0;
+      if (prevItemIndx < index) {
+        topPosition =
+          scrollFromPageTop + distanceToScreenTop - prevSubItemHeight;
+      } else {
+        topPosition = scrollFromPageTop + distanceToScreenTop;
+      }
 
-    //   window.scrollTo({
-    //     top: topPosition,
-    //     behavior: 'smooth',
-    //   });
-    // }
+      window.scrollTo({
+        top: topPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   useEffect(() => {
     const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
+    let btnHeight = itemRef.current.children[activeIndex].scrollHeight;
+    let contentHeight = null;
+
     subItemRefs.forEach((subItemRef, index) => {
       if (activeIndex === index) {
         subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
-        // setPrevSubItemHeight(subItemRef.scrollHeight);
+        contentHeight = subItemRef.scrollHeight;
       } else {
         subItemRef.style.maxHeight = '0';
       }
     });
-  }, [activeIndex, prevSubItemIndx]);
+
+    setPrevSubItemHeight(btnHeight + contentHeight);
+  }, [activeIndex]);
 
   return (
     <ol className="grid gap-y-1" ref={itemRef}>
@@ -77,17 +85,18 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li key={id} className="relative z-[1] bg-white">
+          <li key={id} className="subItemBtn relative z-[1] bg-white">
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
-                'cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
+                'subItemFull cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
                 {
                   'text-white bg-ui_purpleLight ': isActive,
                   'text-ui_dark bg-white border-b border-b-ui_purpleLight':
                     !isActive,
                 },
               )}
+              // disabled={isActive}
               onClick={() => onTitleClick(index)}
               type="button"
             >
@@ -121,12 +130,12 @@ export const Accordion = ({ items }) => {
                 {description}
               </Markdown>
 
-              <div className="flex gap-2 xl:gap-[10px] mt-3 md:mt-4 xl:mt-5 items-start">
-                <p className="text-ui_purple font-ui_garamond text-ui_m_description">
+              <div className="mt-3 md:mt-4 xl:mt-5 xl:flex xl:gap-[10px] items-start">
+                <p className="text-ui_purple font-ui_garamond text-ui_m_description md:text-ui_d_t_description">
                   Вартість:
                 </p>
 
-                <Markdown className="main-prose mobile-prose tablet-prose desktop-prose prose-ul:mt-[-5px] mt-[5px] xl:mt-[2px]">
+                <Markdown className="main-prose mobile-prose tablet-prose desktop-prose notXl:prose-ul:mt-[-7px] mt-[5px] xl:mt-[2px] prose-strong:whitespace-nowrap">
                   {price}
                 </Markdown>
               </div>

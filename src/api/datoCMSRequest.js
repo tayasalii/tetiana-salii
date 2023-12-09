@@ -6,6 +6,7 @@ export const queryForTabs = gql`
       tabs {
         id
         tabTitle
+        hasBenefits
         services {
           title
           price
