@@ -95,45 +95,22 @@ export const Form = ({ className = '' }) => {
           {errors?.name && <p className="error">{errors?.name?.message}</p>}
         </div>
 
-        {/* <div className="relative">
-          <input
-            className={classNames('field field_one-row pt-[26px]', {
-              ['border-ui_red border-[1px]']: errors?.phone,
-            })}
-            type="tel"
-            placeholder={txt.phone}
-            {...register('phone')}
-          />
-          {errors?.phone && <p className="error">{errors?.phone?.message}</p>}
-        </div> */}
         <Controller
           name="phone"
           control={control}
           render={({ field }) => (
             <div className="relative">
               <PhoneInput
-                // placeholder={txt.placeholder}
-                autoFormat={true}
                 country={'ua'}
                 excludeCountries={['ru']}
                 localization={{ ua: 'Україна' }}
-                // onChange={(value, country) => {
-                //   console.log('Form ~ country:', country);
-                //   console.log('Form ~ value:', value);
-                // }}
                 inputProps={{
-                  name: field.name,
-                  onChange: field.onChange,
-                  onBlur: field.onBlur,
-                  className: classNames('field field_one-row pl-[50px]', {
+                  className: classNames('field field_one-row pl-[99px]', {
                     ['border-ui_red border-[1px]']: errors?.phone,
                   }),
                   placeholder: '+380',
                 }}
                 {...field}
-                // containerClass="focus-within:ring"
-                // inputClass=''
-                // buttonClass="!border-none"
               />
               {errors?.phone && (
                 <p className="error">{errors?.phone?.message}</p>

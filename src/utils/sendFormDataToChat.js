@@ -11,7 +11,7 @@ export const sendFormDataToChat = async (
   reset,
 ) => {
   const { name, phone, message } = data;
-  const text = `Ім'я: ${name}\nТелефон: ${phone}\nПовідомлення: ${message}`;
+  const text = `Ім'я: ${name}\nТелефон: +${phone}\nПовідомлення: ${message}`;
 
   return await axios
     .post(URL_API, {

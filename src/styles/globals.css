@@ -254,65 +254,23 @@
 }
 
 /* REACT-PHONE-INPUT-2 */
-/* .react-tel-input .selected-flag:hover,
-.react-tel-input .selected-flag:focus {
-  background: none !important;
+.flag {
+  @apply scale-x-[1.88] scale-y-[1.4] left-5;
 }
 
-.react-tel-input .flag-dropdown.open {
-  background: none !important;
-}
-*/
-
-.react-tel-input .flag-dropdown.open .selected-flag {
-  background: none !important;
-}
-
-/*
 .react-tel-input .selected-flag {
-  padding: 0 !important;
-  width: 46px !important;
-
-  transition: all var(--transition);
-}
-
-.react-tel-input .selected-flag .flag {
-  left: 2px;
-
-  transition: all var(--transition);
-}
-
-.react-tel-input .selected-flag:focus .flag {
-  left: 10px;
+  @apply !w-[90px];
 }
 
 .react-tel-input .selected-flag .arrow {
-  border: none !important;
-  width: 16px !important;
-  height: 16px !important;
-   background-image: url('../assets/svg/arrow-down.svg') !important;
-  left: 20px !important;
-  top: 0 !important;
-
-  transition: transform var(--transition);
+  @apply !border-solid !border-l-[5px] !border-l-transparent !border-r-[5px] !border-r-transparent !border-t-[6px] !border-t-[#d9d9d9];
 }
 
 .react-tel-input .selected-flag .arrow.up {
-  border: none !important;
-  transform: rotateX(180deg) !important;
+  @apply !border-b-[6px] !border-b-[#d9d9d9] !border-t-transparent !-translate-y-1/2;
 }
 
-.react-tel-input .form-control:focus {
-  outline: auto !important;
-   outline-color: var(--accent-cl) !important;
+.react-tel-input .selected-flag:focus:before,
+.react-tel-input .selected-flag.open:before {
+  @apply outline !border-none !shadow-none;
 }
-
-.form-control:focus + div .flag {
-  left: 10px;
-}
-
-.selected-flag:focus {
-  padding-left: 8px !important;
-  outline: auto !important;
-  outline-color: inherit !important;
-} */

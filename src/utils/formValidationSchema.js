@@ -1,7 +1,10 @@
 import * as Yup from 'yup';
 
-const nameRegexp = /^[A-Za-zА-Яа-яіІїЇєЄґҐ'\s-]+$/;
-// const phoneRegexp = /^\+[0-9]*$/;
+import { keepOnlyDigits } from '@/utils/keepOnlyDigits';
+
+const nameRegexp =
+  /^[а-яА-Яa-zA-ZіІїЇґҐєЄ]+(([ʼ’'` -][а-яА-Яa-zA-ZіІїЇґҐєЄ ])?[а-яА-Яa-zA-ZіІїЇґҐєЄ]*)*$/;
+const phoneRegexp = /^\d{11,12}$/;
 
 export const formValidationSchema = () =>
   Yup.object({
@@ -14,15 +17,14 @@ export const formValidationSchema = () =>
         nameRegexp,
         '* Ім`я може містити тільки літери, пробіл, апостроф та тире',
       ),
+
     phone: Yup.string()
-      .trim()
       .required("* Телефон обов'язковий")
-      .min(11, '* Телефон закороткий, має містити + на початку та 11 цифр')
-      .max(12, '* Телефон задовгий,  має містити + на початку та 12 цифр'),
-    // .matches(
-    //   phoneRegexp,
-    //   '* Телефон некоректний, має містити + на початку та 12 цифр',
-    // ),
+      .test('phone', '* Телефон має містити від 11 до 12 цифр', value => {
+        const digitsOnly = keepOnlyDigits(value);
+        return phoneRegexp.test(digitsOnly);
+      }),
+
     message: Yup.string()
       .trim()
       .required("* Повідомлення обов'язковий")
