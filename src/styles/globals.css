@@ -251,6 +251,174 @@
   .desktop-prose {
     @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10 xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mt-5 xl:prose-strong:text-ui_t_m_body2;
   }
+
+  /* REVIEW SWIPER */
+
+  .reviewBg {
+    background-image: linear-gradient(
+        0deg,
+        rgba(99, 67, 109, 0.5) 0%,
+        rgba(99, 67, 109, 0.5) 100%
+      ),
+      image-set(
+        url(/images/review-bg/bg-mob.webp) type('image/webp') 1x,
+        url(/images/review-bg/bg-mob@2x.webp) type('image/webp') 2x,
+        url(/images/review-bg/bg-mob.jpg) 1x,
+        url(/images/review-bg/bg-mob@2x.jpg) 2x
+      );
+
+    background-image:
+      linear-gradient(
+        0deg,
+        rgba(99, 67, 109, 0.5) 0%,
+        rgba(99, 67, 109, 0.5) 100%
+      ),
+      -webkit-image-set(url(/images/review-bg/bg-mob.webp) type('image/webp') 1x, url(/images/review-bg/bg-mob@2x.webp)
+            type('image/webp') 2x, url(/images/review-bg/bg-mob.jpg) 1x, url(/images/review-bg/bg-mob@2x.jpg)
+            2x);
+  }
+
+  @media screen and (min-width: 768px) {
+    .reviewBg {
+      background-image: linear-gradient(
+          0deg,
+          rgba(99, 67, 109, 0.5) 0%,
+          rgba(99, 67, 109, 0.5) 100%
+        ),
+        image-set(
+          url(/images/review-bg/bg-tab.webp) type('image/webp') 1x,
+          url(/images/review-bg/bg-tab@2x.webp) type('image/webp') 2x,
+          url(/images/review-bg/bg-tab.jpg) 1x,
+          url(/images/review-bg/bg-tab@2x.jpg) 2x
+        );
+      background-image:
+        linear-gradient(
+          0deg,
+          rgba(99, 67, 109, 0.5) 0%,
+          rgba(99, 67, 109, 0.5) 100%
+        ),
+        -webkit-image-set(url(/images/review-bg/bg-tab.webp) type('image/webp')
+              1x, url(/images/review-bg/bg-tab@2x.webp) type('image/webp') 2x, url(/images/review-bg/bg-tab.jpg)
+              1x, url(/images/review-bg/bg-tab@2x.jpg) 2x);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .reviewBg {
+      background-size: 1440px;
+      background: rgba(99, 67, 109, 0.5);
+      background-image: linear-gradient(
+          0deg,
+          rgba(99, 67, 109, 0.5) 0%,
+          rgba(99, 67, 109, 0.5) 100%
+        ),
+        image-set(
+          url(/images/review-bg/bg-desc.webp) type('image/webp') 1x,
+          url(/images/review-bg/bg-desc@2x.webp) type('image/webp') 2x,
+          url(/images/review-bg/bg-desc.jpg) 1x,
+          url(/images/review-bg/bg-desc@2x.jpg) 2x
+        );
+      background-image:
+        linear-gradient(
+          0deg,
+          rgba(99, 67, 109, 0.5) 0%,
+          rgba(99, 67, 109, 0.5) 100%
+        ),
+        -webkit-image-set(url(/images/review-bg/bg-desc.webp) type('image/webp')
+              1x, url(/images/review-bg/bg-desc@2x.webp) type('image/webp') 2x, url(/images/review-bg/bg-desc.jpg)
+              1x, url(/images/review-bg/bg-desc@2x.jpg) 2x);
+    }
+  }
+
+  .sliderSwiper .swiper-wrapper {
+    padding-bottom: 30px;
+  }
+
+  .sliderSwiper .swiper-slide {
+    height: 324px;
+  }
+
+  .sliderSwiper .swiper-slide,
+  .sliderSwiper .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sliderSwiper .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  .sliderSwiper .swiper-button-next,
+  .sliderSwiper .swiper-button-prev {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+
+  .sliderSwiper .swiper-button-next::after,
+  .sliderSwiper .swiper-button-prev::after {
+    width: 50px;
+    height: 50px;
+    content: '';
+  }
+
+  .sliderSwiper .swiper-button-next::after {
+    background-image: url('/icons/arrow-right-circle.svg');
+  }
+
+  .sliderSwiper .swiper-button-prev::after {
+    background-image: url('/icons/arrow-left-circle.svg');
+  }
+
+  .sliderSwiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 7px !important;
+    background: #fff;
+    opacity: 0.6 !important;
+  }
+
+  .sliderSwiper .swiper-pagination-bullet-active {
+    background: #63436d;
+    width: 20px;
+    height: 20px;
+    opacity: 1 !important;
+  }
+
+  @media screen and (min-width: 768px) {
+    .sliderSwiper .swiper-button-next,
+    .sliderSwiper .swiper-button-prev {
+      display: flex;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .sliderSwiper .swiper-button-next,
+    .sliderSwiper .swiper-button-prev {
+      display: none;
+    }
+  }
+
+  .review-list {
+    display: grid;
+    grid-template-rows: 235px 322px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px 20px;
+  }
+
+  .review-list li:nth-child(5),
+  .review-list li:nth-child(6) {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .review-list li:nth-child(6),
+  .review-list li:nth-child(7),
+  .review-list li:nth-child(8) {
+    align-items: flex-end;
+    display: flex;
+  }
 }
 
 /* REACT-PHONE-INPUT-2 */
