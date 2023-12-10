@@ -19,6 +19,7 @@ export const MainButton = ({
   linkData,
   tabindex = 0,
   className = '',
+  disabled = 'false',
 }) => {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
@@ -44,24 +45,21 @@ export const MainButton = ({
                 type="submit"
                 tabIndex={tabindex}
                 className={classNames(
-                  'mainLink font-ui_garamond z-[2] flex items-center justify-center gap-[10px]',
+                  'mainLink font-ui_garamond z-[1] flex items-center justify-center gap-[10px]',
                   dimensionsStyles,
+                  { ['bg-gray-400']: disabled },
                 )}
+                disabled={disabled}
               >
-                <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
                   {buttonsData.button.title}
                 </span>
-                <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+                <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
               </button>
 
               {isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <LongColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <LongColoredEllipse className="absolute coloredForDarkBg stroke-white" />
                   <LongWhiteEllipse className="absolute stroke-white" />
                 </div>
               )}
@@ -195,4 +193,5 @@ MainButton.proptypes = {
   }),
   tabindex: PropTypes.oneOf([0, 1]),
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
