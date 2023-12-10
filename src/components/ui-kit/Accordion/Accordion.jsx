@@ -89,27 +89,37 @@ export const Accordion = ({ items }) => {
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
-                'subItemFull cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
+                'subItemFull group cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
                 {
                   'text-white bg-ui_purpleLight ': isActive,
-                  'text-ui_dark bg-white border-b border-b-ui_purpleLight':
+                  'text-ui_dark bg-white border-b border-b-ui_purpleLight hover:border-b-ui_purple focus:border-b-ui_purple':
                     !isActive,
                 },
               )}
               onClick={() => onTitleClick(index)}
               type="button"
             >
-              <span className="flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left">
+              <span
+                className={classNames(
+                  'flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left  transitioned',
+                  {
+                    'text-white': isActive,
+                    'group-focus:text-ui_purple group-hover:text-ui_purple text-ui_dark':
+                      !isActive,
+                  },
+                )}
+              >
                 <span className="inline-block">{index + 1}. </span>
                 <span className="inline-block">{title}</span>
               </span>
 
               <ArrowIcon
                 className={classNames(
-                  'w-3 h-3 md:w-[18px] md:h-[18px] xl:w-5 xl:h-5 shrink-0',
+                  'w-3 h-3 md:w-[18px] md:h-[18px] xl:w-5 xl:h-5 shrink-0 transitioned',
                   {
-                    'text-white rotate-0 transitioned': isActive,
-                    'text-ui_dark rotate-180 transitioned': !isActive,
+                    'text-white rotate-0': isActive,
+                    'text-ui_dark rotate-180 group-focus:text-ui_purpleLight group-hover:text-ui_purpleLight':
+                      !isActive,
                   },
                 )}
               />

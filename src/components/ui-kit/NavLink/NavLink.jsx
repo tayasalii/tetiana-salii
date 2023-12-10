@@ -22,7 +22,7 @@ export const NavLink = ({ dataLink: { href, type, title }, handleClick }) => {
               ? -150
               : isScreenDesktop
               ? -155
-              : ''
+              : 0
           }
           duration={500}
           to={href}

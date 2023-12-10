@@ -1,9 +1,3 @@
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Keyboard, Navigation, Pagination } from 'swiper';
-// 'use client';
-
-// import Image from 'next/image';
-// import { useMediaQuery } from 'react-responsive';
 import { Container } from '@/components/Container';
 import { ReviewList } from '@/components/ReviewList';
 import { MainButton } from '@/components/ui-kit/MainButton';
@@ -11,18 +5,13 @@ import { MainButton } from '@/components/ui-kit/MainButton';
 import slidesInfo from '@/data/slides.json';
 import btns from '@/data/buttons.json';
 
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
 export const Reviews = () => {
-  // const isDesktop = useMediaQuery({ minWidth: 1280 });
-
   return (
-    <section className="section">
+    <section className="section" id="reviews">
       <Container>
         <h2 className="section-heading">
-          Відгуки про консультації та навчання
+          Відгуки <br className="md:hidden" /> про консультації{' '}
+          <br className="xl:hidden" /> та навчання
         </h2>
       </Container>
 
