@@ -35,6 +35,8 @@ module.exports = {
 
       colors: {
         white: '#FFFFFF',
+        white40: 'rgba(255, 255, 255, 0.40)',
+        white60: 'rgba(255, 255, 255, 0.60)',
         ui_dark: '#323232',
         ui_purple: '#63436D',
         ui_purpleLight: '#9C7C9C',
@@ -250,6 +252,20 @@ module.exports = {
         ],
         ui_m_mini: [
           '14px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
+        ui_d_t_error: [
+          '14px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
+        ui_m_error: [
+          '12px',
           {
             lineHeight: '1.1',
             fontWeight: '400',

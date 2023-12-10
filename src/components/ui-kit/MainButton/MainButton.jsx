@@ -19,6 +19,7 @@ export const MainButton = ({
   linkData,
   tabindex = 0,
   className = '',
+  disabled = 'false',
 }) => {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
@@ -47,14 +48,16 @@ export const MainButton = ({
               <button
                 type="submit"
                 className={classNames(
-                  'mainLink font-ui_garamond relative z-[2] flex items-center justify-center gap-[10px]',
+                  'relative mainLink font-ui_garamond z-[2] flex items-center justify-center gap-[10px]',
                   dimensionsStyles,
+                  { ['bg-gray-400']: disabled },
                 )}
+                disabled={disabled}
               >
-                <span className="z-[2] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
                   {buttonsData.button.title}
                 </span>
-                <TelegramIcon className="w-[25px] h-[22px] z-[2]" />
+                <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
               </button>
 
               {isDesktop && (
@@ -154,7 +157,7 @@ export const MainButton = ({
 
               {!isDesktop && (
                 <div className={classNames('absolute top-0', dimensionsStyles)}>
-                  <ShortColoredEllipse className="z-[-1] absolute coloredForLightBg" />
+                  <ShortColoredEllipse className="absolute coloredForLightBg" />
                   <ShortWhiteEllipse className="absolute" />
                 </div>
               )}
@@ -175,4 +178,5 @@ MainButton.proptypes = {
   }),
   tabindex: PropTypes.oneOf([0, 1]),
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
