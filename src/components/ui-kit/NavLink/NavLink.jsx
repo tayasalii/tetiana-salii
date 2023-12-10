@@ -51,4 +51,5 @@ NavLink.propTypes = {
     type: PropTypes.oneOf(['anchor', 'link']).isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+  handleClick: PropTypes.func,
 };
