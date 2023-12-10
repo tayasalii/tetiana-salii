@@ -48,7 +48,46 @@ export const MainButton = ({
               <button
                 type="submit"
                 className={classNames(
-                  'relative mainLink font-ui_garamond z-[2] flex items-center justify-center gap-[10px]',
+                  'relative mainLink font-ui_garamond z-[1] flex items-center justify-center gap-[10px]',
+                  dimensionsStyles,
+                  { ['bg-gray-400']: disabled },
+                )}
+                disabled={disabled}
+              >
+                <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                  {buttonsData.button.title}
+                </span>
+                <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
+              </button>
+
+              {isDesktop && (
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <LongColoredEllipse className="absolute coloredForDarkBg stroke-white" />
+                  <LongWhiteEllipse className="absolute stroke-white" />
+                </div>
+              )}
+
+              {!isDesktop && (
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <ShortColoredEllipse className="absolute coloredForDarkBg" />
+                  <ShortWhiteEllipse className="absolute" />
+                </div>
+              )}
+            </div>
+          )}
+
+          {!isClient && (
+            <div
+              className={classNames(
+                'relative mx-auto',
+                dimensionsStyles,
+                className,
+              )}
+            >
+              <button
+                type="submit"
+                className={classNames(
+                  'relative mainLink font-ui_garamond z-[1] flex items-center justify-center gap-[10px]',
                   dimensionsStyles,
                   { ['bg-gray-400']: disabled },
                 )}

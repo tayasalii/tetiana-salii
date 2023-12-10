@@ -38,13 +38,13 @@ export function generateMetadata() {
         {
           url: '/meta/opengraph-image.jpg',
           width: 1200,
-          height: 810,
+          height: 630,
           alt: '/meta/opengraph-image.alt.txt',
         },
       ],
     },
-    manifest: '/meta/manifest.webmanifest',
     robots: 'all',
+    manifest: '/meta/manifest.webmanifest',
     twitter: {
       card: 'summary_large_image',
       title: title,
@@ -53,7 +53,7 @@ export function generateMetadata() {
         {
           url: '/meta/twitter-image.jpg',
           width: 1200,
-          height: 810,
+          height: 630,
           alt: '/meta/twitter-image.alt.txt',
         },
       ],
