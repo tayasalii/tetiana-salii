@@ -9,7 +9,7 @@ import portret from 'public/images/main-photo.jpg';
 
 export const Hero = () => {
   return (
-    <section className="pt-5 pb-[95px] md:pt-[64px] md:pb-[130px] xl:pt-[91px] xl:pb-[150px] min-h-[768px] md:min-h-[897px] xl:min-h-[831px]">
+    <section className="pt-5 pb-[95px] md:pt-[64px] md:pb-[130px] xl:pt-[91px] xl:pb-[150px] min-h-[768px] md:min-h-[897px] xl:min-h-[831px] smallHigh:pt-10 middleHigh:pt-[65px]">
       <Container className="md:grid md:grid-auto-row-5 md:grid-cols-2 xl:grid-auto-row-4 xl:grid-cols-[800px_1fr]">
         <p className="mb-5 md:mb-[63px] xl:mb-10 text-ui_m_h2 md:text-ui_t_h2 xl:text-ui_d_h2 underline underline-offset-8 md:underline-offset-[12px] xl:underline-offset-[20px] decoration-ui_purple decoration-1 mdOnly:col-span-2">
           {hero.hello}
