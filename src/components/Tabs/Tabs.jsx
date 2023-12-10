@@ -20,7 +20,7 @@ export const Tabs = ({ tabs, benefits }) => {
               as="li"
               key={id}
               className={classNames(
-                'font-ui_montserrat min-h-[64px] smOnly:h-auto w-full mdOnly:max-w-[222px] xl:w-[294px] xl:h-[74px]',
+                'font-ui_montserrat min-h-[64px] smOnly:h-auto w-full mdOnly:max-w-[222px] xl:w-[294px] xl:h-[74px] focus:outline-none',
               )}
             >
               {({ selected }) => (

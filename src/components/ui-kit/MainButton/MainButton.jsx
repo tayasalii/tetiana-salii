@@ -38,13 +38,16 @@ export const MainButton = ({
         <>
           {isClient && (
             <div
-              className={classNames('relative', dimensionsStyles, className)}
+              className={classNames(
+                'relative mx-auto',
+                dimensionsStyles,
+                className,
+              )}
             >
               <button
                 type="submit"
-                tabIndex={tabindex}
                 className={classNames(
-                  'mainLink font-ui_garamond z-[2] flex items-center justify-center gap-[10px]',
+                  'mainLink font-ui_garamond relative z-[2] flex items-center justify-center gap-[10px]',
                   dimensionsStyles,
                 )}
               >
@@ -55,25 +58,15 @@ export const MainButton = ({
               </button>
 
               {isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <LongColoredEllipse className="z-[-1] absolute coloredForDarkBg stroke-white" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <LongColoredEllipse className="absolute coloredForDarkBg stroke-white" />
                   <LongWhiteEllipse className="absolute stroke-white" />
                 </div>
               )}
 
               {!isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <ShortColoredEllipse className="z-[-1] absolute coloredForDarkBg" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <ShortColoredEllipse className="absolute coloredForDarkBg" />
                   <ShortWhiteEllipse className="absolute" />
                 </div>
               )}
@@ -87,7 +80,7 @@ export const MainButton = ({
           {isClient && (
             <div
               className={classNames(
-                'relative rounded-full',
+                'relative rounded-full mx-auto',
                 dimensionsStyles,
                 className,
               )}
@@ -96,8 +89,9 @@ export const MainButton = ({
                 href={linkData.href}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                tabIndex={tabindex}
                 className={classNames(
-                  'flex items-center justify-center gap-[6px] text-ui_purple mainLink',
+                  'flex items-center justify-center gap-[6px] text-ui_purple mainLink relative z-[2]',
                   dimensionsStyles,
                 )}
               >
@@ -110,25 +104,15 @@ export const MainButton = ({
               </a>
 
               {isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <LongColoredEllipse className="z-[-1] absolute coloredForLightBg stroke-ui_purple" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <LongColoredEllipse className="absolute coloredForLightBg stroke-ui_purple" />
                   <LongWhiteEllipse className="absolute" />
                 </div>
               )}
 
               {!isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <ShortColoredEllipse className="z-[-1] absolute coloredForLightBg" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <ShortColoredEllipse className="absolute coloredForLightBg" />
                   <ShortWhiteEllipse className="absolute" />
                 </div>
               )}
@@ -137,14 +121,20 @@ export const MainButton = ({
 
           {!isClient && (
             <div
-              className={classNames('relative w-[256px] h-[68px] rounded-full')}
+              className={classNames(
+                'relative rounded-full mx-auto',
+                dimensionsStyles,
+                className,
+              )}
             >
               <a
                 href={linkData.href}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                tabIndex={tabindex}
                 className={classNames(
-                  'flex h-[68px] w-[256px] items-center justify-center gap-[6px] font-ui_garamond text-ui_purple mainLink',
+                  'flex items-center justify-center gap-[6px] font-ui_garamond text-ui_purple mainLink relative z-[2]',
+                  dimensionsStyles,
                 )}
               >
                 <span className="z-[2] font-ui_garamond text-ui_t_m_body2 xl:text-ui_d_body2 ">
@@ -156,24 +146,14 @@ export const MainButton = ({
               </a>
 
               {isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
-                  <LongColoredEllipse className="z-[-1] absolute coloredForLightBg stroke-ui_purple" />
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
+                  <LongColoredEllipse className="absolute coloredForLightBg stroke-ui_purple" />
                   <LongWhiteEllipse className="absolute" />
                 </div>
               )}
 
               {!isDesktop && (
-                <div
-                  className={classNames(
-                    'absolute z-[-1] top-0',
-                    dimensionsStyles,
-                  )}
-                >
+                <div className={classNames('absolute top-0', dimensionsStyles)}>
                   <ShortColoredEllipse className="z-[-1] absolute coloredForLightBg" />
                   <ShortWhiteEllipse className="absolute" />
                 </div>

@@ -61,7 +61,7 @@ export const TitulusList = ({ titulus, className = '' }) => {
             ))}
           </ul>
 
-          <div className="smOnly:mx-auto smOnly:w-max xl:row-start-4">
+          <div className="smOnly:mx-auto smOnly:w-max xl:row-start-4 xl:mr-auto">
             <MainButton linkData={btns.connectWithWhatsapp} variant="short" />
           </div>
         </>
