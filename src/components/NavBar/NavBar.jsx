@@ -5,7 +5,7 @@ import { NavLink } from '@/components/ui-kit/NavLink';
 
 import navlinks from '@/data/navigation.json';
 
-export const NavBar = ({ mode, className = '' }) => {
+export const NavBar = ({ mode, handleClick, className = '' }) => {
   const getNeededLinks = () => {
     if (mode === 'header') {
       const newArr = navlinks.slice(0, 4);
@@ -36,7 +36,7 @@ export const NavBar = ({ mode, className = '' }) => {
     <ul className={getStyles}>
       {getNeededLinks().map((link, index) => (
         <li key={index}>
-          <NavLink dataLink={link} />
+          <NavLink dataLink={link} handleClick={handleClick} />
         </li>
       ))}
     </ul>
@@ -45,4 +45,5 @@ export const NavBar = ({ mode, className = '' }) => {
 
 NavBar.propTypes = {
   mode: PropTypes.oneOf(['header', 'banner', 'menu', 'footer']).isRequired,
+  handleClick: PropTypes.func,
 };
