@@ -111,24 +111,11 @@
 
   /* FORM STYLES */
   .field {
-    @apply w-full h-[50px] pl-2 md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat border-b-[1px] border-white60 hover:border-white  focus:bg-white bg-ui_purple placeholder:text-white40 hover:placeholder:text-white60;
-  }
-  .field:focus,
-  .field:not(:placeholder-shown) {
-    @apply pt-2 bg-white;
-  }
-
-  .field_one-row:focus,
-  .field_one-row:not(:placeholder-shown) {
-    @apply py-0 leading-[50px];
+    @apply w-full h-[50px] pl-2 md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat placeholder:text-ui_dark50;
   }
 
   .error {
     @apply bg-white p-2 text-ui_red inline-block bottom-0 left-0 font-ui_montserrat text-ui_m_error md:text-ui_d_t_error absolute translate-y-full;
-  }
-
-  .fieldPhone {
-    @apply text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat border-b-[1px] border-white60 hover:border-white  focus:bg-white bg-ui_purple h-[50px] w-full pl-24;
   }
 
   .msgTitle {

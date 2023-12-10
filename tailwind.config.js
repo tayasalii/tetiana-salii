@@ -35,9 +35,8 @@ module.exports = {
 
       colors: {
         white: '#FFFFFF',
-        white40: 'rgba(255, 255, 255, 0.40)',
-        white60: 'rgba(255, 255, 255, 0.60)',
         ui_dark: '#323232',
+        ui_dark50: '#3232327F',
         ui_purple: '#63436D',
         ui_purpleLight: '#9C7C9C',
         ui_red: '#FE0202',

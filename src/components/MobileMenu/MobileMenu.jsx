@@ -15,7 +15,7 @@ export const MobileMenu = ({ isMenuOpen, closeMenu }) => {
       containerClassName="smOnly:px-4 max-w-[480px] h-full mx-auto flex flex-col items-start"
       closeBtnClassName="right-0 md:right-[-15px] top-[-35px] text-white"
     >
-      <NavBar mode="menu" />
+      <NavBar mode="menu" handleClick={closeMenu} />
 
       <ContactList className="w-full mb-16 menuUnderline md:hidden" />
 

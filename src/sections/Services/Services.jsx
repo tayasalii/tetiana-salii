@@ -16,7 +16,7 @@ export const Services = async () => {
   } = cmsContent;
 
   return (
-    <section className="section">
+    <section id="services" className="section">
       <Container>
         <h2 className="section-heading">{services.sectionTitle}</h2>
 
