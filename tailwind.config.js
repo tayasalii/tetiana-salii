@@ -15,6 +15,12 @@ module.exports = {
     extend: {
       screens: {
         smMdOnly: { min: '450px', max: '767.98px' },
+        smallHigh: {
+          raw: '(min-height: 100px) and (max-height: 629.98px) and (min-width: 1280px)',
+        },
+        middleHigh: {
+          raw: '(min-height: 630px) and (max-height: 720px) and (min-width: 1280px)',
+        },
       },
 
       container: {
