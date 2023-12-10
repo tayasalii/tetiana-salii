@@ -109,6 +109,36 @@
     width: 35vw;
   }
 
+  /* FORM STYLES */
+  .field {
+    @apply w-full h-[50px] pl-2 md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat border-b-[1px] border-white60 hover:border-white  focus:bg-white bg-ui_purple placeholder:text-white40 hover:placeholder:text-white60;
+  }
+  .field:focus,
+  .field:not(:placeholder-shown) {
+    @apply pt-2 bg-white;
+  }
+
+  .field_one-row:focus,
+  .field_one-row:not(:placeholder-shown) {
+    @apply py-0 leading-[50px];
+  }
+
+  .error {
+    @apply bg-white p-2 text-ui_red inline-block bottom-0 left-0 font-ui_montserrat text-ui_m_error md:text-ui_d_t_error absolute translate-y-full;
+  }
+
+  .fieldPhone {
+    @apply text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat border-b-[1px] border-white60 hover:border-white  focus:bg-white bg-ui_purple h-[50px] w-full pl-24;
+  }
+
+  .msgTitle {
+    @apply font-ui_montserrat text-ui_m_items md:text-ui_t_items xl:text-ui_d_items mb-7 xl:mb-8;
+  }
+
+  .msg {
+    @apply font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1;
+  }
+
   /* MAIN BUTTON STYLES */
   .coloredForDarkBg {
     @apply text-ui_purpleLight transitioned;
@@ -162,7 +192,7 @@
       url(/images/bg_bottom-flower@x2.jpg) 2x
     );
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-position: 0% 100%;
   }
 
   .cornerFlower {
@@ -219,7 +249,7 @@
   }
 
   .desktop-prose {
-    @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10 xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mt-5  xl:prose-strong:text-ui_t_m_body2;
+    @apply xl:prose-p:text-ui_t_items xl:prose-li:text-ui_t_items xl:prose-li:marker:text-ui_t_items xl:prose-ol:pl-10 xl:prose-ul:pl-10 xl:prose-em:text-ui_d_t_description xl:prose-p:mt-5 xl:prose-strong:text-ui_t_m_body2;
   }
 
   /* REVIEW SWIPER */
@@ -389,4 +419,26 @@
     align-items: flex-end;
     display: flex;
   }
+}
+
+/* REACT-PHONE-INPUT-2 */
+.flag {
+  @apply scale-x-[1.88] scale-y-[1.4] left-5;
+}
+
+.react-tel-input .selected-flag {
+  @apply !w-[90px];
+}
+
+.react-tel-input .selected-flag .arrow {
+  @apply !border-solid !border-l-[5px] !border-l-transparent !border-r-[5px] !border-r-transparent !border-t-[6px] !border-t-[#d9d9d9];
+}
+
+.react-tel-input .selected-flag .arrow.up {
+  @apply !border-b-[6px] !border-b-[#d9d9d9] !border-t-transparent !-translate-y-1/2;
+}
+
+.react-tel-input .selected-flag:focus:before,
+.react-tel-input .selected-flag.open:before {
+  @apply outline !border-none !shadow-none;
 }

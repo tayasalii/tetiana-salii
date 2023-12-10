@@ -96,7 +96,6 @@ export const Accordion = ({ items }) => {
                     !isActive,
                 },
               )}
-              // disabled={isActive}
               onClick={() => onTitleClick(index)}
               type="button"
             >
@@ -135,14 +134,14 @@ export const Accordion = ({ items }) => {
                   Вартість:
                 </p>
 
-                <Markdown className="main-prose mobile-prose tablet-prose desktop-prose notXl:prose-ul:mt-[-7px] mt-[5px] xl:mt-[2px] prose-strong:whitespace-nowrap">
+                <Markdown className="main-prose mobile-prose tablet-prose desktop-prose notXl:prose-ul:mt-[-7px] mt-[5px] xl:mt-[4px] prose-strong:whitespace-nowrap">
                   {price}
                 </Markdown>
               </div>
 
               <MainButton
                 linkData={btns.details}
-                className="mx-auto mt-4"
+                className="mx-auto !mt-4"
                 tabindex={isActive ? 0 : -1}
               />
             </div>
