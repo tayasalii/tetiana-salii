@@ -15,6 +15,12 @@ module.exports = {
     extend: {
       screens: {
         smMdOnly: { min: '450px', max: '767.98px' },
+        smallHigh: {
+          raw: '(min-height: 100px) and (max-height: 629.98px) and (min-width: 1280px)',
+        },
+        middleHigh: {
+          raw: '(min-height: 630px) and (max-height: 720px) and (min-width: 1280px)',
+        },
       },
 
       container: {
@@ -30,6 +36,7 @@ module.exports = {
       colors: {
         white: '#FFFFFF',
         ui_dark: '#323232',
+        ui_dark50: '#3232327F',
         ui_purple: '#63436D',
         ui_purpleLight: '#9C7C9C',
         ui_red: '#FE0202',
@@ -244,6 +251,20 @@ module.exports = {
         ],
         ui_m_mini: [
           '14px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
+        ui_d_t_error: [
+          '14px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '400',
+          },
+        ],
+        ui_m_error: [
+          '12px',
           {
             lineHeight: '1.1',
             fontWeight: '400',
