@@ -12,7 +12,7 @@ import btns from '@/data/buttons.json';
 
 export const AboutME = () => {
   return (
-    <section className="section">
+    <section id="about_me" className="section">
       <Container className="mb-10 md:mb-[60px]">
         <h2 className="mb-8 text-center md:mb-10 text-ui_m_h1 md:text-ui_t_h1 xl:text-ui_d_h1 text-ui_purple">
           {aboutMe.aboutME}

@@ -35,6 +35,7 @@ export const Form = ({ className = '' }) => {
     formState: { errors },
   } = useForm({
     mode: 'onSubmit',
+    shouldFocusError: false,
     resolver: yupResolver(schema),
   });
 
@@ -85,7 +86,7 @@ export const Form = ({ className = '' }) => {
       >
         <div className="relative">
           <input
-            className={classNames('field field_one-row pt-[26px]', {
+            className={classNames('field', {
               ['border-ui_red border-[1px]']: errors?.name,
             })}
             type="text"
@@ -102,10 +103,9 @@ export const Form = ({ className = '' }) => {
             <div className="relative">
               <PhoneInput
                 country={'ua'}
-                excludeCountries={['ru']}
                 localization={{ ua: 'Україна' }}
                 inputProps={{
-                  className: classNames('field field_one-row pl-[99px]', {
+                  className: classNames('field pl-[99px]', {
                     ['border-ui_red border-[1px]']: errors?.phone,
                   }),
                   placeholder: '+380',
@@ -122,7 +122,7 @@ export const Form = ({ className = '' }) => {
         <div className="relative h-min">
           <textarea
             className={classNames(
-              'field h-[70px] pt-[50px] md:pt-[66px] md:h-[87px] resize-none block',
+              'field py-2 h-[70px] md:h-[87px] resize-none block',
               {
                 ['border-ui_red border-[1px]']: errors?.message,
               },
