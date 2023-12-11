@@ -121,12 +121,9 @@ export const Form = ({ className = '' }) => {
 
         <div className="relative h-min">
           <textarea
-            className={classNames(
-              'field py-2 h-[70px] md:h-[87px] resize-none block',
-              {
-                ['border-ui_red border-[1px]']: errors?.message,
-              },
-            )}
+            className={classNames('field py-2 h-[100px] resize-none block', {
+              ['border-ui_red border-[1px]']: errors?.message,
+            })}
             placeholder={txt.message}
             {...register('message')}
           />
@@ -136,7 +133,7 @@ export const Form = ({ className = '' }) => {
         </div>
 
         <MainButton
-          className="m-auto mt-9 md:mt-[13px] xl:mt-2"
+          className="mx-auto smOnly:mt-[6px]"
           form
           disabled={isSubmitting}
         />

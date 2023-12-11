@@ -1,5 +1,5 @@
 {
-  "button": { "title": "Надіслати" },
+  "button": { "title": "Надіслати", "sending": "Надсилаємо" },
   "connectWithWhatsapp": {
     "title": "Зв’язатись зі мною",
     "href": "https://wa.me/+380964044006",
