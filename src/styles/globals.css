@@ -111,11 +111,11 @@
 
   /* FORM STYLES */
   .field {
-    @apply w-full h-[50px] pl-2 md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat placeholder:text-ui_dark50;
+    @apply w-full h-[50px] px-[10px] md:pl-[10px] text-ui_m_mini md:text-ui_d_t_mini font-ui_montserrat placeholder:text-ui_dark50;
   }
 
   .error {
-    @apply bg-white p-2 text-ui_red inline-block bottom-0 left-0 font-ui_montserrat text-ui_m_error md:text-ui_d_t_error absolute translate-y-full;
+    @apply bg-white py-1 px-[10px] text-ui_red inline-block bottom-0 left-0 font-ui_montserrat text-ui_m_error md:text-ui_d_t_error absolute translate-y-full;
   }
 
   .msgTitle {

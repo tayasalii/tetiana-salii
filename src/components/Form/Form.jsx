@@ -80,7 +80,7 @@ export const Form = ({ className = '' }) => {
       </p>
 
       <form
-        className="flex flex-col md:w-[604px] md:mx-auto gap-y-7 md:gap-y-8"
+        className="flex flex-col md:w-[604px] md:mx-auto gap-y-7 md:gap-y-8 xl:gap-y-10"
         onSubmit={handleSubmit(onSubmitHandler)}
         noValidate="noValidate"
       >
