@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { ButtonIcon } from '../ButtonIcon';
 import buttonsData from '@/data/buttons.json';
 
+import CircleIcon from 'public/icons/circle.svg';
 import TelegramIcon from 'public/icons/telegram.svg';
 import ShortColoredEllipse from 'public/icons/short-colored-ellipse.svg';
 import ShortWhiteEllipse from 'public/icons/short-white-ellipse.svg';
@@ -50,14 +51,25 @@ export const MainButton = ({
                 className={classNames(
                   'relative mainLink font-ui_garamond z-[1] flex items-center justify-center gap-[10px]',
                   dimensionsStyles,
-                  { ['bg-gray-400']: disabled },
                 )}
                 disabled={disabled}
               >
-                <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
-                  {buttonsData.button.title}
-                </span>
-                <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
+                {disabled && (
+                  <>
+                    <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                      {buttonsData.button.sending}
+                    </span>
+                    <CircleIcon class="animate-spin h-5 w-5 z-[1]" />
+                  </>
+                )}
+                {!disabled && (
+                  <>
+                    <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">
+                      {buttonsData.button.title}
+                    </span>
+                    <TelegramIcon className="w-[25px] h-[22px] z-[1]" />
+                  </>
+                )}
               </button>
 
               {isDesktop && (
