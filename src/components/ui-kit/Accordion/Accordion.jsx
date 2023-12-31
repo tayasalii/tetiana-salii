@@ -64,8 +64,9 @@ export const Accordion = ({ items }) => {
   useEffect(() => {
     const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
-    let btnHeight = itemRef.current.children[activeIndex].scrollHeight;
-    let contentHeight = null;
+    let btnHeight =
+      itemRef.current.children[activeIndex].children[1].scrollHeight;
+    let contentHeight = 0;
 
     subItemRefs.forEach((subItemRef, index) => {
       if (activeIndex === index) {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { Container } from '@/components/Container';
-import classNames from 'classnames';
 
 export const BaseVioletBlock = ({ mode, children, className = '' }) => {
   return (
