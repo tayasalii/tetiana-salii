@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Markdown from 'react-markdown';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -13,72 +13,37 @@ import ArrowIcon from 'public/icons/accordion-arrow.svg';
 
 export const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [prevSubItemHeight, setPrevSubItemHeight] = useState(null);
   const itemRef = useRef(null);
 
   const onTitleClick = index => {
     if (index === activeIndex) return;
 
-    let prevItemIndx = null;
-
     if (index !== activeIndex) {
-      prevItemIndx = activeIndex;
       setActiveIndex(index);
     }
 
     const el = itemRef.current.children[index];
 
     if (el) {
-      const rect = el.getBoundingClientRect();
-
-      // distance between current clicked item and top of the screen
-      let distanceToScreenTop = rect.top;
-
-      // distance between top of the page and current scrollbar position
-      const scrollFromPageTop = window.scrollY;
-
       // padding at body (because of header)
+      let distanceToScreenTop = 0;
+
       if (window.innerWidth <= 767) {
-        distanceToScreenTop -= 85;
+        distanceToScreenTop = 85;
       } else if (window.innerWidth <= 1279) {
-        distanceToScreenTop -= 155;
+        distanceToScreenTop = 155;
       } else {
-        distanceToScreenTop -= 160;
+        distanceToScreenTop = 160;
       }
 
-      let topPosition = 0;
-      if (prevItemIndx < index) {
-        topPosition =
-          scrollFromPageTop + distanceToScreenTop - prevSubItemHeight;
-      } else {
-        topPosition = scrollFromPageTop + distanceToScreenTop;
-      }
-
-      window.scrollTo({
-        top: topPosition,
-        behavior: 'smooth',
-      });
+      setTimeout(() => {
+        const { y } = el.getBoundingClientRect();
+        if (y < distanceToScreenTop) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
     }
   };
-
-  useEffect(() => {
-    const subItemRefs = itemRef.current.querySelectorAll('.subItem');
-
-    let btnHeight =
-      itemRef.current.children[activeIndex].children[1].scrollHeight;
-    let contentHeight = 0;
-
-    subItemRefs.forEach((subItemRef, index) => {
-      if (activeIndex === index) {
-        subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
-        contentHeight = subItemRef.scrollHeight;
-      } else {
-        subItemRef.style.maxHeight = '0';
-      }
-    });
-
-    setPrevSubItemHeight(btnHeight + contentHeight);
-  }, [activeIndex]);
 
   return (
     <ol className="grid gap-y-1" ref={itemRef}>
@@ -86,7 +51,10 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li key={id} className="subItemBtn relative z-[1] bg-white">
+          <li
+            key={id}
+            className="subItemBtn relative z-[1] bg-white scroll-my-[85px] mdOnly:scroll-my-[155px] xl:scroll-my-[160px]"
+          >
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
