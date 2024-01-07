@@ -82,7 +82,7 @@
   }
 
   .purpleUnderline {
-    @apply xl:relative xl:after:absolute xl:after:bottom-[-5px] xl:after:left-0 xl:after:w-full xl:after:h-[3px] xl:after:bg-transparent xl:hover:after:bg-ui_purpleLight xl:focus:after:bg-ui_purpleLight xl:after:transitioned xl:active:after:bg-ui_purpleLight;
+    @apply relative after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[3px] after:bg-transparent hover:after:bg-ui_purpleLight after:transitioned focus-visible:after:bg-ui_purpleLight;
   }
 
   .menuUnderline {
@@ -102,7 +102,7 @@
   }
 
   .contactLink {
-    @apply flex items-center gap-3 xl:gap-2 purpleUnderline w-max;
+    @apply flex items-center gap-3 xl:gap-2 xl:purpleUnderline w-max;
   }
 
   .tabletWidth {

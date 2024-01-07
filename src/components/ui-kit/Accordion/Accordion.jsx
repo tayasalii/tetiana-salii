@@ -22,26 +22,43 @@ export const Accordion = ({ items }) => {
       setActiveIndex(index);
     }
 
-    const el = itemRef.current.children[index];
+    const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
-    if (el) {
-      // padding at body (because of header)
-      let distanceToScreenTop = 0;
-
-      if (window.innerWidth <= 767) {
-        distanceToScreenTop = 85;
-      } else if (window.innerWidth <= 1279) {
-        distanceToScreenTop = 155;
-      } else {
-        distanceToScreenTop = 160;
-      }
-
-      setTimeout(() => {
-        const { y } = el.getBoundingClientRect();
-        if (y < distanceToScreenTop) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (subItemRefs) {
+      subItemRefs.forEach((subItemRef, idx) => {
+        if (index === idx) {
+          subItemRef.style.height = subItemRef.scrollHeight + 'px';
+        } else {
+          subItemRef.style.height = '0';
         }
-      }, 500);
+      });
+    }
+
+    if (index > activeIndex) {
+      const y =
+        window.scrollY -
+        itemRef.current.children[activeIndex].children[2].scrollHeight;
+
+      const { bottom } =
+        itemRef.current.children[
+          activeIndex
+        ].children[2].getBoundingClientRect();
+
+      if (0 > bottom) {
+        setTimeout(
+          () =>
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth',
+            }),
+          260,
+        );
+      } else {
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -51,17 +68,14 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li
-            key={id}
-            className="subItemBtn relative z-[1] bg-white scroll-my-[85px] mdOnly:scroll-my-[155px] xl:scroll-my-[160px]"
-          >
+          <li key={id} className="subItemBtn relative z-[1] bg-white">
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
                 'subItemFull group cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
                 {
                   'text-white bg-ui_purpleLight ': isActive,
-                  'text-ui_dark bg-white border-b border-b-ui_purpleLight hover:border-b-ui_purple focus:border-b-ui_purple':
+                  'text-ui_dark bg-white border-b border-b-ui_purpleLight50 hover:border-b-ui_purple focus:border-b-ui_purple':
                     !isActive,
                 },
               )}
@@ -70,7 +84,7 @@ export const Accordion = ({ items }) => {
             >
               <span
                 className={classNames(
-                  'flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left  transitioned',
+                  'flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left transitioned',
                   {
                     'text-white': isActive,
                     'group-focus:text-ui_purple group-hover:text-ui_purple text-ui_dark':
@@ -96,9 +110,9 @@ export const Accordion = ({ items }) => {
 
             <div
               className={classNames(
-                'subItem box-content overflow-hidden transition-all duration-500',
+                'subItem box-content overflow-hidden transition-all duration-[250ms]',
                 {
-                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple h-auto':
+                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple':
                     isActive,
                   'px-[18px] md:px-[31px] xl:px-[105px] py-0 h-0': !isActive,
                 },
