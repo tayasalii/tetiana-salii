@@ -39,6 +39,7 @@ module.exports = {
         ui_dark50: '#3232327F',
         ui_purple: '#63436D',
         ui_purpleLight: '#9C7C9C',
+        ui_purpleLight50: '#9C7C9C7F',
         ui_red: '#FE0202',
         ui_overlay: '#323232CC',
       },

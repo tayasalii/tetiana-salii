@@ -22,26 +22,25 @@ export const Accordion = ({ items }) => {
       setActiveIndex(index);
     }
 
-    const el = itemRef.current.children[index];
+    if (index > activeIndex && 0 !== index) {
+      window.scrollTo({
+        top:
+          window.scrollY -
+          itemRef.current.children[activeIndex].children[2].scrollHeight,
+        behavior: 'smooth',
+      });
+    }
 
-    if (el) {
-      // padding at body (because of header)
-      let distanceToScreenTop = 0;
+    const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
-      if (window.innerWidth <= 767) {
-        distanceToScreenTop = 85;
-      } else if (window.innerWidth <= 1279) {
-        distanceToScreenTop = 155;
-      } else {
-        distanceToScreenTop = 160;
-      }
-
-      setTimeout(() => {
-        const { y } = el.getBoundingClientRect();
-        if (y < distanceToScreenTop) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (subItemRefs) {
+      subItemRefs.forEach((subItemRef, idx) => {
+        if (index === idx) {
+          subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
+        } else {
+          subItemRef.style.maxHeight = '0';
         }
-      }, 500);
+      });
     }
   };
 
@@ -51,17 +50,14 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li
-            key={id}
-            className="subItemBtn relative z-[1] bg-white scroll-my-[85px] mdOnly:scroll-my-[155px] xl:scroll-my-[160px]"
-          >
+          <li key={id} className="subItemBtn relative z-[1] bg-white">
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
                 'subItemFull group cursor-pointer w-full flex justify-between items-center gap-2 py-[18px] px-4 xl:pl-[70px] md:pb-5 md:pt-4 xl:pt-[21px] xl:pr-[80px] transition duration-300 ease-in font-ui_montserrat',
                 {
                   'text-white bg-ui_purpleLight ': isActive,
-                  'text-ui_dark bg-white border-b border-b-ui_purpleLight hover:border-b-ui_purple focus:border-b-ui_purple':
+                  'text-ui_dark bg-white border-b border-b-ui_purpleLight50 hover:border-b-ui_purple focus:border-b-ui_purple':
                     !isActive,
                 },
               )}
@@ -70,7 +66,7 @@ export const Accordion = ({ items }) => {
             >
               <span
                 className={classNames(
-                  'flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left  transitioned',
+                  'flex gap-[7px] text-ui_m_items md:text-ui_t_items xl:text-ui_d_items text-left transitioned',
                   {
                     'text-white': isActive,
                     'group-focus:text-ui_purple group-hover:text-ui_purple text-ui_dark':
