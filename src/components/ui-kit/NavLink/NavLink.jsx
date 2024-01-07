@@ -13,7 +13,6 @@ export const NavLink = ({ dataLink: { href, type, title }, handleClick }) => {
       {type === 'anchor' ? (
         <LinkScroll
           onClick={() => handleClick && handleClick()}
-          spy={true}
           smooth={true}
           offset={
             isScreenMobile

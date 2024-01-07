@@ -22,7 +22,7 @@ export const SocialLink = ({ dataLink: { href, title }, isRound }) => {
     >
       <div
         className={classNames('overflow-visible', {
-          'xl:relative xl:after:absolute xl:after:bottom-[-10px] xl:after:w-full xl:after:h-[3px]  xl:group-focus:after:bg-ui_purpleLight xl:group-hover:after:bg-ui_purpleLight xl:after:transitioned':
+          'relative after:absolute after:bottom-[-10px] after:left-0 after:w-full after:h-[3px]  group-focus:after:bg-ui_purpleLight group-hover:after:bg-ui_purpleLight after:transitioned':
             !isRound,
         })}
       >

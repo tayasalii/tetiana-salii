@@ -29,9 +29,9 @@ export const HeroModal = ({ list, className = '' }) => {
       <BaseModal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        modalClassName="w-full smOnly:max-w-[480px] md:w-[605px] xl:w-[645px] h-[760px] md:h-[540px] xl:h-[614px] mx-auto pt-[58px] md:pt-[72px] xl:pt-[70px] topFlower bg-white my-auto shadow-ui_darkShadow"
-        containerClassName="px-4 md:px-8 xl:px-[47px] pb-[52px] md:pb-[72px] xl:pb-[70px] bottomFlower"
-        closeBtnClassName="right-[22px] top-[-32px]"
+        modalClassName="w-full smOnly:max-w-[480px] md:w-[605px] xl:w-[645px] smOnly:min-h-[690px] smOnly:h-max md:h-[540px] xl:h-[614px] mx-auto pt-[58px] md:pt-[72px] xl:pt-[70px] topFlower bg-white my-auto shadow-ui_darkShadow"
+        containerClassName="px-4 md:px-8 xl:px-[47px] pb-[60px] md:pb-[72px] xl:pb-[70px] bottomFlower"
+        closeBtnClassName="right-[22px] top-[-23px]"
         overlayClassName="md:py-10"
       >
         <ul className="grid gap-[6px] mdOnly:gap-2 font-ui_montserrat text-ui_m_body1 md:text-ui_t_body1 xl:text-ui_d_body1 grid-col-1">
