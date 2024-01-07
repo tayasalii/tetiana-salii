@@ -22,25 +22,43 @@ export const Accordion = ({ items }) => {
       setActiveIndex(index);
     }
 
-    if (index > activeIndex && 0 !== index) {
-      window.scrollTo({
-        top:
-          window.scrollY -
-          itemRef.current.children[activeIndex].children[2].scrollHeight,
-        behavior: 'smooth',
-      });
-    }
-
     const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
     if (subItemRefs) {
       subItemRefs.forEach((subItemRef, idx) => {
         if (index === idx) {
-          subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
+          subItemRef.style.height = subItemRef.scrollHeight + 'px';
         } else {
-          subItemRef.style.maxHeight = '0';
+          subItemRef.style.height = '0';
         }
       });
+    }
+
+    if (index > activeIndex) {
+      const y =
+        window.scrollY -
+        itemRef.current.children[activeIndex].children[2].scrollHeight;
+
+      const { bottom } =
+        itemRef.current.children[
+          activeIndex
+        ].children[2].getBoundingClientRect();
+
+      if (0 > bottom) {
+        setTimeout(
+          () =>
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth',
+            }),
+          260,
+        );
+      } else {
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -92,9 +110,9 @@ export const Accordion = ({ items }) => {
 
             <div
               className={classNames(
-                'subItem box-content overflow-hidden transition-all duration-500',
+                'subItem box-content overflow-hidden transition-all duration-[250ms]',
                 {
-                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple h-auto':
+                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple':
                     isActive,
                   'px-[18px] md:px-[31px] xl:px-[105px] py-0 h-0': !isActive,
                 },
