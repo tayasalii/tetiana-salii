@@ -23,22 +23,7 @@ export const Accordion = ({ items }) => {
     }
 
     const title = itemRef.current.children[index];
-    let initialTopOffset = title.getBoundingClientRect().top;
     let startTime;
-
-    function scrollAnimation(currentTime) {
-      if (!startTime) startTime = currentTime;
-
-      let elapsedTime = currentTime - startTime;
-
-      if (elapsedTime < 300) {
-        /* 250ms transition*/
-        let currentTopOffset = title.getBoundingClientRect().top;
-        let offset = currentTopOffset - initialTopOffset;
-        scrollBy(0, offset);
-        requestAnimationFrame(scrollAnimation);
-      }
-    }
 
     function scrollToTopAnimation(currentTime) {
       if (!startTime) startTime = currentTime;
@@ -52,14 +37,9 @@ export const Accordion = ({ items }) => {
       }
     }
 
-    if (innerWidth >= 1280) {
-      if (index > activeIndex) {
-        requestAnimationFrame(scrollAnimation);
-      }
+    if (index > activeIndex) {
+      requestAnimationFrame(scrollToTopAnimation);
     } else {
-      if (index > activeIndex) {
-        requestAnimationFrame(scrollToTopAnimation);
-      }
       title.scrollIntoView();
     }
   };
