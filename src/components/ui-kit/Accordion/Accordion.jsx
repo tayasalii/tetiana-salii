@@ -31,7 +31,7 @@ export const Accordion = ({ items }) => {
 
       let elapsedTime = currentTime - startTime;
 
-      if (elapsedTime < 250) {
+      if (elapsedTime < 300) {
         /* 250ms transition*/
         let currentTopOffset = title.getBoundingClientRect().top;
         let offset = currentTopOffset - initialTopOffset;
@@ -40,8 +40,27 @@ export const Accordion = ({ items }) => {
       }
     }
 
-    if (index > activeIndex) {
-      requestAnimationFrame(scrollAnimation);
+    function scrollToTopAnimation(currentTime) {
+      if (!startTime) startTime = currentTime;
+
+      let elapsedTime = currentTime - startTime;
+
+      if (elapsedTime <= 250) {
+        /* 250ms transition*/
+        title.scrollIntoView();
+        requestAnimationFrame(scrollToTopAnimation);
+      }
+    }
+
+    if (innerWidth >= 1280) {
+      if (index > activeIndex) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    } else {
+      if (index > activeIndex) {
+        requestAnimationFrame(scrollToTopAnimation);
+      }
+      title.scrollIntoView();
     }
   };
 
@@ -65,7 +84,10 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li key={id} className="subItemBtn relative z-[1] bg-white">
+          <li
+            key={id}
+            className="subItemBtn relative z-[1] bg-white scroll-mt-[85px] md:scroll-mt-[155px] xl:scroll-mt-[165px]"
+          >
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
