@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Markdown from 'react-markdown';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -22,45 +22,41 @@ export const Accordion = ({ items }) => {
       setActiveIndex(index);
     }
 
+    const title = itemRef.current.children[index];
+    let startTime;
+
+    function scrollToTopAnimation(currentTime) {
+      if (!startTime) startTime = currentTime;
+
+      let elapsedTime = currentTime - startTime;
+
+      if (elapsedTime <= 250) {
+        /* 250ms transition*/
+        title.scrollIntoView();
+        requestAnimationFrame(scrollToTopAnimation);
+      }
+    }
+
+    if (index > activeIndex) {
+      requestAnimationFrame(scrollToTopAnimation);
+    } else {
+      title.scrollIntoView();
+    }
+  };
+
+  useEffect(() => {
     const subItemRefs = itemRef.current.querySelectorAll('.subItem');
 
     if (subItemRefs) {
       subItemRefs.forEach((subItemRef, idx) => {
-        if (index === idx) {
+        if (activeIndex === idx) {
           subItemRef.style.height = subItemRef.scrollHeight + 'px';
         } else {
           subItemRef.style.height = '0';
         }
       });
     }
-
-    if (index > activeIndex) {
-      const y =
-        window.scrollY -
-        itemRef.current.children[activeIndex].children[2].scrollHeight;
-
-      const { bottom } =
-        itemRef.current.children[
-          activeIndex
-        ].children[2].getBoundingClientRect();
-
-      if (0 > bottom) {
-        setTimeout(
-          () =>
-            window.scrollTo({
-              top: y,
-              behavior: 'smooth',
-            }),
-          260,
-        );
-      } else {
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth',
-        });
-      }
-    }
-  };
+  }, [activeIndex]);
 
   return (
     <ol className="grid gap-y-1" ref={itemRef}>
@@ -68,7 +64,10 @@ export const Accordion = ({ items }) => {
         const isActive = index === activeIndex;
 
         return (
-          <li key={id} className="subItemBtn relative z-[1] bg-white">
+          <li
+            key={id}
+            className="subItemBtn relative z-[1] bg-white scroll-mt-[85px] md:scroll-mt-[155px] xl:scroll-mt-[165px]"
+          >
             <h3 className="visually-hidden">{title}</h3>
             <button
               className={classNames(
@@ -79,7 +78,7 @@ export const Accordion = ({ items }) => {
                     !isActive,
                 },
               )}
-              onClick={() => onTitleClick(index)}
+              onClick={() => onTitleClick(index, title)}
               type="button"
             >
               <span
