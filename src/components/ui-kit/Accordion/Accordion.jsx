@@ -13,6 +13,7 @@ import ArrowIcon from 'public/icons/accordion-arrow.svg';
 
 export const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [width, setWidth] = useState(0);
   const itemRef = useRef(null);
 
   const onTitleClick = index => {
@@ -32,7 +33,7 @@ export const Accordion = ({ items }) => {
 
       if (elapsedTime <= 250) {
         /* 250ms transition*/
-        title.scrollIntoView();
+        title.scrollIntoView({ behavior: 'smooth' });
         requestAnimationFrame(scrollToTopAnimation);
       }
     }
@@ -40,9 +41,17 @@ export const Accordion = ({ items }) => {
     if (index > activeIndex) {
       requestAnimationFrame(scrollToTopAnimation);
     } else {
-      title.scrollIntoView();
+      title.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, [setWidth]);
 
   useEffect(() => {
     const subItemRefs = itemRef.current.querySelectorAll('.subItem');
@@ -50,13 +59,13 @@ export const Accordion = ({ items }) => {
     if (subItemRefs) {
       subItemRefs.forEach((subItemRef, idx) => {
         if (activeIndex === idx) {
-          subItemRef.style.height = subItemRef.scrollHeight + 'px';
+          subItemRef.style.maxHeight = subItemRef.scrollHeight + 'px';
         } else {
-          subItemRef.style.height = '0';
+          subItemRef.style.maxHeight = '0';
         }
       });
     }
-  }, [activeIndex]);
+  }, [activeIndex, width]);
 
   return (
     <ol className="grid gap-y-1" ref={itemRef}>
@@ -109,9 +118,9 @@ export const Accordion = ({ items }) => {
 
             <div
               className={classNames(
-                'subItem box-content overflow-hidden transition-all duration-[250ms]',
+                'subItem box-content overflow-hidden transition-[max-height] duration-[250ms]',
                 {
-                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple':
+                  'py-5 xl:py-8 px-[18px] md:px-[31px] xl:px-[105px] border-r border-r-ui_purple border-l border-l-ui_purple border-b border-b-ui_purple h-fit':
                     isActive,
                   'px-[18px] md:px-[31px] xl:px-[105px] py-0 h-0': !isActive,
                 },
