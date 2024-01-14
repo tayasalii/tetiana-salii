@@ -43,7 +43,7 @@ export function generateMetadata() {
         },
       ],
     },
-    robots: 'all',
+    robots: 'follow, index',
     manifest: '/meta/manifest.webmanifest',
     twitter: {
       card: 'summary_large_image',

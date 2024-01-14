@@ -15,7 +15,9 @@ export const TelLink = ({
   return (
     <a
       href={telData.href}
-      aria-label="кнопка для здійснення дзвінка"
+      aria-label={
+        isNumberVisible ? telData.content : `зателефонувати ${telData.content}`
+      }
       className={classNames('contactLink xl:h-8', className)}
     >
       <div

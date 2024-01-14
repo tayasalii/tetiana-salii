@@ -21,6 +21,7 @@ export const BurgerBtn = () => {
     <>
       <button
         type="button"
+        aria-label="відкрити мобільне меню"
         onClick={openMenu}
         className="h-[50px] w-[50px] notXl:relative notXl:right-[-9px] flex justify-center items-center md:ml-auto xl:hidden"
       >

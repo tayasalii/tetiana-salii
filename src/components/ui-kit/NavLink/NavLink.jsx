@@ -15,7 +15,15 @@ export const NavLink = ({ dataLink: { href, type, title }, handleClick }) => {
           onClick={() => handleClick && handleClick()}
           smooth={true}
           offset={
-            isScreenMobile
+            href !== 'home'
+              ? isScreenMobile
+                ? -30
+                : isScreenTablet
+                ? -80
+                : isScreenDesktop
+                ? -60
+                : 0
+              : isScreenMobile
               ? -80
               : isScreenTablet
               ? -150
