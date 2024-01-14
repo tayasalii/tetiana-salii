@@ -62,6 +62,7 @@ export const MainButton = ({
                     <CircleIcon class="animate-spin h-5 w-5 z-[1]" />
                   </>
                 )}
+
                 {!disabled && (
                   <>
                     <span className="z-[1] text-ui_t_m_body2 xl:text-ui_d_body2 font-ui_garamond">

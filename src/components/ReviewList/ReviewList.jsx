@@ -12,33 +12,16 @@ export const ReviewList = ({ slidesInfo }) => {
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isToDesktop = useMediaQuery({ maxWidth: 1279 });
 
-  // const [isLoading, setIsLoading] = useState(true);
-
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // useEffect(() => {
-  //   if (isDesktop) {
-  //     setIsLoading(false);
-  //   }
-  //   if (isToDesktop) {
-  //     setIsLoading(false);
-  //   }
-  // }, [isDesktop, isToDesktop]);
-
   return (
     <Fragment>
       {isClient && (
         <>
-          {/* {isLoading && (
-            <div className="flex justify-center items-center h-[397px] md:h-[354px] xl:h-[567px]">
-              <Spinner className="border-white" />
-            </div>
-          )} */}
-
           {isToDesktop && <Slider slidesInfo={slidesInfo} />}
 
           {isDesktop && (

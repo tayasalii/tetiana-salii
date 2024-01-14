@@ -23,7 +23,7 @@ export const HeroModal = ({ list, className = '' }) => {
       <button
         className={className}
         type="button"
-        aria-label="відкрити модальне вікно"
+        aria-label="читати далі"
         onClick={openModal}
       >
         <span className="text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
