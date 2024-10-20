@@ -9,12 +9,17 @@ const montserrat = Montserrat({
   subsets: ['cyrillic-ext', 'latin'],
   display: 'swap',
   variable: '--font-montserrat',
+  adjustFontFallback: true,
+  preload: true,
 });
+
 const eb_garamond = EB_Garamond({
   subsets: ['cyrillic-ext', 'latin'],
   display: 'swap',
   variable: '--font-eb_garamond',
   style: ['normal', 'italic'],
+  adjustFontFallback: true,
+  preload: true,
 });
 
 export function generateMetadata() {
