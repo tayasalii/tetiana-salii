@@ -16,6 +16,7 @@ export const BaseModal = ({
   overlayClassName = '',
   containerClassName = '',
   closeBtnClassName = '',
+  closeBtnAria = 'закрити модальне вікно',
 }) => {
   return (
     <>
@@ -62,6 +63,8 @@ export const BaseModal = ({
                   >
                     {children}
                     <button
+                      type="button"
+                      aria-label={closeBtnAria}
                       onClick={closeModal}
                       className={classNames(
                         'w-[50px] h-[50px] absolute flex items-center justify-center',
@@ -90,4 +93,5 @@ BaseModal.proptypes = {
   overlayClassName: PropTypes.string,
   containerClassName: PropTypes.string,
   closeBtnClassName: PropTypes.string,
+  closeBtnAria: PropTypes.string,
 };

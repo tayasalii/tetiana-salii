@@ -20,7 +20,12 @@ export const HeroModal = ({ list, className = '' }) => {
 
   return (
     <>
-      <button className={className} type="button" onClick={openModal}>
+      <button
+        className={className}
+        type="button"
+        aria-label="читати далі"
+        onClick={openModal}
+      >
         <span className="text-ui_purple font-ui_montserrat text-base font-medium underline underline-offset-2 decoration-1 whitespace-nowrap">
           {hero.more}
         </span>

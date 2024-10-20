@@ -34,7 +34,7 @@ export const Tabs = ({ tabs, benefits }) => {
                       : 'bg-white text-ui_dark hover:text-white focus-visible:text-white hover:bg-ui_purple focus-visible:bg-ui_purple hover:border-ui_purple focus-visible:border-ui_purple transitioned',
                   )}
                 >
-                  {tabTitle}
+                  <h3>{tabTitle}</h3>
                 </button>
               )}
             </Tab>

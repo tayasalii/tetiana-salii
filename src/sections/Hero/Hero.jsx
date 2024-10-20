@@ -23,6 +23,8 @@ export const Hero = () => {
             className="w-auto h-[330px] md:h-[400px] xl:h-[550px]"
             src={portret}
             alt="Портрет Тетяни Салій"
+            width={400}
+            height={550}
             priority
           />
         </div>
