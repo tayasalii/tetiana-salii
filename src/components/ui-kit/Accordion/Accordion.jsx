@@ -130,15 +130,17 @@ export const Accordion = ({ items }) => {
                 {description}
               </Markdown>
 
-              <div className="mt-3 md:mt-4 xl:mt-5 xl:flex xl:gap-[10px] items-start">
-                <p className="text-ui_purple font-ui_garamond text-ui_m_description md:text-ui_d_t_description">
-                  Вартість:
-                </p>
+              {price && (
+                <div className="mt-3 md:mt-4 xl:mt-5 xl:flex xl:gap-[10px] items-start">
+                  <p className="text-ui_purple font-ui_garamond text-ui_m_description md:text-ui_d_t_description">
+                    Вартість:
+                  </p>
 
-                <Markdown className="main-prose mobile-prose tablet-prose desktop-prose notXl:prose-ul:mt-[-7px] mt-[5px] xl:mt-[4px] prose-strong:whitespace-nowrap">
-                  {price}
-                </Markdown>
-              </div>
+                  <Markdown className="main-prose mobile-prose tablet-prose desktop-prose notXl:prose-ul:mt-[-7px] mt-[5px] xl:mt-[4px] prose-strong:whitespace-nowrap">
+                    {price}
+                  </Markdown>
+                </div>
+              )}
 
               <MainButton
                 linkData={btns.details}
